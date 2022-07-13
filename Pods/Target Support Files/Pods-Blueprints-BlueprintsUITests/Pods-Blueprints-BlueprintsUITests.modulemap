@@ -1,0 +1,6 @@
+framework module Pods_Blueprints_BlueprintsUITests {
+  umbrella header "Pods-Blueprints-BlueprintsUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

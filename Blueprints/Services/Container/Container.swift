@@ -1,0 +1,3 @@
+import Dip
+
+class ServicesContainer {}

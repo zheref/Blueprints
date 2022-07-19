@@ -1,3 +1,5 @@
+![blueprints_screenshot](https://user-images.githubusercontent.com/1177000/179662933-cb5d4d66-279b-417b-b3d8-a5258c8c0d33.jpg)
+
 #  What's Blueprints
 Making choices every day, every hour is actually more expensive than it sounds. No wonder so many people start having exactly the same outfits everyday since they don't want to waste a piece of their attention on trivial things like that.
 That's where Blueprints come. Blueprints are a way to start collection information of what different days in the month look like and start creating common templates with common patterns by documenting them and having them available to repeat them again another day by making the same choices on clothes, activities, schedules, transportation among other aspects of life.

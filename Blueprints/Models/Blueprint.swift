@@ -21,6 +21,11 @@ struct TrainingPlacement {
     let specifics: String?
 }
 
+enum BlueprintPrivacy {
+    case privately
+    case publicly
+}
+
 struct Blueprint: Equatable {
     let name: String
     
@@ -30,8 +35,16 @@ struct Blueprint: Equatable {
     let work: [WorkPlacement]
     let train: [TrainingPlacement]
     
+    var privacy: BlueprintPrivacy = .privately
+    
 //    let music: CompletionStatus
 //    let dressing: CompletionStatus
+    
+    func asPublic() -> Blueprint {
+        var blueCopy = self
+        blueCopy.privacy = .publicly
+        return blueCopy
+    }
     
     static func == (lhs: Blueprint, rhs: Blueprint) -> Bool {
         return lhs.name == rhs.name

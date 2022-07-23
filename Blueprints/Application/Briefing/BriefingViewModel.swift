@@ -20,31 +20,27 @@ class BriefingViewModel {
     var rows: Observable<[BriefingRow]>
     
     init() {
-        let userId = "zheref"
-        
         let blueprintsService = try! ServicesContainer.shared.resolve() as BlueprintsServiceProtocol
         let suggestionsService = try! ServicesContainer.shared.resolve() as SuggestionsServiceProtocol
         let authService = try! ServicesContainer.shared.resolve() as AuthServiceProtocol
         
-        let publicFetch = blueprintsService.fetchAll()
-        let privateFetch = blueprintsService.fetch(fromUser: userId)
-        
-        let blueprintsFetch = Observable.combineLatest(publicFetch, privateFetch).map {
-            [
-                ("My blueprints", BriefingRowType.suggestions(blueprints: $1, userId: userId)),
-                ("All blueprints", BriefingRowType.suggestions(blueprints: $0, userId: nil))
-            ]
+        let blueprintsFetch = Observable.combineLatest(
+            blueprintsService.fetchAll(),
+            blueprintsService.fetch(fromUser: authService.currentUserId)
+        ).map {
+            Array<BriefingRow>([
+                ("My blueprints", .suggestions(blueprints: $1, userId: authService.currentUserId)),
+                ("All blueprints", .suggestions(blueprints: $0, userId: nil))
+            ])
         }
         
-        let suggestionsFetch = suggestionsService.fetch(forUser: authService.currentUserHandle).map {
+        let suggestionsFetch = suggestionsService.fetch(forUser: authService.currentUserId).map {
             $0.map {
                 ($0.title, BriefingRowType.suggestions(blueprints: $0.prints, userId: $0.forUser))
             }
         }
         
-        self.rows = Observable.combineLatest(blueprintsFetch, suggestionsFetch).map {
-            $0 + $1
-        }
+        self.rows = Observable.combineLatest(blueprintsFetch, suggestionsFetch).map { $0 + $1 }
     }
     
 }

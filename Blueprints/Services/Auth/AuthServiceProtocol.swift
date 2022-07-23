@@ -9,5 +9,5 @@ import Foundation
 import RxSwift
 
 protocol AuthServiceProtocol {
-    var currentUserHandle: String { get }
+    var currentUserId: String { get }
 }

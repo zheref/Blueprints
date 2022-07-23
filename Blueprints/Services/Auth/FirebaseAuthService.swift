@@ -10,7 +10,7 @@ import RxSwift
 
 class FirebaseAuthService: AuthServiceProtocol {
     
-    var currentUserHandle: String {
+    var currentUserId: String {
         // TODO: Implement actual authentication mechanism
         return "zheref"
     }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1C6BAE73D3A636C4B48A1563 /* Pods_Blueprints_BlueprintsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB12A58511A886E864CF7F6 /* Pods_Blueprints_BlueprintsUITests.framework */; };
 		991CD928DA7724E287AF89F7 /* Pods_Blueprints.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7612E2FDF59793CAF2F21C7 /* Pods_Blueprints.framework */; };
+		9D1666D8288B455100BF07AD /* UIKit+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1666D7288B455100BF07AD /* UIKit+Helpers.swift */; };
 		9D1A890A2884A1D300916560 /* Konstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A89092884A1D300916560 /* Konstants.swift */; };
 		9D1A89102885F2B600916560 /* BriefingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A890F2885F2B600916560 /* BriefingController.swift */; };
 		9D1A89122885F31B00916560 /* TodayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A89112885F31B00916560 /* TodayCell.swift */; };
@@ -93,6 +94,7 @@
 		50D49B3131F0B9A8EC0023B2 /* Pods-BlueprintsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueprintsTests.debug.xcconfig"; path = "Target Support Files/Pods-BlueprintsTests/Pods-BlueprintsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		730F3849E73CFD9F15EFA09D /* Pods-Blueprints.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blueprints.release.xcconfig"; path = "Target Support Files/Pods-Blueprints/Pods-Blueprints.release.xcconfig"; sourceTree = "<group>"; };
 		7A5C1E895FF34E6436681DA2 /* Pods_BlueprintsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlueprintsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D1666D7288B455100BF07AD /* UIKit+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Helpers.swift"; sourceTree = "<group>"; };
 		9D1A89092884A1D300916560 /* Konstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Konstants.swift; sourceTree = "<group>"; };
 		9D1A890F2885F2B600916560 /* BriefingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BriefingController.swift; sourceTree = "<group>"; };
 		9D1A89112885F31B00916560 /* TodayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCell.swift; sourceTree = "<group>"; };
@@ -189,6 +191,13 @@
 				7A5C1E895FF34E6436681DA2 /* Pods_BlueprintsTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9D1666D6288B392900BF07AD /* Users */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Users;
 			sourceTree = "<group>";
 		};
 		9D1A890E2885F1E600916560 /* Briefing */ = {
@@ -344,6 +353,7 @@
 		9D5C365A28806642008A418D /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				9D1666D7288B455100BF07AD /* UIKit+Helpers.swift */,
 				9D1A891E2885F86D00916560 /* Blueprint */,
 				9D1A890E2885F1E600916560 /* Briefing */,
 				9D5C365E28806D56008A418D /* Home */,
@@ -358,14 +368,15 @@
 			isa = PBXGroup;
 			children = (
 				9D1A895328862FDE00916560 /* ServiceProtocol.swift */,
-				9D1A894128862AE100916560 /* Firebase */,
-				9D1A89362886273C00916560 /* Container */,
-				9D1A892A28861C1300916560 /* Storage */,
 				9D1A892928861C0900916560 /* Assignments */,
 				9D1A89172885F3ED00916560 /* Auth */,
+				9D1A89362886273C00916560 /* Container */,
+				9D1A894128862AE100916560 /* Firebase */,
+				9D1A892A28861C1300916560 /* Storage */,
 				9D5C366F28847E3A008A418D /* Blueprints */,
 				9D5C367028847E40008A418D /* Days */,
 				9D1A894C28862DE500916560 /* Suggestions */,
+				9D1666D6288B392900BF07AD /* Users */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -750,6 +761,7 @@
 				9D5C362C287F5909008A418D /* SceneDelegate.swift in Sources */,
 				9D1A892C28861C3200916560 /* AssignmentsServiceProtocol.swift in Sources */,
 				9D5C366A2881C54C008A418D /* DayCompletion.swift in Sources */,
+				9D1666D8288B455100BF07AD /* UIKit+Helpers.swift in Sources */,
 				9D5C366028806DCF008A418D /* HomeViewController.swift in Sources */,
 				9D1A890A2884A1D300916560 /* Konstants.swift in Sources */,
 				9D1A89102885F2B600916560 /* BriefingController.swift in Sources */,

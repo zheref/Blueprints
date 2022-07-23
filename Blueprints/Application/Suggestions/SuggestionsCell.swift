@@ -1,4 +1,5 @@
 import UIKit
+import RxSwift
 
 class SuggestionsCell: UITableViewCell {
     
@@ -6,6 +7,8 @@ class SuggestionsCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var printsCollection: UICollectionView!
+    
+    let bag = DisposeBag()
     
     var model: SuggestionsBox! {
         didSet { bind() }
@@ -18,12 +21,19 @@ class SuggestionsCell: UITableViewCell {
     
     private func setup() {
         printsCollection.delegate = self
-        printsCollection.dataSource = self
+//        printsCollection.dataSource = self
     }
     
     private func bind() {
         titleLabel.text = model.title
-        printsCollection.reloadData()
+//        printsCollection.reloadData()
+        
+        Observable.just(model.prints)
+            .bind(to: printsCollection.rx.items(
+                cellIdentifier: BlueprintSuggestionCell.reuseIdentifier,
+                cellType: BlueprintSuggestionCell.self)) {
+                $2.model = $1
+            }.disposed(by: bag)
     }
     
 }

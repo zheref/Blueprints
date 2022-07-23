@@ -5,8 +5,11 @@
 //  Created by Sergio Lozano on 18/07/22.
 //
 
-import Foundation
+import RxSwift
 
-protocol BlueprintsServiceProtocol {
+protocol BlueprintsServiceProtocol: ServiceProtocol {
+    
+    func fetch(fromUser userId: String) -> Observable<[Blueprint]>
+    func fetchAll() -> Observable<[Blueprint]>
     
 }

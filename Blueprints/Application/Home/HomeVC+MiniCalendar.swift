@@ -5,22 +5,27 @@ import RxCocoa
 
 extension HomeViewController: UICollectionViewDelegate {
     
+    func expectedCellSize() -> CGSize { CGSize(width: 80, height: 120) }
+    
     func setupMiniCalendar() {
-        let calendarDaySize = CGSize(width: 80, height: 120)
+        Observable.just(UICollectionView.ScrollDirection.horizontal)
+            .bind(to: calendarCollectionViewLayout.rx.scrollDirection)
+            .disposed(by: bag)
         
-        calendarCollectionViewLayout.scrollDirection = .horizontal
-//        calendarCollectionViewLayout.itemSize = CGSize(width: 80, height: 120)
-        
-        let _ = Observable.just(CGSize(width: 80, height: 120)).bind(to: calendarCollectionViewLayout.rx.itemSize)
+        Observable.just(expectedCellSize())
+            .bind(to: calendarCollectionViewLayout.rx.itemSize)
+            .disposed(by: bag)
         
         model.days.bind(to: calendarCollectionView.rx.items(cellIdentifier: DayCell.identifier, cellType: DayCell.self)) { (row, element, cell) in
             cell.model = DayViewModel(day: element)
-        }.disposed(by: disposeBag)
+        }.disposed(by: bag)
         
         model.days.subscribe { [weak self] days in
-            self?.calendarCollectionView.contentSize = CGSize(
-                width: calendarDaySize.width * CGFloat(days.count),
-                height: 120
+            guard let self = self else { return }
+            
+            self.calendarCollectionView.contentSize = CGSize(
+                width: self.expectedCellSize().width * CGFloat(days.count),
+                height: self.expectedCellSize().height
             )
         } onError: { error in
             print(error)
@@ -28,13 +33,13 @@ extension HomeViewController: UICollectionViewDelegate {
             print("days: completed", self?.model.days as Any)
         } onDisposed: {
             print("days model disposed")
-        }.disposed(by: disposeBag)
+        }.disposed(by: bag)
     }
     
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 80, height: 120)
+        expectedCellSize()
     }
 }

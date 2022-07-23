@@ -9,27 +9,34 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class BriefingController: UIViewController {
+class BriefingController: BlueController {
     
+    // MARK: - UI
     @IBOutlet weak var briefingTableView: UITableView!
     
-    let disposeBag = DisposeBag()
-    
+    // MARK: - Data
     var model: BriefingViewModel!
 
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
     }
     
+    // MARK: - After loaded setup
     private func bind() {
-        model.rows.bind(to: briefingTableView.rx.items(cellIdentifier: SuggestionsCell.reuseIdentifier, cellType: SuggestionsCell.self)) { row, element, cell in
-            guard case let .suggestions(prints, userId) = element.1 else {
-                // Do nothing: no data
-                return
-            }
-            cell.model = SuggestionsBox(title: element.0, prints: prints, forUser: userId)
-        }.disposed(by: disposeBag)
+        model.rows.subscribe(onNext: { briefingRows in
+            print("zheref: BriefingRows:", briefingRows)
+        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: bag)
+        
+        model.rows.bind(to: briefingTableView.rx.items(cellIdentifier: SuggestionsCell.reuseIdentifier, cellType: SuggestionsCell.self)) {
+            guard case let .suggestions(prints, userId) = $1.1 else { return }
+            $2.model = SuggestionsBox(title: $1.0, prints: prints, forUser: userId)
+        }.disposed(by: bag)
+        
+        // Potential solution for multiple types of cells
+//        model.rows.bind(to: briefingTableView.rx.items) { table, index, element in
+//        }.disposed(by: disposeBag)
     }
 
 }

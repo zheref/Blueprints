@@ -10,6 +10,9 @@ class SuggestionsCell: UITableViewCell {
     
     let bag = DisposeBag()
     
+    let assignClicked = PublishSubject<Blueprint>()
+    let favClicked = PublishSubject<Blueprint>()
+    
     var model: SuggestionsBox! {
         didSet { bind() }
     }
@@ -21,12 +24,10 @@ class SuggestionsCell: UITableViewCell {
     
     private func setup() {
         printsCollection.delegate = self
-//        printsCollection.dataSource = self
     }
     
     private func bind() {
         titleLabel.text = model.title
-//        printsCollection.reloadData()
         
         Observable.just(model.prints)
             .bind(to: printsCollection.rx.items(
@@ -38,23 +39,24 @@ class SuggestionsCell: UITableViewCell {
     
 }
 
-extension SuggestionsCell: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BlueprintSuggestionCell.reuseIdentifier, for: indexPath) as? BlueprintSuggestionCell {
-            cell.model = model.prints[indexPath.item]
-            return cell
-        }
-        
-        return UICollectionViewCell()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return model?.prints.count ?? 0
-    }
-}
-
 extension SuggestionsCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 110, height: 128)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
+            let assignAction = UIAction(title: "Assign", image: nil) { [weak self] action in
+                guard let print = self?.model.prints[indexPath.item] else { return }
+                self?.assignClicked.onNext(print)
+            }
+            
+            let favAction = UIAction(title: "Favorite", image: nil) { [weak self] action in
+                guard let print = self?.model.prints[indexPath.item] else { return }
+                self?.favClicked.onNext(print)
+            }
+            
+            return UIMenu(title: "", children: [assignAction, favAction])
+        }
     }
 }

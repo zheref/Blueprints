@@ -30,9 +30,12 @@ class SuggestionsCell: UITableViewCell {
         titleLabel.text = model.title
         
         Observable.just(model.prints)
-            .bind(to: printsCollection.rx.items(
-                cellIdentifier: BlueprintSuggestionCell.reuseIdentifier,
-                cellType: BlueprintSuggestionCell.self)) {
+            .bind(to: printsCollection.rx
+                .items(
+                    cellIdentifier: BlueprintSuggestionCell.reuseIdentifier,
+                    cellType: BlueprintSuggestionCell.self)
+                )
+            {
                 $2.model = $1
             }.disposed(by: bag)
     }

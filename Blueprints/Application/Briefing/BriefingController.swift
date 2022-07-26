@@ -20,7 +20,14 @@ class BriefingController: BlueController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
         bind()
+    }
+    
+    private func setup() {
+        Observable<UIEdgeInsets>.just(UIEdgeInsets(top: 13, left: 0, bottom: 0, right: 0))
+            .bind(to: briefingTableView.rx.contentInset)
+            .disposed(by: bag)
     }
     
     // MARK: - After loaded setup
@@ -44,7 +51,7 @@ class BriefingController: BlueController {
 extension BriefingController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        185.0
+        170.0
     }
     
 }

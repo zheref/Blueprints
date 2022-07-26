@@ -191,15 +191,21 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="suggestionsCell" rowHeight="185" id="D5U-U6-vQ2" customClass="SuggestionsCell" customModule="Blueprints" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="308.5" width="414" height="185"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="suggestionsCell" rowHeight="170" id="D5U-U6-vQ2" customClass="SuggestionsCell" customModule="Blueprints" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="308.5" width="414" height="170"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="D5U-U6-vQ2" id="sXW-KW-oYP">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="185"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="170"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Days like today..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ski-NW-d3u">
+                                                    <rect key="frame" x="20" y="7" width="181" height="29"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NTg-l0-20L">
-                                                    <rect key="frame" x="0.0" y="48" width="414" height="126"/>
+                                                    <rect key="frame" x="0.0" y="43" width="414" height="126"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="126" id="V5k-GJ-7Pe"/>
@@ -247,16 +253,10 @@
                                                         </collectionViewCell>
                                                     </cells>
                                                 </collectionView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Days like today..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ski-NW-d3u">
-                                                    <rect key="frame" x="20" y="11" width="181" height="29"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Ski-NW-d3u" firstAttribute="top" secondItem="sXW-KW-oYP" secondAttribute="top" constant="11" id="61i-oQ-AtS"/>
-                                                <constraint firstItem="NTg-l0-20L" firstAttribute="top" secondItem="Ski-NW-d3u" secondAttribute="bottom" constant="8" symbolic="YES" id="cy3-vs-ffL"/>
+                                                <constraint firstItem="Ski-NW-d3u" firstAttribute="top" secondItem="sXW-KW-oYP" secondAttribute="top" constant="7" id="61i-oQ-AtS"/>
+                                                <constraint firstItem="NTg-l0-20L" firstAttribute="top" secondItem="Ski-NW-d3u" secondAttribute="bottom" constant="7" id="cy3-vs-ffL"/>
                                                 <constraint firstAttribute="trailing" secondItem="NTg-l0-20L" secondAttribute="trailing" id="eyA-jY-DDf"/>
                                                 <constraint firstItem="Ski-NW-d3u" firstAttribute="leading" secondItem="sXW-KW-oYP" secondAttribute="leading" constant="20" symbolic="YES" id="hyn-Xd-DVd"/>
                                                 <constraint firstItem="NTg-l0-20L" firstAttribute="leading" secondItem="sXW-KW-oYP" secondAttribute="leading" id="kQG-yV-ReO"/>
@@ -268,7 +268,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="z4a-5y-HkB">
-                                        <rect key="frame" x="0.0" y="493.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="478.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z4a-5y-HkB" id="OuV-ad-LVj">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>

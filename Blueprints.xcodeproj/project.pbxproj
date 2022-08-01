@@ -48,7 +48,6 @@
 		9D1A895A2886438000916560 /* BlueprintSuggestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A89592886438000916560 /* BlueprintSuggestionCell.swift */; };
 		9D5C362A287F5909008A418D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5C3629287F5909008A418D /* AppDelegate.swift */; };
 		9D5C362C287F5909008A418D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5C362B287F5909008A418D /* SceneDelegate.swift */; };
-		9D5C362E287F5909008A418D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5C362D287F5909008A418D /* ViewController.swift */; };
 		9D5C3631287F5909008A418D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D5C362F287F5909008A418D /* Main.storyboard */; };
 		9D5C3633287F590A008A418D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D5C3632287F590A008A418D /* Assets.xcassets */; };
 		9D5C3636287F590A008A418D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D5C3634287F590A008A418D /* LaunchScreen.storyboard */; };
@@ -126,7 +125,6 @@
 		9D5C3626287F5909008A418D /* Blueprints.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blueprints.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D5C3629287F5909008A418D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D5C362B287F5909008A418D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9D5C362D287F5909008A418D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9D5C3630287F5909008A418D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9D5C3632287F590A008A418D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D5C3635287F590A008A418D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -315,19 +313,11 @@
 			isa = PBXGroup;
 			children = (
 				9D5C365A28806642008A418D /* Application */,
-				9D5C365D288068C0008A418D /* Components */,
 				9D5C367D28848704008A418D /* Extensions */,
 				9D5C36642881C45C008A418D /* Models */,
+				9D5D980028986DB1008BDAB8 /* Resources */,
 				9D5C365C28806650008A418D /* Services */,
-				9D5C3629287F5909008A418D /* AppDelegate.swift */,
-				9D5C362B287F5909008A418D /* SceneDelegate.swift */,
-				9D5C362D287F5909008A418D /* ViewController.swift */,
-				9D5C362F287F5909008A418D /* Main.storyboard */,
-				9D5C3632287F590A008A418D /* Assets.xcassets */,
 				9D5C3634287F590A008A418D /* LaunchScreen.storyboard */,
-				9D5C3637287F590A008A418D /* Info.plist */,
-				9D1A89272885FABB00916560 /* GoogleService-Info.plist */,
-				9D1A89092884A1D300916560 /* Konstants.swift */,
 			);
 			path = Blueprints;
 			sourceTree = "<group>";
@@ -353,6 +343,9 @@
 		9D5C365A28806642008A418D /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				9D5C362F287F5909008A418D /* Main.storyboard */,
+				9D5C3629287F5909008A418D /* AppDelegate.swift */,
+				9D5C362B287F5909008A418D /* SceneDelegate.swift */,
 				9D1666D7288B455100BF07AD /* UIKit+Helpers.swift */,
 				9D1A891E2885F86D00916560 /* Blueprint */,
 				9D1A890E2885F1E600916560 /* Briefing */,
@@ -379,13 +372,6 @@
 				9D1666D6288B392900BF07AD /* Users */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		9D5C365D288068C0008A418D /* Components */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		9D5C365E28806D56008A418D /* Home */ = {
@@ -454,6 +440,17 @@
 				9D5C367E28848723008A418D /* Date+Convenience.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9D5D980028986DB1008BDAB8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9D1A89092884A1D300916560 /* Konstants.swift */,
+				9D5C3632287F590A008A418D /* Assets.xcassets */,
+				9D5C3637287F590A008A418D /* Info.plist */,
+				9D1A89272885FABB00916560 /* GoogleService-Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		C7D140091A3522F0B4ACC471 /* Pods */ = {
@@ -739,7 +736,6 @@
 				9D5C36722884807C008A418D /* HomeViewModel.swift in Sources */,
 				9D5C36662881C4B9008A418D /* Day.swift in Sources */,
 				9D1A89202885F9BA00916560 /* SuggestionsCell.swift in Sources */,
-				9D5C362E287F5909008A418D /* ViewController.swift in Sources */,
 				9D5C367F28848723008A418D /* Date+Convenience.swift in Sources */,
 				9D1A892E28861C4C00916560 /* FirestoreAssignmentsService.swift in Sources */,
 				9D1A89242885FA0D00916560 /* BlueprintsServiceProtocol.swift in Sources */,
@@ -958,7 +954,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AQUE4FE98B;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Blueprints/Info.plist;
+				INFOPLIST_FILE = Blueprints/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -987,7 +983,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AQUE4FE98B;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Blueprints/Info.plist;
+				INFOPLIST_FILE = Blueprints/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

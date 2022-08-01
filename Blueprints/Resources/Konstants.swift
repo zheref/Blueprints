@@ -1,4 +1,5 @@
 import Foundation
+import CoreGraphics
 
 enum K {
     
@@ -16,6 +17,10 @@ enum K {
     
     enum Segue {
         static let briefingInHome = "briefingInHome"
+    }
+    
+    enum Measurement {
+        static let carouselHeight: CGFloat = 185.0
     }
     
 }

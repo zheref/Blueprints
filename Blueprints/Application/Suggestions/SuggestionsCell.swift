@@ -1,21 +1,31 @@
 import UIKit
 import RxSwift
 
+// Refactor to be named: SuggestionsBoxCell
 class SuggestionsCell: UITableViewCell {
     
+    // MARK: - Class Members
+    
     static let reuseIdentifier = "suggestionsCell"
+    
+    // MARK: - UI
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var printsCollection: UICollectionView!
     
+    // MARK: - Reactive
+    
     let bag = DisposeBag()
     
+    // Should we move this to the model?
     let assignClicked = PublishSubject<Blueprint>()
     let favClicked = PublishSubject<Blueprint>()
     
     var model: SuggestionsBox! {
         didSet { bind() }
     }
+    
+    // MARK: - Lifecycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,9 +45,7 @@ class SuggestionsCell: UITableViewCell {
                     cellIdentifier: BlueprintSuggestionCell.reuseIdentifier,
                     cellType: BlueprintSuggestionCell.self)
                 )
-            {
-                $2.model = $1
-            }.disposed(by: bag)
+            { $2.model = $1 }.disposed(by: bag)
     }
     
 }
@@ -47,8 +55,11 @@ extension SuggestionsCell: UICollectionViewDelegateFlowLayout {
         return CGSize(width: 110, height: 128)
     }
     
-    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
-        UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
+    func collectionView(_ collectionView: UICollectionView,
+                        contextMenuConfigurationForItemAt indexPath: IndexPath,
+                        point: CGPoint) -> UIContextMenuConfiguration? {
+        
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
             let assignAction = UIAction(title: "Assign", image: nil) { [weak self] action in
                 guard let print = self?.model.prints[indexPath.item] else { return }
                 self?.assignClicked.onNext(print)

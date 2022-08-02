@@ -1,6 +1,10 @@
 import Foundation
 import Dip
 
+enum BlueError: Error {
+    case noIdentifier
+}
+
 protocol ServiceProtocol {
     var servicesInjector: DependencyContainer { get }
     var firebaseInjector: DependencyContainer { get }

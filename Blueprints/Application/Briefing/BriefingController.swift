@@ -24,13 +24,14 @@ class BriefingController: BlueController {
         bind()
     }
     
+    // MARK: - After loaded setup
+    
     private func setup() {
         Observable<UIEdgeInsets>.just(UIEdgeInsets(top: 13, left: 0, bottom: 0, right: 0))
             .bind(to: briefingTableView.rx.contentInset)
             .disposed(by: bag)
     }
     
-    // MARK: - After loaded setup
     private func bind() {
         model.rows.subscribe(onNext: { briefingRows in
             print("zheref: BriefingRows:", briefingRows)

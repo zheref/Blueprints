@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol AssignmentsServiceProtocol {
+protocol AssignmentsServiceProtocol: ServiceProtocol {
     
 }

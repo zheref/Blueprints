@@ -22,7 +22,8 @@ class FirestoreBlueprintsService: BlueprintsServiceProtocol {
         return Blueprint(name: name, attribute: attribute,
                          pictureUrl: doc["pictureUrl"] as? String,
                          work: [],
-                         train: [])
+                         train: [],
+                         documentID: doc.documentID)
     }
     
     func fetch(fromUser userId: String) -> Observable<[Blueprint]> {
@@ -38,7 +39,6 @@ class FirestoreBlueprintsService: BlueprintsServiceProtocol {
                             print("Private blueprints error", error)
                             observer.on(.error(error))
                         }
-                        
                         return
                     }
                     

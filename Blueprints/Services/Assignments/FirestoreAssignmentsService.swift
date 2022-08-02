@@ -9,10 +9,6 @@ import Foundation
 import RxSwift
 import FirebaseFirestore
 
-enum FirestoreAssignmentsServiceError: Error {
-    case dateNotValid
-}
-
 class FirestoreAssignmentsService: AssignmentsServiceProtocol {
     
     static let collectionName = "assignments"
@@ -43,6 +39,21 @@ class FirestoreAssignmentsService: AssignmentsServiceProtocol {
                 .setData(assignmentData)
             
             return Disposables.create { }
+        }
+    }
+    
+    func assign(print: Blueprint, toDay day: BlueDay, forUser userId: String) -> Single<Void> {
+        let firestore = try! firebaseInjector.resolve() as Firestore
+        
+        return Single.create { single in
+            firestore
+                .document("/users/\(userId)")
+                .collection(Self.collectionName)
+                .parent?.setData([
+                    "": ""
+                ])
+            
+            return Disposables.create {}
         }
     }
     

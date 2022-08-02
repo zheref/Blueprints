@@ -13,6 +13,7 @@ extension ServicesContainer {
         let container = DependencyContainer()
         container.register { FirebaseAuthService() as AuthServiceProtocol }
         container.register { CalendarDaysService() as DaysServiceProtocol }
+        container.register { FirebaseStorageService() as StorageServiceProtocol }
         container.register { FirestoreBlueprintsService() as BlueprintsServiceProtocol }
         container.register { FirestoreSuggestionsService() as SuggestionsServiceProtocol }
         return container

@@ -67,6 +67,9 @@
 		9D5C367C28848614008A418D /* CalendarDaysServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5C367B28848614008A418D /* CalendarDaysServiceTests.swift */; };
 		9D5C367F28848723008A418D /* Date+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5C367E28848723008A418D /* Date+Convenience.swift */; };
 		9D5C368128849C36008A418D /* DayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5C368028849C36008A418D /* DayViewModel.swift */; };
+		9D5D980228987FDA008BDAB8 /* StorageServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5D980128987FD9008BDAB8 /* StorageServiceProtocol.swift */; };
+		9D5D980428988033008BDAB8 /* FirebaseStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5D980328988033008BDAB8 /* FirebaseStorageService.swift */; };
+		9D5D98072898819B008BDAB8 /* Dgtl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5D98062898819B008BDAB8 /* Dgtl.swift */; };
 		BF8E715E7CABD0A3C797C469 /* Pods_BlueprintsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5C1E895FF34E6436681DA2 /* Pods_BlueprintsTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -147,6 +150,9 @@
 		9D5C367B28848614008A418D /* CalendarDaysServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDaysServiceTests.swift; sourceTree = "<group>"; };
 		9D5C367E28848723008A418D /* Date+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Convenience.swift"; sourceTree = "<group>"; };
 		9D5C368028849C36008A418D /* DayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewModel.swift; sourceTree = "<group>"; };
+		9D5D980128987FD9008BDAB8 /* StorageServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageServiceProtocol.swift; sourceTree = "<group>"; };
+		9D5D980328988033008BDAB8 /* FirebaseStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageService.swift; sourceTree = "<group>"; };
+		9D5D98062898819B008BDAB8 /* Dgtl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dgtl.swift; sourceTree = "<group>"; };
 		AB79587B13485817D88FA668 /* Pods-Blueprints.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blueprints.debug.xcconfig"; path = "Target Support Files/Pods-Blueprints/Pods-Blueprints.debug.xcconfig"; sourceTree = "<group>"; };
 		BEAACE65E7086EB1874958B1 /* Pods-Blueprints-BlueprintsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blueprints-BlueprintsUITests.debug.xcconfig"; path = "Target Support Files/Pods-Blueprints-BlueprintsUITests/Pods-Blueprints-BlueprintsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D7612E2FDF59793CAF2F21C7 /* Pods_Blueprints.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Blueprints.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -245,6 +251,8 @@
 		9D1A892A28861C1300916560 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				9D5D980128987FD9008BDAB8 /* StorageServiceProtocol.swift */,
+				9D5D980328988033008BDAB8 /* FirebaseStorageService.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -317,6 +325,7 @@
 				9D5C36642881C45C008A418D /* Models */,
 				9D5D980028986DB1008BDAB8 /* Resources */,
 				9D5C365C28806650008A418D /* Services */,
+				9D5D980528988186008BDAB8 /* Utilities */,
 				9D5C3634287F590A008A418D /* LaunchScreen.storyboard */,
 			);
 			path = Blueprints;
@@ -451,6 +460,14 @@
 				9D1A89272885FABB00916560 /* GoogleService-Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		9D5D980528988186008BDAB8 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				9D5D98062898819B008BDAB8 /* Dgtl.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		C7D140091A3522F0B4ACC471 /* Pods */ = {
@@ -730,6 +747,7 @@
 				9D1A89142885F38A00916560 /* TodayViewModel.swift in Sources */,
 				9D5C366C2881C89B008A418D /* Blueprint+Cases.swift in Sources */,
 				9D1A891B2885F44800916560 /* FirebaseAuthService.swift in Sources */,
+				9D5D980428988033008BDAB8 /* FirebaseStorageService.swift in Sources */,
 				9D1A895028862E2000916560 /* FirestoreSuggestionsService.swift in Sources */,
 				9D5C368128849C36008A418D /* DayViewModel.swift in Sources */,
 				9D1A89162885F39D00916560 /* BriefingViewModel.swift in Sources */,
@@ -738,6 +756,7 @@
 				9D1A89202885F9BA00916560 /* SuggestionsCell.swift in Sources */,
 				9D5C367F28848723008A418D /* Date+Convenience.swift in Sources */,
 				9D1A892E28861C4C00916560 /* FirestoreAssignmentsService.swift in Sources */,
+				9D5D98072898819B008BDAB8 /* Dgtl.swift in Sources */,
 				9D1A89242885FA0D00916560 /* BlueprintsServiceProtocol.swift in Sources */,
 				9D5C36682881C512008A418D /* Blueprint.swift in Sources */,
 				9D1A894E28862E0600916560 /* SuggestionsServiceProtocol.swift in Sources */,
@@ -757,6 +776,7 @@
 				9D5C362C287F5909008A418D /* SceneDelegate.swift in Sources */,
 				9D1A892C28861C3200916560 /* AssignmentsServiceProtocol.swift in Sources */,
 				9D5C366A2881C54C008A418D /* DayCompletion.swift in Sources */,
+				9D5D980228987FDA008BDAB8 /* StorageServiceProtocol.swift in Sources */,
 				9D1666D8288B455100BF07AD /* UIKit+Helpers.swift in Sources */,
 				9D5C366028806DCF008A418D /* HomeViewController.swift in Sources */,
 				9D1A890A2884A1D300916560 /* Konstants.swift in Sources */,

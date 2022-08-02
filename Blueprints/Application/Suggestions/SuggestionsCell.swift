@@ -23,11 +23,14 @@ class SuggestionsCell: UITableViewCell {
     }
     
     private func setup() {
-        printsCollection.delegate = self
+//        printsCollection.delegate = self
     }
     
     private func bind() {
         titleLabel.text = model.title
+        
+        printsCollection.dataSource = nil
+        printsCollection.delegate = nil
         
         Observable.just(model.prints)
             .bind(to: printsCollection.rx
@@ -38,6 +41,8 @@ class SuggestionsCell: UITableViewCell {
             {
                 $2.model = $1
             }.disposed(by: bag)
+        
+        printsCollection.delegate = self
     }
     
 }

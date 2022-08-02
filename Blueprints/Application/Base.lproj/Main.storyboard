@@ -57,8 +57,8 @@
                                                     <rect key="frame" x="17.5" y="30" width="45" height="60"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDz-pv-rqT">
-                                                            <rect key="frame" x="2" y="7.5" width="41.5" height="51"/>
-                                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="37"/>
+                                                            <rect key="frame" x="6" y="12.5" width="33.5" height="41"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="30"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -99,6 +99,22 @@
                                             <outlet property="dateBoxView" destination="hBO-Os-v2c" id="hRB-C6-1JF"/>
                                             <outlet property="dateNumberLabel" destination="GDz-pv-rqT" id="s7p-Fe-dtc"/>
                                         </connections>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="clB-vD-oGj">
+                                        <rect key="frame" x="80" y="0.0" width="80" height="120"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="b7L-W3-kkN">
+                                            <rect key="frame" x="0.0" y="0.0" width="80" height="120"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hUs-7g-ict">
+                                        <rect key="frame" x="160" y="0.0" width="80" height="120"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="aVI-Pz-XK3">
+                                            <rect key="frame" x="0.0" y="0.0" width="80" height="120"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>

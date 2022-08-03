@@ -15,6 +15,7 @@ extension ServicesContainer {
         container.register { CalendarDaysService() as DaysServiceProtocol }
         container.register { FirebaseStorageService() as StorageServiceProtocol }
         container.register { FirestoreBlueprintsService() as BlueprintsServiceProtocol }
+        container.register { FirestoreAssignmentsService() as AssignmentsServiceProtocol }
         container.register { FirestoreSuggestionsService() as SuggestionsServiceProtocol }
         return container
     }()

@@ -17,7 +17,7 @@
 		9D1A89162885F39D00916560 /* BriefingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A89152885F39D00916560 /* BriefingViewModel.swift */; };
 		9D1A89192885F40400916560 /* AuthServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A89182885F40400916560 /* AuthServiceProtocol.swift */; };
 		9D1A891B2885F44800916560 /* FirebaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A891A2885F44800916560 /* FirebaseAuthService.swift */; };
-		9D1A89202885F9BA00916560 /* SuggestionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A891F2885F9BA00916560 /* SuggestionsCell.swift */; };
+		9D1A89202885F9BA00916560 /* SuggestionsBoxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A891F2885F9BA00916560 /* SuggestionsBoxCell.swift */; };
 		9D1A89242885FA0D00916560 /* BlueprintsServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A89232885FA0D00916560 /* BlueprintsServiceProtocol.swift */; };
 		9D1A89262885FA2A00916560 /* FirestoreBlueprintsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A89252885FA2A00916560 /* FirestoreBlueprintsService.swift */; };
 		9D1A89282885FABB00916560 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D1A89272885FABB00916560 /* GoogleService-Info.plist */; };
@@ -104,7 +104,7 @@
 		9D1A89152885F39D00916560 /* BriefingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BriefingViewModel.swift; sourceTree = "<group>"; };
 		9D1A89182885F40400916560 /* AuthServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceProtocol.swift; sourceTree = "<group>"; };
 		9D1A891A2885F44800916560 /* FirebaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthService.swift; sourceTree = "<group>"; };
-		9D1A891F2885F9BA00916560 /* SuggestionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsCell.swift; sourceTree = "<group>"; };
+		9D1A891F2885F9BA00916560 /* SuggestionsBoxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsBoxCell.swift; sourceTree = "<group>"; };
 		9D1A89232885FA0D00916560 /* BlueprintsServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueprintsServiceProtocol.swift; sourceTree = "<group>"; };
 		9D1A89252885FA2A00916560 /* FirestoreBlueprintsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreBlueprintsService.swift; sourceTree = "<group>"; };
 		9D1A89272885FABB00916560 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -288,7 +288,7 @@
 		9D1A89582886434A00916560 /* Suggestions */ = {
 			isa = PBXGroup;
 			children = (
-				9D1A891F2885F9BA00916560 /* SuggestionsCell.swift */,
+				9D1A891F2885F9BA00916560 /* SuggestionsBoxCell.swift */,
 				9D1A89592886438000916560 /* BlueprintSuggestionCell.swift */,
 			);
 			path = Suggestions;
@@ -753,7 +753,7 @@
 				9D1A89162885F39D00916560 /* BriefingViewModel.swift in Sources */,
 				9D5C36722884807C008A418D /* HomeViewModel.swift in Sources */,
 				9D5C36662881C4B9008A418D /* Day.swift in Sources */,
-				9D1A89202885F9BA00916560 /* SuggestionsCell.swift in Sources */,
+				9D1A89202885F9BA00916560 /* SuggestionsBoxCell.swift in Sources */,
 				9D5C367F28848723008A418D /* Date+Convenience.swift in Sources */,
 				9D1A892E28861C4C00916560 /* FirestoreAssignmentsService.swift in Sources */,
 				9D5D98072898819B008BDAB8 /* Dgtl.swift in Sources */,

@@ -2,11 +2,11 @@ import UIKit
 import RxSwift
 
 // Refactor to be named: SuggestionsBoxCell
-class SuggestionsCell: UITableViewCell {
+class SuggestionsBoxCell: UITableViewCell {
     
     // MARK: - Class Members
     
-    static let reuseIdentifier = "suggestionsCell"
+    static let reuseIdentifier = "suggestionsBoxCell"
     
     // MARK: - UI
     
@@ -57,7 +57,7 @@ class SuggestionsCell: UITableViewCell {
     
 }
 
-extension SuggestionsCell: UICollectionViewDelegateFlowLayout {
+extension SuggestionsBoxCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 110, height: 128)
     }

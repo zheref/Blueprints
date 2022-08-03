@@ -37,7 +37,7 @@ class BriefingController: BlueController {
             print("zheref: BriefingRows:", briefingRows)
         }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: bag)
         
-        model.rows.bind(to: briefingTableView.rx.items(cellIdentifier: SuggestionsCell.reuseIdentifier, cellType: SuggestionsCell.self)) {
+        model.rows.bind(to: briefingTableView.rx.items(cellIdentifier: SuggestionsBoxCell.reuseIdentifier, cellType: SuggestionsBoxCell.self)) {
             guard case let .suggestions(prints, userId) = $1.1 else { return }
             $2.model = SuggestionsBox(title: $1.0, prints: prints, forUser: userId)
         }.disposed(by: bag)

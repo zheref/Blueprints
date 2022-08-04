@@ -33,13 +33,10 @@ class BriefingController: BlueController {
     }
     
     private func bind() {
-        model.rows.subscribe(onNext: { briefingRows in
-            print("zheref: BriefingRows:", briefingRows)
-        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: bag)
-        
-        model.rows.bind(to: briefingTableView.rx.items(cellIdentifier: SuggestionsBoxCell.reuseIdentifier, cellType: SuggestionsBoxCell.self)) {
+        model.rows.bind(to: briefingTableView.rx.items(cellIdentifier: SuggestionsBoxCell.reuseIdentifier, cellType: SuggestionsBoxCell.self)) { [unowned self] in
             guard case let .suggestions(prints, userId) = $1.1 else { return }
             $2.model = SuggestionsBox(title: $1.0, prints: prints, forUser: userId)
+            $2.assignClicked.subscribe(onNext: self.model.userDidAssignToDate).disposed(by: self.bag)
         }.disposed(by: bag)
         
         // Potential solution for multiple types of cells

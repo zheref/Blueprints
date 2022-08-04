@@ -5,6 +5,12 @@ struct BlueDate {
     let month: Int
     let year: Int
     
+    static func from(date: Date) -> BlueDate? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return Self.from(string: formatter.string(from: date))
+    }
+    
     static func from(string: String) -> BlueDate? {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"

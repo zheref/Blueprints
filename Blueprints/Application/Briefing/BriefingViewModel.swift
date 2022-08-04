@@ -11,6 +11,7 @@ typealias BriefingRow = (String, BriefingRowType)
 class BriefingViewModel {
     
     var rows: Observable<[BriefingRow]>
+    var bag = DisposeBag()
     
     init() {
         let blueprintsService = try! ServicesContainer.shared.resolve() as BlueprintsServiceProtocol
@@ -35,5 +36,24 @@ class BriefingViewModel {
         
         self.rows = Observable.combineLatest(blueprintsFetch, suggestionsFetch).map { $0 + $1 }
     }
+    
+    func userDidAssignToDate(bprint: Blueprint) {
+        let assignmentsService = try! ServicesContainer.shared.resolve() as AssignmentsServiceProtocol
+        let authService = try! ServicesContainer.shared.resolve() as AuthServiceProtocol
+        
+        guard let blueToday = BlueDate.from(date: Date()) else {
+            print("Error transpolating BlueDate from today")
+            return
+        }
+        
+        assignmentsService
+            .assign(bprint: bprint, toDate: blueToday, forUserId: authService.currentUserId)
+            .subscribe { _ in
+                print("Succeding assigning")
+            }.disposed(by: bag)
+
+    }
+    
+    
     
 }

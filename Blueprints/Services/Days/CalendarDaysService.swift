@@ -3,6 +3,7 @@ import Foundation
 class CalendarDaysService: DaysServiceProtocol {
     
     func resolveAround(date: Date) -> Days {
+        print("1. Resolving around for date: \(date.description)")
         var aroundDays = Days()
         aroundDays.append(contentsOf: resolveHistory(forDate: date, count: 1))
         aroundDays.append(resolve(todayFor: date))

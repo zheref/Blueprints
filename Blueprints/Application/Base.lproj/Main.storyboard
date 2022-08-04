@@ -100,22 +100,6 @@
                                             <outlet property="dateNumberLabel" destination="GDz-pv-rqT" id="s7p-Fe-dtc"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="clB-vD-oGj">
-                                        <rect key="frame" x="80" y="0.0" width="80" height="120"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="b7L-W3-kkN">
-                                            <rect key="frame" x="0.0" y="0.0" width="80" height="120"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hUs-7g-ict">
-                                        <rect key="frame" x="160" y="0.0" width="80" height="120"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="aVI-Pz-XK3">
-                                            <rect key="frame" x="0.0" y="0.0" width="80" height="120"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                    </collectionViewCell>
                                 </cells>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="eTp-GU-nGz"/>
@@ -162,7 +146,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="644"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="264" id="PkO-Qj-IIr" customClass="TodayCell" customModule="Blueprints" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="currentPrintCell" rowHeight="264" id="PkO-Qj-IIr" customClass="TodayCell" customModule="Blueprints" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="264"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PkO-Qj-IIr" id="xeA-rh-CxE">

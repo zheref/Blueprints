@@ -1,15 +1,14 @@
-//
-//  FirestoreAssignmentsService.swift
-//  Blueprints
-//
-//  Created by Sergio Lozano on 18/07/22.
-//
-
 import Foundation
 import RxSwift
 import FirebaseFirestore
+import os
 
 class FirestoreAssignmentsService: AssignmentsServiceProtocol {
+    
+    private static let logger = Logger(
+        subsystem: Bundle.main.bundleIdentifier!,
+        category: String(describing: FirestoreAssignmentsService.self)
+    )
     
     static let collectionName = "assignments"
     
@@ -53,7 +52,7 @@ class FirestoreAssignmentsService: AssignmentsServiceProtocol {
         var assignmentsDictionary = AssignmentsMap()
         for doc in documents {
             guard let dateName = doc["date"] as? String, let blueprintRef = doc["print"] as? DocumentReference else {
-                print("Error: Either date or print in assignment are not string and document references")
+                Self.logger.error("Date or print in assignment not string or document compliant")
                 break
             }
             assignmentsDictionary[dateName] = blueprintRef.path
@@ -64,23 +63,19 @@ class FirestoreAssignmentsService: AssignmentsServiceProtocol {
     func fetch(forDates dates: [BlueDate],
                forUserId userId: String) -> Observable<AssignmentsMap> {
         let firestore = try! firebaseInjector.resolve() as Firestore
-        let printsService = try! ServicesContainer.shared.resolve() as BlueprintsServiceProtocol
-        let datesList = dates.compactMap { $0.toString() }
         
-        return Observable.create { [datesList] observer in
+        return Observable.create { [dates] observer in
             let listener = firestore
                 .document("users/\(userId)")
                 .collection(Self.collectionName)
-                .whereField("date", in: datesList)
+                .whereField("date", in: dates.compactMap { $0.toString() })
                 .addSnapshotListener { snapshot, error in
-                    guard let docs = snapshot?.documents else {
-                        if let error = error {
-                            print("Error fetching assignments:", error.localizedDescription)
-                            observer.on(.error(error))
-                        } else { observer.on(.error(AssignmentsServiceError.unknownFetchError)) }
-                        return
+                    if let error = error {
+                        Self.logger.error("\(error.localizedDescription)")
+                        observer.on(.error(error))
                     }
                     
+                    guard let docs = snapshot?.documents else { return }
                     let assignmentsDict = Self.assignmentsMap(from: docs.map { $0.data() })
                     observer.on(.next(assignmentsDict))
                 }

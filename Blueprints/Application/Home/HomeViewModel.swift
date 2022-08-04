@@ -9,12 +9,12 @@ class HomeViewModel {
     
     let authService: AuthServiceProtocol
     let daysService: DaysServiceProtocol
-    let blueprintsService: BlueprintsServiceProtocol
+    let blueprintsService: IBlueprintsService
     
     
     init(authService: AuthServiceProtocol = FirebaseAuthService(),
          daysService: DaysServiceProtocol = CalendarDaysService(),
-         blueprintsService: BlueprintsServiceProtocol = FirestoreBlueprintsService()) {
+         blueprintsService: IBlueprintsService = FirestoreBlueprintsService()) {
         let assignmentsService = try! ServicesContainer.shared.resolve() as AssignmentsServiceProtocol
         
         self.authService = authService

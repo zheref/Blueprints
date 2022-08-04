@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import FirebaseFirestore
 
-class FirestoreBlueprintsService: BlueprintsServiceProtocol {
+class FirestoreBlueprintsService: IBlueprintsService {
     
     static let collectionName = "blueprints"
     

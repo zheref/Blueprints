@@ -5,7 +5,7 @@ extension ServicesContainer {
         let container = DependencyContainer()
         container.register { MockAuthService() as AuthServiceProtocol }
         container.register { CalendarDaysService() as DaysServiceProtocol }
-        container.register { MockBlueprintsService() as BlueprintsServiceProtocol }
+        container.register { MockBlueprintsService() as IBlueprintsService }
         return container
     }()
 }

@@ -14,7 +14,7 @@ class BriefingViewModel {
     var bag = DisposeBag()
     
     init() {
-        let blueprintsService = try! ServicesContainer.shared.resolve() as BlueprintsServiceProtocol
+        let blueprintsService = try! ServicesContainer.shared.resolve() as IBlueprintsService
         let suggestionsService = try! ServicesContainer.shared.resolve() as SuggestionsServiceProtocol
         let authService = try! ServicesContainer.shared.resolve() as AuthServiceProtocol
         

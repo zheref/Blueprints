@@ -1,7 +1,7 @@
 import Foundation
 import RxSwift
 
-class MockBlueprintsService: BlueprintsServiceProtocol {
+class MockBlueprintsService: IBlueprintsService {
     
     func fetch(fromUser userId: String) -> Observable<[Blueprint]> {
         return Observable.of([Blueprint.Mocked.cap, Blueprint.Mocked.kratos])

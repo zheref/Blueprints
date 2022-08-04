@@ -13,11 +13,14 @@
 		2B1FD67F289C2481002FF49D /* Blueprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5C36672881C512008A418D /* Blueprint.swift */; };
 		2B1FD680289C25CD002FF49D /* SuggestionsBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A894428862C0200916560 /* SuggestionsBox.swift */; };
 		2B1FD681289C2722002FF49D /* Blueprint+Cases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5C366B2881C89B008A418D /* Blueprint+Cases.swift */; };
-		2B1FD682289C275F002FF49D /* BlueprintsServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A89232885FA0D00916560 /* BlueprintsServiceProtocol.swift */; };
+		2B1FD682289C275F002FF49D /* IBlueprintsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A89232885FA0D00916560 /* IBlueprintsService.swift */; };
 		2B1FD683289C27EA002FF49D /* ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A895328862FDE00916560 /* ServiceProtocol.swift */; };
 		2B1FD684289C2929002FF49D /* FirebaseContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A894228862AF500916560 /* FirebaseContainer.swift */; };
 		2B1FD685289C293F002FF49D /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5C36652881C4B9008A418D /* Day.swift */; };
 		2B1FD686289C2A6E002FF49D /* DayCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5C36692881C54C008A418D /* DayCompletion.swift */; };
+		2B1FD688289C31C5002FF49D /* ZPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1FD687289C31C5002FF49D /* ZPath.swift */; };
+		2B1FD689289C34B5002FF49D /* ZPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1FD687289C31C5002FF49D /* ZPath.swift */; };
+		2B1FD68C289C34CD002FF49D /* ZPathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1FD68B289C34CD002FF49D /* ZPathTests.swift */; };
 		991CD928DA7724E287AF89F7 /* Pods_Blueprints.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7612E2FDF59793CAF2F21C7 /* Pods_Blueprints.framework */; };
 		9D1666D8288B455100BF07AD /* UIKit+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1666D7288B455100BF07AD /* UIKit+Helpers.swift */; };
 		9D1A890A2884A1D300916560 /* Konstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A89092884A1D300916560 /* Konstants.swift */; };
@@ -28,7 +31,7 @@
 		9D1A89192885F40400916560 /* AuthServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A89182885F40400916560 /* AuthServiceProtocol.swift */; };
 		9D1A891B2885F44800916560 /* FirebaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A891A2885F44800916560 /* FirebaseAuthService.swift */; };
 		9D1A89202885F9BA00916560 /* SuggestionsBoxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A891F2885F9BA00916560 /* SuggestionsBoxCell.swift */; };
-		9D1A89242885FA0D00916560 /* BlueprintsServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A89232885FA0D00916560 /* BlueprintsServiceProtocol.swift */; };
+		9D1A89242885FA0D00916560 /* IBlueprintsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A89232885FA0D00916560 /* IBlueprintsService.swift */; };
 		9D1A89262885FA2A00916560 /* FirestoreBlueprintsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A89252885FA2A00916560 /* FirestoreBlueprintsService.swift */; };
 		9D1A89282885FABB00916560 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D1A89272885FABB00916560 /* GoogleService-Info.plist */; };
 		9D1A892C28861C3200916560 /* AssignmentsServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A892B28861C3200916560 /* AssignmentsServiceProtocol.swift */; };
@@ -97,6 +100,8 @@
 
 /* Begin PBXFileReference section */
 		2B1FD67B289C15FF002FF49D /* FirestoreAssignmentsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreAssignmentsServiceTests.swift; sourceTree = "<group>"; };
+		2B1FD687289C31C5002FF49D /* ZPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZPath.swift; sourceTree = "<group>"; };
+		2B1FD68B289C34CD002FF49D /* ZPathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZPathTests.swift; sourceTree = "<group>"; };
 		2CEFCBF08884A7ECB5C5104C /* Pods-BlueprintsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueprintsTests.release.xcconfig"; path = "Target Support Files/Pods-BlueprintsTests/Pods-BlueprintsTests.release.xcconfig"; sourceTree = "<group>"; };
 		3E663306192264E2E7B5D788 /* Pods-Blueprints-BlueprintsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blueprints-BlueprintsUITests.release.xcconfig"; path = "Target Support Files/Pods-Blueprints-BlueprintsUITests/Pods-Blueprints-BlueprintsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		50D49B3131F0B9A8EC0023B2 /* Pods-BlueprintsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueprintsTests.debug.xcconfig"; path = "Target Support Files/Pods-BlueprintsTests/Pods-BlueprintsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -111,7 +116,7 @@
 		9D1A89182885F40400916560 /* AuthServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceProtocol.swift; sourceTree = "<group>"; };
 		9D1A891A2885F44800916560 /* FirebaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthService.swift; sourceTree = "<group>"; };
 		9D1A891F2885F9BA00916560 /* SuggestionsBoxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsBoxCell.swift; sourceTree = "<group>"; };
-		9D1A89232885FA0D00916560 /* BlueprintsServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueprintsServiceProtocol.swift; sourceTree = "<group>"; };
+		9D1A89232885FA0D00916560 /* IBlueprintsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBlueprintsService.swift; sourceTree = "<group>"; };
 		9D1A89252885FA2A00916560 /* FirestoreBlueprintsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreBlueprintsService.swift; sourceTree = "<group>"; };
 		9D1A89272885FABB00916560 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9D1A892B28861C3200916560 /* AssignmentsServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentsServiceProtocol.swift; sourceTree = "<group>"; };
@@ -193,6 +198,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B1FD68A289C34BE002FF49D /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				2B1FD68B289C34CD002FF49D /* ZPathTests.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		70509F1E89FDA6F4447B35F6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -340,6 +353,7 @@
 		9D5C363F287F590A008A418D /* BlueprintsTests */ = {
 			isa = PBXGroup;
 			children = (
+				2B1FD68A289C34BE002FF49D /* Utilities */,
 				9D5C3679288485ED008A418D /* Services */,
 				9D5C3640287F590A008A418D /* BlueprintsTests.swift */,
 			);
@@ -425,7 +439,7 @@
 		9D5C366F28847E3A008A418D /* Blueprints */ = {
 			isa = PBXGroup;
 			children = (
-				9D1A89232885FA0D00916560 /* BlueprintsServiceProtocol.swift */,
+				9D1A89232885FA0D00916560 /* IBlueprintsService.swift */,
 				9D1A89252885FA2A00916560 /* FirestoreBlueprintsService.swift */,
 				9D1A893E28862A4B00916560 /* MockBlueprintsService.swift */,
 			);
@@ -473,6 +487,7 @@
 			isa = PBXGroup;
 			children = (
 				9D5D98062898819B008BDAB8 /* Dgtl.swift */,
+				2B1FD687289C31C5002FF49D /* ZPath.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -764,7 +779,7 @@
 				9D5C367F28848723008A418D /* Date+Convenience.swift in Sources */,
 				9D1A892E28861C4C00916560 /* FirestoreAssignmentsService.swift in Sources */,
 				9D5D98072898819B008BDAB8 /* Dgtl.swift in Sources */,
-				9D1A89242885FA0D00916560 /* BlueprintsServiceProtocol.swift in Sources */,
+				9D1A89242885FA0D00916560 /* IBlueprintsService.swift in Sources */,
 				9D5C36682881C512008A418D /* Blueprint.swift in Sources */,
 				9D1A894E28862E0600916560 /* SuggestionsServiceProtocol.swift in Sources */,
 				9D1A894328862AF500916560 /* FirebaseContainer.swift in Sources */,
@@ -780,6 +795,7 @@
 				9D1A89262885FA2A00916560 /* FirestoreBlueprintsService.swift in Sources */,
 				9D5C362C287F5909008A418D /* SceneDelegate.swift in Sources */,
 				9D1A892C28861C3200916560 /* AssignmentsServiceProtocol.swift in Sources */,
+				2B1FD688289C31C5002FF49D /* ZPath.swift in Sources */,
 				9D5C366A2881C54C008A418D /* DayCompletion.swift in Sources */,
 				9D5D980228987FDA008BDAB8 /* StorageServiceProtocol.swift in Sources */,
 				9D1666D8288B455100BF07AD /* UIKit+Helpers.swift in Sources */,
@@ -793,6 +809,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B1FD689289C34B5002FF49D /* ZPath.swift in Sources */,
 				2B1FD67C289C15FF002FF49D /* FirestoreAssignmentsServiceTests.swift in Sources */,
 				9D1A894B28862D9F00916560 /* SuggestionsBox+Mocked.swift in Sources */,
 				2B1FD683289C27EA002FF49D /* ServiceProtocol.swift in Sources */,
@@ -805,12 +822,13 @@
 				9D1A8935288626F200916560 /* AuthServiceProtocol.swift in Sources */,
 				2B1FD67F289C2481002FF49D /* Blueprint.swift in Sources */,
 				9D5C3641287F590A008A418D /* BlueprintsTests.swift in Sources */,
+				2B1FD68C289C34CD002FF49D /* ZPathTests.swift in Sources */,
 				2B1FD686289C2A6E002FF49D /* DayCompletion.swift in Sources */,
 				2B1FD681289C2722002FF49D /* Blueprint+Cases.swift in Sources */,
 				9D1A893A2886278C00916560 /* Container+Tests.swift in Sources */,
 				2B1FD685289C293F002FF49D /* Day.swift in Sources */,
 				9D1A893C2886285600916560 /* CalendarDaysService.swift in Sources */,
-				2B1FD682289C275F002FF49D /* BlueprintsServiceProtocol.swift in Sources */,
+				2B1FD682289C275F002FF49D /* IBlueprintsService.swift in Sources */,
 				2B1FD67D289C2438002FF49D /* Blueprint+Mocked.swift in Sources */,
 				9D1A895528863E6000916560 /* MockSuggestionsService.swift in Sources */,
 				9D1A8933288626D700916560 /* MockAuthService.swift in Sources */,

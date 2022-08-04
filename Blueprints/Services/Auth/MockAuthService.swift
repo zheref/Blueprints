@@ -12,6 +12,8 @@ import RxSwift
 
 class MockAuthService: AuthServiceProtocol {
     
+    var currentUserId = "test-user"
+    
     var currentUserHandle: Observable<String> {
         // TODO: Implement actual authentication mechanism
         return Observable<String>.just("mock-user")

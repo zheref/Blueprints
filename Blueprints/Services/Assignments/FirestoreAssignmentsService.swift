@@ -49,6 +49,18 @@ class FirestoreAssignmentsService: AssignmentsServiceProtocol {
         }
     }
     
+    static func assignmentsMap(from documents: [RawDocument]) -> AssignmentsMap {
+        var assignmentsDictionary = AssignmentsMap()
+        for doc in documents {
+            guard let dateName = doc["date"] as? String, let blueprintRef = doc["print"] as? DocumentReference else {
+                print("Error: Either date or print in assignment are not string and document references")
+                break
+            }
+            assignmentsDictionary[dateName] = blueprintRef.path
+        }
+        return assignmentsDictionary
+    }
+    
     func fetch(forDates dates: [BlueDate],
                forUserId userId: String) -> Observable<AssignmentsMap> {
         let firestore = try! firebaseInjector.resolve() as Firestore
@@ -57,7 +69,7 @@ class FirestoreAssignmentsService: AssignmentsServiceProtocol {
         
         return Observable.create { [datesList] observer in
             let listener = firestore
-                .document("/users/\(userId)")
+                .document("users/\(userId)")
                 .collection(Self.collectionName)
                 .whereField("date", in: datesList)
                 .addSnapshotListener { snapshot, error in
@@ -69,15 +81,8 @@ class FirestoreAssignmentsService: AssignmentsServiceProtocol {
                         return
                     }
                     
-                    var assignmentsDictionary = AssignmentsMap()
-                    for doc in docs {
-                        guard let dateName = doc["date"] as? String, let blueprintRef = doc["print"] as? FirebaseFirestore.DocumentReference else {
-                            break
-                        }
-                        assignmentsDictionary[dateName] = blueprintRef.path
-                    }
-                    
-                    observer.on(.next(assignmentsDictionary))
+                    let assignmentsDict = Self.assignmentsMap(from: docs.map { $0.data() })
+                    observer.on(.next(assignmentsDict))
                 }
             
             return Disposables.create {

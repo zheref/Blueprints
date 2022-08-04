@@ -5,6 +5,8 @@ enum BlueError: Error {
     case noIdentifier
 }
 
+typealias RawDocument = [String: Any]
+
 protocol ServiceProtocol {
     var servicesInjector: DependencyContainer { get }
     var firebaseInjector: DependencyContainer { get }

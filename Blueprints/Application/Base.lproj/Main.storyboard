@@ -219,6 +219,15 @@
                                                 <constraint firstItem="fKI-09-Q98" firstAttribute="top" secondItem="ERV-a3-2yT" secondAttribute="bottom" id="yD9-Uj-3LD"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="attributeLabel" destination="ERV-a3-2yT" id="IzP-S4-imv"/>
+                                            <outlet property="printImageView" destination="fxB-SZ-Xcs" id="Tfw-yL-H97"/>
+                                            <outlet property="printNameLabel" destination="hXj-Nm-qpm" id="RAx-JY-cAh"/>
+                                            <outlet property="systemLabel" destination="LyY-2W-C50" id="hWo-iK-e3P"/>
+                                            <outlet property="transportLabel" destination="fKI-09-Q98" id="8zc-ii-NmG"/>
+                                            <outlet property="useCountContainer" destination="vRf-cH-DSr" id="HAg-O0-bfj"/>
+                                            <outlet property="useCountLabel" destination="vRf-cH-DSr" id="Ill-oy-Dak"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="suggestionsBoxCell" rowHeight="170" id="D5U-U6-vQ2" customClass="SuggestionsBoxCell" customModule="Blueprints" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="314" width="414" height="170"/>

@@ -32,9 +32,7 @@ class SuggestionsBoxCell: UITableViewCell {
         setup()
     }
     
-    private func setup() {
-//        printsCollection.delegate = self
-    }
+    private func setup() {}
     
     private func bind() {
         titleLabel.text = model.title

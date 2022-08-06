@@ -33,15 +33,22 @@ class BriefingController: BlueController {
     }
     
     private func bind() {
-        model.rows.bind(to: briefingTableView.rx.items(cellIdentifier: SuggestionsBoxCell.reuseIdentifier, cellType: SuggestionsBoxCell.self)) { [unowned self] in
-            guard case let .suggestions(prints, userId) = $1.1 else { return }
-            $2.model = SuggestionsBox(title: $1.0, prints: prints, forUser: userId)
-            $2.assignClicked.subscribe(onNext: self.model.userDidAssignToDate).disposed(by: self.bag)
+        model.rows.bind(to: briefingTableView.rx.items) { table, index, element in
+            switch element.1 {
+            case .suggestions(let prints, let userId):
+                let cell = table.dequeueReusableCell(withIdentifier: SuggestionsBoxCell.reuseIdentifier, for: IndexPath(row: index, section: 0))
+                if let suggestionsBoxCell = cell as? SuggestionsBoxCell {
+                    suggestionsBoxCell.model = SuggestionsBox(title: element.0, prints: prints, forUser: userId)
+                    return suggestionsBoxCell
+                } else { return cell }
+            case .today(let blueprint):
+                let cell = table.dequeueReusableCell(withIdentifier: TodayCell.reuseIdentifier, for: IndexPath(row: index, section: 0))
+                if let todayCell = cell as? TodayCell {
+                    todayCell.model = blueprint
+                    return todayCell
+                } else { return cell }
+            }
         }.disposed(by: bag)
-        
-        // Potential solution for multiple types of cells
-//        model.rows.bind(to: briefingTableView.rx.items) { table, index, element in
-//        }.disposed(by: disposeBag)
     }
 
 }

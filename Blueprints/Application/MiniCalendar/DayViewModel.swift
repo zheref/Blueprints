@@ -7,16 +7,16 @@ class DayViewModel {
     var assignedDay: BlueDay? { day as? BlueDay }
     
     var actualDayTitle: String {
-        let today = Date()
+        let today = BlueDate.from(date: Date())
         
-        if day.date.sameDay(as: today) {
+        if day.date.day == today.day {
             return K.Copy.today
-        } else if let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: today),
-                    day.date == yesterday {
+        } else if let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: today.toDate()!),
+                  day.date.toDate()! == yesterday {
             return K.Copy.yesterday
         }
         
-        return day.date.weekday
+        return day.date.toDate()!.weekday
     }
     
     var blueprintDayTitle: String {
@@ -28,11 +28,11 @@ class DayViewModel {
     }
     
     var dayNumber: String {
-        return "\(Calendar.current.component(.day, from: day.date))"
+        return "\(Calendar.current.component(.day, from: day.date.toDate()!))"
     }
     
     var hightlightColor: String {
-        if day.date.sameDay(as: Date()) {
+        if day.date.day == BlueDate.today.day {
             return K.Color.greenDay
         }
         

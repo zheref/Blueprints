@@ -29,9 +29,9 @@ class CalendarDaysServiceTests: XCTestCase {
         let count = 3
         
         let expectedDates = [
-            Date.withComponents(day: 14, month: 7, year: 2022)!,
-            Date.withComponents(day: 15, month: 7, year: 2022)!,
-            Date.withComponents(day: 16, month: 7, year: 2022)!
+            BlueDate.from(date: Date.withComponents(day: 14, month: 7, year: 2022)!),
+            BlueDate(day: 15, month: 7, year: 2022),
+            BlueDate.from(date: Date.withComponents(day: 16, month: 7, year: 2022)!)
         ]
         
         let actualDays = daysService.resolveHistory(forDate: today, count: count)
@@ -46,7 +46,10 @@ class CalendarDaysServiceTests: XCTestCase {
             return
         }
         
-        XCTAssertEqual(daysService.resolve(yesterdayFrom: today).date, Date.withComponents(day: 16, month: 7, year: 2022))
+        XCTAssertEqual(
+            daysService.resolve(yesterdayFrom: today).date,
+            BlueDate.from(date: Date.withComponents(day: 16, month: 7, year: 2022)!)
+        )
     }
     
     func testResolveToday() {
@@ -55,7 +58,7 @@ class CalendarDaysServiceTests: XCTestCase {
             return
         }
         
-        XCTAssertEqual(daysService.resolve(todayFor: today).date, today)
+        XCTAssertEqual(daysService.resolve(todayFor: today).date, BlueDate.from(date: today))
     }
     
     func testResolveTomorrow() {
@@ -70,7 +73,7 @@ class CalendarDaysServiceTests: XCTestCase {
             Date.withComponents(day: 18, month: 7, year: 2022)!,
             Date.withComponents(day: 19, month: 7, year: 2022)!,
             Date.withComponents(day: 20, month: 7, year: 2022)!
-        ]
+        ].map { BlueDate.from(date: $0) }
         
         let actualDays = daysService.resolve(tomorrowFor: today, count: count)
         

@@ -1,14 +1,14 @@
 import Foundation
 
-struct BlueDate {
+struct BlueDate: Equatable {
     let day: Int
     let month: Int
     let year: Int
     
-    static func from(date: Date) -> BlueDate? {
+    static func from(date: Date) -> BlueDate {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
-        return Self.from(string: formatter.string(from: date))
+        return Self.from(string: formatter.string(from: date))!
     }
     
     static func from(string: String) -> BlueDate? {
@@ -26,6 +26,10 @@ struct BlueDate {
         }
         
         return BlueDate(day: day, month: month, year: year)
+    }
+    
+    static var today: BlueDate {
+        BlueDate.from(date: Date())
     }
     
     func toString() -> String? {
@@ -53,17 +57,25 @@ struct BlueDate {
 }
 
 protocol Day {
-    var date: Date { get }
+    var date: BlueDate { get }
 }
 
 struct RedDay: Day, Equatable {
-    let date: Date
+    let date: BlueDate
+    
+    static func == (lhs: RedDay, rhs: RedDay) -> Bool {
+        return lhs.date == rhs.date
+    }
 }
 
 struct BlueDay: Day, Equatable {
-    let date: Date
+    let date: BlueDate
     let blueprint: Blueprint
     let completion: DayCompletion?
+    
+    static func from(red: RedDay, withPrint blueprint: Blueprint) -> BlueDay {
+        return BlueDay(date: red.date, blueprint: blueprint, completion: nil)
+    }
     
     static func == (lhs: BlueDay, rhs: BlueDay) -> Bool {
         return lhs.date == rhs.date

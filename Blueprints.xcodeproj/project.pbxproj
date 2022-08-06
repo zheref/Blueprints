@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1C6BAE73D3A636C4B48A1563 /* Pods_Blueprints_BlueprintsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB12A58511A886E864CF7F6 /* Pods_Blueprints_BlueprintsUITests.framework */; };
+		2B0A8786289EC85E00D2E482 /* IAssignmentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A892B28861C3200916560 /* IAssignmentsService.swift */; };
 		2B1FD67C289C15FF002FF49D /* FirestoreAssignmentsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1FD67B289C15FF002FF49D /* FirestoreAssignmentsServiceTests.swift */; };
 		2B1FD67D289C2438002FF49D /* Blueprint+Mocked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A894628862C9A00916560 /* Blueprint+Mocked.swift */; };
 		2B1FD67F289C2481002FF49D /* Blueprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5C36672881C512008A418D /* Blueprint.swift */; };
@@ -34,7 +35,7 @@
 		9D1A89242885FA0D00916560 /* IBlueprintsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A89232885FA0D00916560 /* IBlueprintsService.swift */; };
 		9D1A89262885FA2A00916560 /* FirestoreBlueprintsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A89252885FA2A00916560 /* FirestoreBlueprintsService.swift */; };
 		9D1A89282885FABB00916560 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D1A89272885FABB00916560 /* GoogleService-Info.plist */; };
-		9D1A892C28861C3200916560 /* AssignmentsServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A892B28861C3200916560 /* AssignmentsServiceProtocol.swift */; };
+		9D1A892C28861C3200916560 /* IAssignmentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A892B28861C3200916560 /* IAssignmentsService.swift */; };
 		9D1A892E28861C4C00916560 /* FirestoreAssignmentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A892D28861C4C00916560 /* FirestoreAssignmentsService.swift */; };
 		9D1A89302886227200916560 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A892F2886227200916560 /* Container.swift */; };
 		9D1A8933288626D700916560 /* MockAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A8931288626B700916560 /* MockAuthService.swift */; };
@@ -119,7 +120,7 @@
 		9D1A89232885FA0D00916560 /* IBlueprintsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBlueprintsService.swift; sourceTree = "<group>"; };
 		9D1A89252885FA2A00916560 /* FirestoreBlueprintsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreBlueprintsService.swift; sourceTree = "<group>"; };
 		9D1A89272885FABB00916560 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		9D1A892B28861C3200916560 /* AssignmentsServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentsServiceProtocol.swift; sourceTree = "<group>"; };
+		9D1A892B28861C3200916560 /* IAssignmentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAssignmentsService.swift; sourceTree = "<group>"; };
 		9D1A892D28861C4C00916560 /* FirestoreAssignmentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreAssignmentsService.swift; sourceTree = "<group>"; };
 		9D1A892F2886227200916560 /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		9D1A8931288626B700916560 /* MockAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthService.swift; sourceTree = "<group>"; };
@@ -261,7 +262,7 @@
 		9D1A892928861C0900916560 /* Assignments */ = {
 			isa = PBXGroup;
 			children = (
-				9D1A892B28861C3200916560 /* AssignmentsServiceProtocol.swift */,
+				9D1A892B28861C3200916560 /* IAssignmentsService.swift */,
 				9D1A892D28861C4C00916560 /* FirestoreAssignmentsService.swift */,
 			);
 			path = Assignments;
@@ -794,7 +795,7 @@
 				9D5C36632881C43E008A418D /* DayCell.swift in Sources */,
 				9D1A89262885FA2A00916560 /* FirestoreBlueprintsService.swift in Sources */,
 				9D5C362C287F5909008A418D /* SceneDelegate.swift in Sources */,
-				9D1A892C28861C3200916560 /* AssignmentsServiceProtocol.swift in Sources */,
+				9D1A892C28861C3200916560 /* IAssignmentsService.swift in Sources */,
 				2B1FD688289C31C5002FF49D /* ZPath.swift in Sources */,
 				9D5C366A2881C54C008A418D /* DayCompletion.swift in Sources */,
 				9D5D980228987FDA008BDAB8 /* StorageServiceProtocol.swift in Sources */,
@@ -819,6 +820,7 @@
 				2B1FD684289C2929002FF49D /* FirebaseContainer.swift in Sources */,
 				9D5C367C28848614008A418D /* CalendarDaysServiceTests.swift in Sources */,
 				9D1A893B2886279500916560 /* Container.swift in Sources */,
+				2B0A8786289EC85E00D2E482 /* IAssignmentsService.swift in Sources */,
 				9D1A8935288626F200916560 /* AuthServiceProtocol.swift in Sources */,
 				2B1FD67F289C2481002FF49D /* Blueprint.swift in Sources */,
 				9D5C3641287F590A008A418D /* BlueprintsTests.swift in Sources */,

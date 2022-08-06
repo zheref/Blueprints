@@ -38,6 +38,7 @@ struct Blueprint: Equatable {
     var privacy: BlueprintPrivacy = .privately
     
     let documentID: String?
+    let firePath: ZPath?
     
 //    let music: CompletionStatus
 //    let dressing: CompletionStatus

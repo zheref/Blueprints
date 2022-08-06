@@ -3,14 +3,43 @@ import RxSwift
 import FirebaseFirestore
 import os
 
-class FirestoreAssignmentsService: AssignmentsServiceProtocol {
+class FirestoreAssignmentsService: IAssignmentsServive {
+    
+    // MARK: - Class Members
+    
+    static let collectionName = "assignments"
     
     private static let logger = Logger(
         subsystem: Bundle.main.bundleIdentifier!,
         category: String(describing: FirestoreAssignmentsService.self)
     )
     
-    static let collectionName = "assignments"
+    static func assignmentsMap(from documents: [RawDocument]) -> AssignmentsMap {
+        var assignmentsDictionary = AssignmentsMap()
+        for doc in documents {
+            if let dateName = doc["date"] as? String, let blueprintRef = doc["print"] as? DocumentReference {
+                assignmentsDictionary[dateName] = blueprintRef.path
+            } else if let dateName = doc["date"] as? String, let blueprintPath = doc["print"] as? String {
+                assignmentsDictionary[dateName] = blueprintPath
+            } else {
+                Self.logger.error("Date or print in assignment not string or document compliant")
+                break
+            }
+        }
+        return assignmentsDictionary
+    }
+    
+    // MARK: - Instance Members
+    
+    let blueprintsService: IBlueprintsService
+    let authService: AuthServiceProtocol
+    let daysService: DaysServiceProtocol
+    
+    init(authService: AuthServiceProtocol, blueprintsService: IBlueprintsService, daysService: DaysServiceProtocol) {
+        self.authService = authService
+        self.blueprintsService = blueprintsService
+        self.daysService = daysService
+    }
     
     func assign(bprint: Blueprint, toDate date: BlueDate, forUserId userId: String) -> Single<Void> {
         let firestore = try! firebaseInjector.resolve() as Firestore
@@ -26,8 +55,8 @@ class FirestoreAssignmentsService: AssignmentsServiceProtocol {
         let assignmentData: [String: Any] = [
             "date": dateString,
             "print": bprint.privacy == .privately
-                ? firestore.document("/users/\(userId)/blueprints/\(printID)")
-                : firestore.document("/blueprints/\(printID)")
+            ? firestore.document("/users/\(userId)/blueprints/\(printID)")
+            : firestore.document("/blueprints/\(printID)")
         ]
         
         return Single.create { [assignmentData, userId] trigger in
@@ -37,27 +66,47 @@ class FirestoreAssignmentsService: AssignmentsServiceProtocol {
                 .document(dateString)
                 .setData(assignmentData) { error in
                     if let error = error {
-                        print("Error assigning day:", error.localizedDescription)
+                        Self.logger.error("[Assigning Day] \(error)")
                         trigger(.failure(error))
-                    }
-                    
-                    trigger(.success(Void()))
+                    } else { trigger(.success(Void())) }
                 }
             
             return Disposables.create { }
         }
     }
     
-    static func assignmentsMap(from documents: [RawDocument]) -> AssignmentsMap {
-        var assignmentsDictionary = AssignmentsMap()
-        for doc in documents {
-            guard let dateName = doc["date"] as? String, let blueprintRef = doc["print"] as? DocumentReference else {
-                Self.logger.error("Date or print in assignment not string or document compliant")
-                break
-            }
-            assignmentsDictionary[dateName] = blueprintRef.path
+    func fetchAndMix(withDates dates: [BlueDate]) -> Observable<[Day]> {
+        fetchAndParse(forDates: dates).map { assignments in
+            return dates.map({ date in
+                guard let matchingAssignment = assignments.first(where: { $0.date == date }) else {
+                    return RedDay(date: date)
+                }
+                
+                return BlueDay(date: date, blueprint: matchingAssignment.print, completion: nil)
+            })
         }
-        return assignmentsDictionary
+    }
+    
+    func fetchAndParse(forDates dates: [BlueDate]) -> Observable<[Assignment]> {
+        return Observable.combineLatest(
+            blueprintsService.fetchForContext(forUserId: authService.currentUserId),
+            fetch(forDates: dates, forUserId: authService.currentUserId)
+        ).map { groupedBlueprints, assignmentsMap in
+            let allBlueprints = groupedBlueprints.public + groupedBlueprints.private
+            return assignmentsMap.compactMap { dateString, printRef in
+                guard let blueprint = allBlueprints.first(where: { $0.firePath == ZPath.from(string: printRef) }) else {
+                    Self.logger.error("Blueprint with documentID(\(printRef) not found")
+                    return nil
+                }
+                
+                guard let blueDate = BlueDate.from(string: dateString) else {
+                    Self.logger.error("Date string (\(dateString) not parseable to BlueDate")
+                    return nil
+                }
+                
+                return Assignment(date: blueDate, print: blueprint)
+            }
+        }
     }
     
     func fetch(forDates dates: [BlueDate],
@@ -76,8 +125,9 @@ class FirestoreAssignmentsService: AssignmentsServiceProtocol {
                     }
                     
                     guard let docs = snapshot?.documents else { return }
-                    let assignmentsDict = Self.assignmentsMap(from: docs.map { $0.data() })
-                    observer.on(.next(assignmentsDict))
+                    observer.onNext(
+                        Self.assignmentsMap(from: docs.map { $0.data() })
+                    )
                 }
             
             return Disposables.create {

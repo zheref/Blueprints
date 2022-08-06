@@ -8,10 +8,20 @@
 import Foundation
 import RxSwift
 import FirebaseFirestore
+import os
 
 class FirestoreBlueprintsService: IBlueprintsService {
     
+    // MARK: - Class Members
+    
     static let collectionName = "blueprints"
+    
+    private static let logger = Logger(
+        subsystem: Bundle.main.bundleIdentifier!,
+        category: String(describing: FirestoreBlueprintsService.self)
+    )
+    
+     // MARK: - Instance Members
     
     var privateCache = [String: Blueprint]()
     var publicCache = [String: Blueprint]()
@@ -26,7 +36,8 @@ class FirestoreBlueprintsService: IBlueprintsService {
                          pictureUrl: doc["pictureUrl"] as? String,
                          work: [],
                          train: [],
-                         documentID: doc.documentID)
+                         documentID: doc.documentID,
+                         firePath: ZPath.from(string: doc.reference.path))
     }
     
     private func lookup(withPath path: String) -> Blueprint? {
@@ -73,6 +84,34 @@ class FirestoreBlueprintsService: IBlueprintsService {
             }
             
             return Disposables.create()
+        }
+    }
+    
+    private var sharedContextFetch: Observable<GroupedBlueprints>!
+    
+    func fetchForContext(forUserId userId: String) -> Observable<GroupedBlueprints> {
+        if let prevFetch = sharedContextFetch {
+            Self.logger.info("Reusing previous shared context fetch")
+            return prevFetch
+        }
+        
+        Self.logger.info("Resolving new shared context fetch")
+        sharedContextFetch = Observable.combineLatest(
+            fetchAll(),
+            fetch(fromUser: userId)
+        ).map {
+            (public: $0, private: $1)
+        }.share(replay: 1)
+        
+        return sharedContextFetch
+    }
+    
+    func fetchBriefingRows(forUserId userId: String) -> Observable<[BriefingRow]> {
+        return fetchForContext(forUserId: userId).map {
+            Array<BriefingRow>([
+                ("My blueprints", .suggestions(blueprints: $0.private, userId: userId)),
+                ("All blueprints", .suggestions(blueprints: $0.public, userId: nil))
+            ])
         }
     }
     

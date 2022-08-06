@@ -16,11 +16,11 @@ extension HomeViewController: UICollectionViewDelegate {
             .bind(to: calendarCollectionViewLayout.rx.itemSize)
             .disposed(by: bag)
         
-        model.days.bind(to: calendarCollectionView.rx.items(cellIdentifier: DayCell.identifier, cellType: DayCell.self)) { (row, element, cell) in
+        model.assignedDays.bind(to: calendarCollectionView.rx.items(cellIdentifier: DayCell.identifier, cellType: DayCell.self)) { (row, element, cell) in
             cell.model = DayViewModel(day: element)
         }.disposed(by: bag)
         
-        model.days.subscribe { [weak self] days in
+        model.assignedDays.subscribe { [weak self] days in
             guard let self = self else { return }
             
             self.calendarCollectionView.contentSize = CGSize(
@@ -30,7 +30,7 @@ extension HomeViewController: UICollectionViewDelegate {
         } onError: { error in
             print(error)
         } onCompleted: { [weak self] in
-            print("days: completed", self?.model.days as Any)
+            print("days: completed", self?.model.assignedDays as Any)
         } onDisposed: {
             print("days model disposed")
         }.disposed(by: bag)

@@ -8,6 +8,6 @@
 import Foundation
 import RxSwift
 
-protocol AuthServiceProtocol {
+protocol IAuthService {
     var currentUserId: String { get }
 }

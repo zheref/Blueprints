@@ -8,11 +8,11 @@ class HomeViewModel {
     var dates: Observable<[BlueDate]>
     var assignedDays = BehaviorSubject<[Day]>(value: [])
     
-    let authService: AuthServiceProtocol
+    let authService: IAuthService
     let daysService: DaysServiceProtocol
     let blueprintsService: IBlueprintsService
     
-    init(authService: AuthServiceProtocol = FirebaseAuthService(),
+    init(authService: IAuthService = FirebaseAuthService(),
          daysService: DaysServiceProtocol = CalendarDaysService(),
          blueprintsService: IBlueprintsService = FirestoreBlueprintsService()) {
         let assignmentsService = try! ServicesContainer.shared.resolve() as IAssignmentsServive

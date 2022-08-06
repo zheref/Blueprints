@@ -49,7 +49,7 @@ class BriefingController: BlueController {
 extension BriefingController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        170.0
+        K.Measurement.carouselHeight
     }
     
 }

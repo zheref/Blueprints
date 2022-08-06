@@ -11,7 +11,7 @@ import Dip
 extension ServicesContainer {
     static let shared: DependencyContainer = {
         let container = DependencyContainer()
-        container.register { FirebaseAuthService() as AuthServiceProtocol }
+        container.register { FirebaseAuthService() as IAuthService }
         container.register { CalendarDaysService() as DaysServiceProtocol }
         container.register { FirebaseStorageService() as StorageServiceProtocol }
         container.register { FirestoreBlueprintsService() as IBlueprintsService }

@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-class FirebaseAuthService: AuthServiceProtocol {
+class FirebaseAuthService: IAuthService {
     
     var currentUserId: String {
         // TODO: Implement actual authentication mechanism

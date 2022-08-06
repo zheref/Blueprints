@@ -32,10 +32,10 @@ class FirestoreAssignmentsService: IAssignmentsServive {
     // MARK: - Instance Members
     
     let blueprintsService: IBlueprintsService
-    let authService: AuthServiceProtocol
+    let authService: IAuthService
     let daysService: DaysServiceProtocol
     
-    init(authService: AuthServiceProtocol, blueprintsService: IBlueprintsService, daysService: DaysServiceProtocol) {
+    init(authService: IAuthService, blueprintsService: IBlueprintsService, daysService: DaysServiceProtocol) {
         self.authService = authService
         self.blueprintsService = blueprintsService
         self.daysService = daysService

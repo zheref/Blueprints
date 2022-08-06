@@ -39,12 +39,13 @@ class TodayCell: UITableViewCell {
     }
     
     private func setup() {
-        useCountContainer.layer.cornerRadius = 8
-        useCountContainer.layer.masksToBounds = true
+        useCountContainer.layer.cornerRadius = 10.5
+        useCountContainer.clipsToBounds = true
     }
     
     private func bind() {
-        
+        printNameLabel.text = model.name
+        attributeLabel.text = model.attribute
     }
 
 }

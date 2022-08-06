@@ -154,12 +154,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="264"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thor-Day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXj-Nm-qpm">
-                                                    <rect key="frame" x="20" y="11" width="98" height="33"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="24"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fxB-SZ-Xcs">
                                                     <rect key="frame" x="20" y="52" width="132" height="132"/>
                                                     <constraints>
@@ -185,33 +179,48 @@
                                                         <constraint firstAttribute="height" constant="21" id="reW-oX-a9R"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Business day out!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ERV-a3-2yT">
-                                                    <rect key="frame" x="160" y="52" width="134" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Business day out!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ERV-a3-2yT">
+                                                    <rect key="frame" x="160" y="52" width="140.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transport: 🏍️" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKI-09-Q98">
-                                                    <rect key="frame" x="160" y="73" width="85" height="16"/>
+                                                    <rect key="frame" x="160" y="72.5" width="85" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="System: Biological Primetime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LyY-2W-C50">
-                                                    <rect key="frame" x="160" y="89" width="176" height="16"/>
+                                                    <rect key="frame" x="160" y="88.5" width="176" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TODAY:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BeG-9l-SDW">
+                                                    <rect key="frame" x="20" y="22" width="49" height="16"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thor-Day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXj-Nm-qpm">
+                                                    <rect key="frame" x="73" y="11" width="98" height="33"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="24"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="hXj-Nm-qpm" firstAttribute="leading" secondItem="BeG-9l-SDW" secondAttribute="trailing" constant="4" id="0tB-x2-OmY"/>
+                                                <constraint firstItem="fxB-SZ-Xcs" firstAttribute="top" secondItem="BeG-9l-SDW" secondAttribute="bottom" constant="14" id="85N-vg-ERd"/>
                                                 <constraint firstItem="fKI-09-Q98" firstAttribute="leading" secondItem="ERV-a3-2yT" secondAttribute="leading" id="9mG-Lo-AjE"/>
                                                 <constraint firstItem="Ev4-0U-6yB" firstAttribute="centerY" secondItem="hXj-Nm-qpm" secondAttribute="centerY" id="J6b-JK-4dY"/>
-                                                <constraint firstItem="fxB-SZ-Xcs" firstAttribute="leading" secondItem="hXj-Nm-qpm" secondAttribute="leading" id="Ybp-OT-pxR"/>
-                                                <constraint firstItem="fxB-SZ-Xcs" firstAttribute="top" secondItem="hXj-Nm-qpm" secondAttribute="bottom" constant="8" symbolic="YES" id="gY6-4Y-cMI"/>
+                                                <constraint firstItem="BeG-9l-SDW" firstAttribute="top" secondItem="xeA-rh-CxE" secondAttribute="top" constant="22" id="YGR-R5-tL6"/>
+                                                <constraint firstItem="BeG-9l-SDW" firstAttribute="leading" secondItem="xeA-rh-CxE" secondAttribute="leading" constant="20" symbolic="YES" id="bBi-Y1-9Ee"/>
                                                 <constraint firstItem="LyY-2W-C50" firstAttribute="top" secondItem="fKI-09-Q98" secondAttribute="bottom" id="kKk-Ra-fux"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ERV-a3-2yT" secondAttribute="trailing" constant="13" id="kfs-hL-IgP"/>
                                                 <constraint firstItem="LyY-2W-C50" firstAttribute="leading" secondItem="fKI-09-Q98" secondAttribute="leading" id="mNg-4i-3hd"/>
-                                                <constraint firstItem="hXj-Nm-qpm" firstAttribute="leading" secondItem="xeA-rh-CxE" secondAttribute="leading" constant="20" symbolic="YES" id="mjI-lL-06n"/>
+                                                <constraint firstItem="fxB-SZ-Xcs" firstAttribute="leading" secondItem="BeG-9l-SDW" secondAttribute="leading" id="mcp-sT-AAe"/>
                                                 <constraint firstItem="ERV-a3-2yT" firstAttribute="leading" secondItem="fxB-SZ-Xcs" secondAttribute="trailing" constant="8" symbolic="YES" id="rG0-3l-9Pe"/>
                                                 <constraint firstItem="ERV-a3-2yT" firstAttribute="top" secondItem="fxB-SZ-Xcs" secondAttribute="top" id="sSk-Dh-Is6"/>
                                                 <constraint firstItem="hXj-Nm-qpm" firstAttribute="top" secondItem="xeA-rh-CxE" secondAttribute="top" constant="11" id="sr4-eY-thv"/>
@@ -225,7 +234,7 @@
                                             <outlet property="printNameLabel" destination="hXj-Nm-qpm" id="RAx-JY-cAh"/>
                                             <outlet property="systemLabel" destination="LyY-2W-C50" id="hWo-iK-e3P"/>
                                             <outlet property="transportLabel" destination="fKI-09-Q98" id="8zc-ii-NmG"/>
-                                            <outlet property="useCountContainer" destination="vRf-cH-DSr" id="HAg-O0-bfj"/>
+                                            <outlet property="useCountContainer" destination="Ev4-0U-6yB" id="XF9-cZ-UBb"/>
                                             <outlet property="useCountLabel" destination="vRf-cH-DSr" id="Ill-oy-Dak"/>
                                         </connections>
                                     </tableViewCell>

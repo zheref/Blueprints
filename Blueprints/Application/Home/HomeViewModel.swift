@@ -34,6 +34,8 @@ class HomeViewModel {
         }.disposed(by: bag)
     }
     
-    lazy var forBriefing: BriefingViewModel = { BriefingViewModel() }()
+    lazy var forBriefing: BriefingViewModel = {
+        BriefingViewModel(assignedDays: self.assignedDays)
+    }()
     
 }

@@ -6,7 +6,7 @@ class BriefingViewModel {
     var rows: Observable<[BriefingRow]>
     var bag = DisposeBag()
     
-    init() {
+    init(assignedDays: Observable<[Day]>) {
         let blueprintsService = try! ServicesContainer.shared.resolve() as IBlueprintsService
         let suggestionsService = try! ServicesContainer.shared.resolve() as SuggestionsServiceProtocol
         let authService = try! ServicesContainer.shared.resolve() as IAuthService
@@ -18,7 +18,17 @@ class BriefingViewModel {
             }
         }
         
-        self.rows = Observable.combineLatest(blueprintsFetch, suggestionsFetch).map { $0 + $1 }
+        let suggestionsStream = Observable.combineLatest(blueprintsFetch, suggestionsFetch).map { $0 + $1 }
+        let todayStream = assignedDays
+            .map { $0.first(where: { $0.date == BlueDate.today }) }
+            .map { day in
+                guard let day = day as? BlueDay else {
+                    return [BriefingRow]()
+                }
+                return [("Today", BriefingRowType.today(blueprint: day.blueprint))]
+            }
+        
+        self.rows = Observable.combineLatest(todayStream, suggestionsStream).map { $0 + $1 }
     }
     
     func userDidAssignToDate(bprint: Blueprint) {

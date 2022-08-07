@@ -68,6 +68,8 @@ class TodayCell: UITableViewCell {
         
         for i in 0..<model.colors.count {
             colorViews[i].backgroundColor = UIColor(named: model.colors[i].rawValue)
+            colorViews[i].layer.borderWidth = 1
+            colorViews[i].layer.borderColor = UIColor.gray.cgColor
         }
         
         if let imageUrl = model.pictureUrl {

@@ -93,6 +93,7 @@
                                                 <constraint firstItem="nsg-pT-c44" firstAttribute="top" secondItem="hBO-Os-v2c" secondAttribute="bottom" constant="8" symbolic="YES" id="xJr-1H-22h"/>
                                             </constraints>
                                         </collectionViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="actualDayLabel" destination="nrF-ug-kNd" id="7d5-4s-2Z0"/>
                                             <outlet property="blueprintDayLabel" destination="nsg-pT-c44" id="xQu-cF-21N"/>

@@ -16,6 +16,7 @@ class BriefingController: BlueController {
     
     // MARK: - Data
     var model: BriefingViewModel!
+    var isTodayOpen = false
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -33,6 +34,21 @@ class BriefingController: BlueController {
     }
     
     private func bind() {
+        model.rows.map { rows in
+            guard let first = rows.first else {
+                return false
+            }
+            
+            switch first.1 {
+            case .today(_):
+                return true
+            case .suggestions(_, _):
+                return false
+            }
+        }.subscribe(onNext: {
+            self.isTodayOpen = $0
+        }).disposed(by: bag)
+        
         model.rows.bind(to: briefingTableView.rx.items) { table, index, element in
             switch element.1 {
             case .suggestions(let prints, let userId):
@@ -56,7 +72,11 @@ class BriefingController: BlueController {
 extension BriefingController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        K.Measurement.carouselHeight
+        if indexPath.row == 0, self.isTodayOpen {
+            return K.Measurement.summaryHeight
+        } else {
+            return K.Measurement.carouselHeight
+        }
     }
     
 }

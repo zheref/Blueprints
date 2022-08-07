@@ -41,11 +41,24 @@ class TodayCell: UITableViewCell {
     private func setup() {
         useCountContainer.layer.cornerRadius = 10.5
         useCountContainer.clipsToBounds = true
+        
+        printImageView.clipsToBounds = true
+        printImageView.layer.cornerRadius = 12
     }
     
     private func bind() {
+        let storageService = try! ServicesContainer.shared.resolve() as StorageServiceProtocol
+        
         printNameLabel.text = model.name
         attributeLabel.text = model.attribute
+        
+        if let imageUrl = model.pictureUrl {
+            storageService.downloadImage(named: imageUrl).subscribe(onSuccess: { [weak self] data in
+                self?.printImageView.image = UIImage(data: data)
+            }).disposed(by: bag)
+        } else {
+            printImageView.image = nil
+        }
     }
 
 }

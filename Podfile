@@ -22,6 +22,8 @@ target 'Blueprints' do
   pod 'FirebaseAuth'
   pod 'FirebaseFirestore'
   pod 'FirebaseStorage'
+  
+  pod 'FirebaseUI/Storage'
 
   target 'BlueprintsTests' do
     inherit! :search_paths

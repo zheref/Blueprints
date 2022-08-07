@@ -21,6 +21,7 @@ enum K {
     
     enum Measurement {
         static let carouselHeight: CGFloat = 170
+        static let summaryHeight: CGFloat = 264
     }
     
 }

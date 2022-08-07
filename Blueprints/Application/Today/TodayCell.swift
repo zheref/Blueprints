@@ -44,6 +44,7 @@ class TodayCell: UITableViewCell {
     private func setup() {
         useCountContainer.round(withRadius: 10.5)
         printImageView.round(withRadius: 12)
+        printImageView.contentMode = .scaleAspectFill
         
         for view in colorViews {
             view.round(withRadius: 10)

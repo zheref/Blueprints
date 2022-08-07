@@ -8,6 +8,8 @@ class HomeViewModel {
     var dates: Observable<[BlueDate]>
     var assignedDays = BehaviorSubject<[Day]>(value: [])
     
+    var selectedDay = BehaviorSubject<Day?>(value: nil)
+    
     let authService: IAuthService
     let daysService: DaysServiceProtocol
     let blueprintsService: IBlueprintsService
@@ -35,7 +37,17 @@ class HomeViewModel {
     }
     
     lazy var forBriefing: BriefingViewModel = {
-        BriefingViewModel(assignedDays: self.assignedDays)
+        BriefingViewModel(
+            assignedDays: self.assignedDays,
+            selectedDay: self.selectedDay
+        )
     }()
+    
+    func selectedDayAt(index: Int) {
+        // TODO: AssignedDays should become a behaviorRelay??
+        assignedDays.subscribe(onNext: { [weak self] days in
+            self?.selectedDay.onNext(days[index])
+        }).disposed(by: bag)
+    }
     
 }

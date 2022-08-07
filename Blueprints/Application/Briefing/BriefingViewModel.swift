@@ -4,9 +4,13 @@ import RxSwift
 class BriefingViewModel {
     
     var rows: Observable<[BriefingRow]>
+    
+    var selectedDay: Observable<Day?>
+    var selectedDate: BlueDate?
+    
     var bag = DisposeBag()
     
-    init(assignedDays: Observable<[Day]>) {
+    init(assignedDays: Observable<[Day]>, selectedDay: Observable<Day?>) {
         let blueprintsService = try! ServicesContainer.shared.resolve() as IBlueprintsService
         let suggestionsService = try! ServicesContainer.shared.resolve() as SuggestionsServiceProtocol
         let authService = try! ServicesContainer.shared.resolve() as IAuthService
@@ -19,8 +23,11 @@ class BriefingViewModel {
         }
         
         let suggestionsStream = Observable.combineLatest(blueprintsFetch, suggestionsFetch).map { $0 + $1 }
+        
         let todayStream = assignedDays
             .map { $0.first(where: { $0.date == BlueDate.today }) }
+        
+        let todayBriefing = todayStream
             .map { day -> [BriefingRow] in
                 guard let day = day as? BlueDay else {
                     return [BriefingRow]()
@@ -28,7 +35,12 @@ class BriefingViewModel {
                 return [("Today", BriefingRowType.today(blueprint: day.blueprint))]
             }
         
-        self.rows = Observable.combineLatest(todayStream, suggestionsStream).map { $0 + $1 }
+        self.rows = Observable.combineLatest(todayBriefing, suggestionsStream).map { $0 + $1 }
+        
+        self.selectedDay = selectedDay
+        self.selectedDay.subscribe(onNext: { [weak self] day in
+            self?.selectedDate = day?.date
+        }).disposed(by: bag)
     }
     
     func userDidAssignToDate(bprint: Blueprint) {
@@ -36,11 +48,12 @@ class BriefingViewModel {
         let authService = try! ServicesContainer.shared.resolve() as IAuthService
         
         assignmentsService
-            .assign(bprint: bprint, toDate: BlueDate.today, forUserId: authService.currentUserId)
+            .assign(bprint: bprint,
+                    toDate: selectedDate ?? BlueDate.today,
+                    forUserId: authService.currentUserId)
             .subscribe { _ in
                 print("Succeding assigning")
             }.disposed(by: bag)
-
     }
     
     

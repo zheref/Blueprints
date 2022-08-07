@@ -26,6 +26,7 @@ class BlueprintSuggestionCell: UICollectionViewCell {
     
     private func bind() {
         blueprintTitle?.text = model.name
+        blueprintImage.image = nil
         
         if let picUrl = model.pictureUrl {
             pullImage(withUrlString: picUrl)

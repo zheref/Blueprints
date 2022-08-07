@@ -28,6 +28,16 @@ class DayCell: UICollectionViewCell {
         dateBoxView.layer.masksToBounds = true
     }
     
+    func setSelected(_ selected: Bool) {
+        if selected {
+            contentView.round(withRadius: 12)
+            contentView.backgroundColor = UIColor(named: "mainSelection")
+        } else {
+            contentView.round(withRadius: 0)
+            contentView.backgroundColor = UIColor.clear
+        }
+    }
+    
     private func bind() {
         guard let model = model else {
             return

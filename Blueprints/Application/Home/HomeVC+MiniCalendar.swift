@@ -17,23 +17,18 @@ extension HomeViewController: UICollectionViewDelegate {
             .disposed(by: bag)
         
         model.assignedDays.bind(to: calendarCollectionView.rx.items(cellIdentifier: DayCell.identifier, cellType: DayCell.self)) { (row, element, cell) in
+            cell.setSelected(false)
             cell.model = DayViewModel(day: element)
         }.disposed(by: bag)
         
-        model.assignedDays.subscribe { [weak self] days in
+        model.assignedDays.subscribe(onNext: { [weak self] days in
             guard let self = self else { return }
             
             self.calendarCollectionView.contentSize = CGSize(
                 width: self.expectedCellSize().width * CGFloat(days.count),
                 height: self.expectedCellSize().height
             )
-        } onError: { error in
-            print(error)
-        } onCompleted: { [weak self] in
-            print("days: completed", self?.model.assignedDays as Any)
-        } onDisposed: {
-            print("days model disposed")
-        }.disposed(by: bag)
+        }).disposed(by: bag)
     }
     
 }
@@ -41,5 +36,18 @@ extension HomeViewController: UICollectionViewDelegate {
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         expectedCellSize()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? DayCell {
+            cell.setSelected(true)
+            model.selectedDayAt(index: indexPath.item)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? DayCell {
+            cell.setSelected(false)
+        }
     }
 }

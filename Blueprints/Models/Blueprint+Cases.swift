@@ -196,6 +196,8 @@ enum PrintColor: String {
     case green
     case red
     case blue
+    case lightGray
+    case darkGray
 }
 
 enum DressingType {

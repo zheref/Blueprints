@@ -22,6 +22,7 @@
 		2B1FD688289C31C5002FF49D /* ZPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1FD687289C31C5002FF49D /* ZPath.swift */; };
 		2B1FD689289C34B5002FF49D /* ZPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1FD687289C31C5002FF49D /* ZPath.swift */; };
 		2B1FD68C289C34CD002FF49D /* ZPathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1FD68B289C34CD002FF49D /* ZPathTests.swift */; };
+		2B81B34F28A030C500246B3C /* UIView+Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B81B34E28A030C500246B3C /* UIView+Round.swift */; };
 		991CD928DA7724E287AF89F7 /* Pods_Blueprints.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7612E2FDF59793CAF2F21C7 /* Pods_Blueprints.framework */; };
 		9D1666D8288B455100BF07AD /* UIKit+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1666D7288B455100BF07AD /* UIKit+Helpers.swift */; };
 		9D1A890A2884A1D300916560 /* Konstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A89092884A1D300916560 /* Konstants.swift */; };
@@ -103,6 +104,7 @@
 		2B1FD67B289C15FF002FF49D /* FirestoreAssignmentsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreAssignmentsServiceTests.swift; sourceTree = "<group>"; };
 		2B1FD687289C31C5002FF49D /* ZPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZPath.swift; sourceTree = "<group>"; };
 		2B1FD68B289C34CD002FF49D /* ZPathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZPathTests.swift; sourceTree = "<group>"; };
+		2B81B34E28A030C500246B3C /* UIView+Round.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Round.swift"; sourceTree = "<group>"; };
 		2CEFCBF08884A7ECB5C5104C /* Pods-BlueprintsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueprintsTests.release.xcconfig"; path = "Target Support Files/Pods-BlueprintsTests/Pods-BlueprintsTests.release.xcconfig"; sourceTree = "<group>"; };
 		3E663306192264E2E7B5D788 /* Pods-Blueprints-BlueprintsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blueprints-BlueprintsUITests.release.xcconfig"; path = "Target Support Files/Pods-Blueprints-BlueprintsUITests/Pods-Blueprints-BlueprintsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		50D49B3131F0B9A8EC0023B2 /* Pods-BlueprintsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueprintsTests.debug.xcconfig"; path = "Target Support Files/Pods-BlueprintsTests/Pods-BlueprintsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -469,6 +471,7 @@
 			isa = PBXGroup;
 			children = (
 				9D5C367E28848723008A418D /* Date+Convenience.swift */,
+				2B81B34E28A030C500246B3C /* UIView+Round.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -789,6 +792,7 @@
 				9D5C3678288483EE008A418D /* CalendarDaysService.swift in Sources */,
 				9D1A894528862C0200916560 /* SuggestionsBox.swift in Sources */,
 				9D1A89302886227200916560 /* Container.swift in Sources */,
+				2B81B34F28A030C500246B3C /* UIView+Round.swift in Sources */,
 				9D1A89382886275A00916560 /* Container+App.swift in Sources */,
 				9D5C362A287F5909008A418D /* AppDelegate.swift in Sources */,
 				9D1A89122885F31B00916560 /* TodayCell.swift in Sources */,

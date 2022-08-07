@@ -32,12 +32,43 @@ class FirestoreBlueprintsService: IBlueprintsService {
             return nil
         }
         
-        return Blueprint(name: name, attribute: attribute,
-                         pictureUrl: doc["pictureUrl"] as? String,
-                         work: [],
-                         train: [],
-                         documentID: doc.documentID,
-                         firePath: ZPath.from(string: doc.reference.path))
+        var resolvedTransport = TransportationMethod.any
+        if let transportStr = doc["transport"] as? String, let transport = TransportationMethod(rawValue: transportStr) {
+            resolvedTransport = transport
+        }
+        
+        var resolvedSystem = SystemType.free
+        if let systemStr = doc["system"] as? String, let system = SystemType(rawValue: systemStr) {
+            resolvedSystem = system
+        }
+        
+        var resolvedMusic = MusicType.any
+        var resolvedArtists: [String]?
+        if let musicStr = doc["music"] as? String, let music = MusicType(rawValue: musicStr) {
+            resolvedMusic = music
+            if let artists = doc["artists"] as? [String] {
+                resolvedArtists = artists
+            }
+        }
+        
+        var resolvedColors: [PrintColor] = [.black, .white, .brown]
+        if let colors = doc["colors"] as? [String] {
+            resolvedColors = colors.compactMap { PrintColor(rawValue: $0) }
+        }
+        
+        let bprint = Blueprint(name: name, attribute: attribute,
+                               pictureUrl: doc["pictureUrl"] as? String,
+                               transport: resolvedTransport,
+                               system: resolvedSystem,
+                               colors: resolvedColors,
+                               music: resolvedMusic,
+                               artists: resolvedArtists,
+                               work: [],
+                               train: [],
+                               documentID: doc.documentID,
+                               firePath: ZPath.from(string: doc.reference.path))
+        
+        return bprint
     }
     
     private func lookup(withPath path: String) -> Blueprint? {

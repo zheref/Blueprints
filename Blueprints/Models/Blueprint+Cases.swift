@@ -7,6 +7,67 @@
 
 import Foundation
 
+enum TransportationMethod: String {
+    case bike
+    case motorcycle
+    case car
+    case publicTransport
+    case walking
+    case any
+    case plane
+    case none
+    
+    var name: String {
+        switch self {
+        case .any:
+            return "🏎 Any"
+        case .walking:
+            return "🚶‍♂️ Walking"
+        case .bike:
+            return "🚲 Bike"
+        case .motorcycle:
+            return "🏍 Motorcycle"
+        case .car:
+            return "🚙 Car"
+        case .publicTransport:
+            return "🚈 Public Transport"
+        case .plane:
+            return "✈️ Plane"
+        case .none:
+            return "🚫 None"
+        }
+    }
+}
+
+enum SystemType: String {
+    case deepWork
+    case gtd
+    case eatTheFrog
+    case biologicalPrimetime
+    case eisenhowerMatrix
+    case pareto
+    case free
+    
+    var name: String {
+        switch self {
+        case .free:
+            return "Free"
+        case .biologicalPrimetime:
+            return "Biological Primetime"
+        case .deepWork:
+            return "Deep Work"
+        case .eatTheFrog:
+            return "Eat the Frog"
+        case .eisenhowerMatrix:
+            return "Eisenhower Matrix"
+        case .gtd:
+            return "Getting Things Done"
+        case .pareto:
+            return "Pareto Principle"
+        }
+    }
+}
+
 enum WorkMode {
     case corporate
     case personal
@@ -62,8 +123,79 @@ enum RelaxWay {
     case play(console: String)
 }
 
-enum MusicType {
+enum MusicType: String {
+    case hipHop
+    case pop
+    case rocknRoll
+    case rock
+    case metal
+    case punk
+    case jPop
+    case jRock
+    case orchestra
+    case classical
+    case soundtrack
+    case electronic
+    case trance
+    case dance
+    case house
+    case salsa
+    case artists
+    case discover
+    case any
     
+    var name: String {
+        switch self {
+        case .any:
+            return "Any"
+        case .hipHop:
+            return "Hip-Hop"
+        case .pop:
+            return "Pop"
+        case .rocknRoll:
+            return "Rock n Roll"
+        case .rock:
+            return "Rock"
+        case .metal:
+            return "Metal"
+        case .punk:
+            return "Punk"
+        case .jPop:
+            return "J-Pop"
+        case .jRock:
+            return "J-Rock"
+        case .orchestra:
+            return "Orchestra"
+        case .classical:
+            return "Classical"
+        case .soundtrack:
+            return "Soundtrack"
+        case .electronic:
+            return "Electronic"
+        case .trance:
+            return "Trance"
+        case .dance:
+            return "Dance"
+        case .house:
+            return "House"
+        case .salsa:
+            return "Salsa"
+        case .artists:
+            return "Artists"
+        case .discover:
+            return "Discover"
+        }
+    }
+}
+
+enum PrintColor: String {
+    case black
+    case white
+    case brown
+    case yellow
+    case green
+    case red
+    case blue
 }
 
 enum DressingType {

@@ -32,6 +32,13 @@ struct Blueprint: Equatable {
     let attribute: String
     let pictureUrl: String?
     
+    let transport: TransportationMethod
+    let system: SystemType
+    
+    let colors: [PrintColor]
+    let music: MusicType
+    let artists: [String]?
+    
     let work: [WorkPlacement]
     let train: [TrainingPlacement]
     

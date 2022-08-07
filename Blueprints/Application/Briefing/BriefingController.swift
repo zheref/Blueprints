@@ -49,12 +49,15 @@ class BriefingController: BlueController {
             self.isTodayOpen = $0
         }).disposed(by: bag)
         
-        model.rows.bind(to: briefingTableView.rx.items) { table, index, element in
+        model.rows.bind(to: briefingTableView.rx.items) { [weak self] table, index, element in
             switch element.1 {
             case .suggestions(let prints, let userId):
                 let cell = table.dequeueReusableCell(withIdentifier: SuggestionsBoxCell.reuseIdentifier, for: IndexPath(row: index, section: 0))
                 if let suggestionsBoxCell = cell as? SuggestionsBoxCell {
                     suggestionsBoxCell.model = SuggestionsBox(title: element.0, prints: prints, forUser: userId)
+                    if let this = self {
+                        suggestionsBoxCell.assignClicked.subscribe(onNext: this.model.userDidAssignToDate).disposed(by: this.bag)
+                    }
                     return suggestionsBoxCell
                 } else { return cell }
             case .today(let blueprint):

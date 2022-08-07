@@ -20,6 +20,9 @@ class TodayCell: UITableViewCell {
     @IBOutlet weak var attributeLabel: UILabel!
     @IBOutlet weak var transportLabel: UILabel!
     @IBOutlet weak var systemLabel: UILabel!
+    @IBOutlet weak var musicLabel: UILabel!
+    @IBOutlet var colorViews: [UIView]!
+    
     @IBOutlet weak var useCountContainer: UIView!
     @IBOutlet weak var useCountLabel: UILabel!
     
@@ -39,11 +42,12 @@ class TodayCell: UITableViewCell {
     }
     
     private func setup() {
-        useCountContainer.layer.cornerRadius = 10.5
-        useCountContainer.clipsToBounds = true
+        useCountContainer.round(withRadius: 10.5)
+        printImageView.round(withRadius: 12)
         
-        printImageView.clipsToBounds = true
-        printImageView.layer.cornerRadius = 12
+        for view in colorViews {
+            view.round(withRadius: 10)
+        }
     }
     
     private func bind() {
@@ -51,6 +55,19 @@ class TodayCell: UITableViewCell {
         
         printNameLabel.text = model.name
         attributeLabel.text = model.attribute
+        
+        transportLabel.text = "🛣 → \(model.transport.name)"
+        systemLabel.text = "🧭 \(model.system.name)"
+        
+        if let artists = model.artists {
+            musicLabel.text = "🎵 \(artists.joined(separator: ", "))"
+        } else {
+            musicLabel.text = "🎵 \(model.music.name)"
+        }
+        
+        for i in 0..<model.colors.count {
+            colorViews[i].backgroundColor = UIColor(named: model.colors[i].rawValue)
+        }
         
         if let imageUrl = model.pictureUrl {
             storageService.downloadImage(named: imageUrl).subscribe(onSuccess: { [weak self] data in

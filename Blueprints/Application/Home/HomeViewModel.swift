@@ -25,13 +25,13 @@ class HomeViewModel {
         self.dates = daysService.resolveAround(date: Date()).map { $0.map { $0.date } }
         
         // TODO: Is this even valid or a good practice?
-        self.dates.subscribe { [weak self] dates in
+        self.dates.subscribe(onNext: { [weak self] dates in
             guard let this = self else { return }
             assignmentsService.fetchAndMix(withDates: dates).subscribe(onNext: { [weak self] assignedDays in
                 guard let this = self else { return }
                 this.assignedDays.on(.next(assignedDays))
             }).disposed(by: this.bag)
-        }.disposed(by: bag)
+        }).disposed(by: bag)
     }
     
     lazy var forBriefing: BriefingViewModel = {

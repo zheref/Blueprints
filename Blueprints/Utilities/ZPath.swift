@@ -6,15 +6,9 @@ struct ZPath: Equatable {
     static let SEPARATOR = "/"
     
     static func from(string: String) -> ZPath {
-        if #available(iOS 16.0, *) {
-            return ZPath(
-                parts: string.split(separator: SEPARATOR).map { String($0) }
-            )
-        } else {
-            return ZPath(
-                parts: string.components(separatedBy: SEPARATOR)
-            )
-        }
+        return ZPath(
+            parts: string.components(separatedBy: SEPARATOR)
+        )
     }
     
     var asString: String {

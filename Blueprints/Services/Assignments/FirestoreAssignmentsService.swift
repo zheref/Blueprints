@@ -66,7 +66,7 @@ class FirestoreAssignmentsService: IAssignmentsServive {
                 .document(dateString)
                 .setData(assignmentData) { error in
                     if let error = error {
-                        Self.logger.error("[Assigning Day] \(error)")
+                        Self.logger.error("[Assigning Day] \(error.localizedDescription)")
                         trigger(.failure(error))
                     } else { trigger(.success(Void())) }
                 }

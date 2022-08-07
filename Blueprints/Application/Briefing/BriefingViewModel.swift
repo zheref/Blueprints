@@ -21,7 +21,7 @@ class BriefingViewModel {
         let suggestionsStream = Observable.combineLatest(blueprintsFetch, suggestionsFetch).map { $0 + $1 }
         let todayStream = assignedDays
             .map { $0.first(where: { $0.date == BlueDate.today }) }
-            .map { day in
+            .map { day -> [BriefingRow] in
                 guard let day = day as? BlueDay else {
                     return [BriefingRow]()
                 }

@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  Blueprints
-//
-//  Created by Sergio Lozano on 13/07/22.
-//
-
 import UIKit
 import FirebaseCore
 

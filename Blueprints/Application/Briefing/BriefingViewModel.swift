@@ -1,14 +1,34 @@
 import Foundation
 import RxSwift
 
-class BriefingViewModel {
-    
+class BriefingViewModel: BlueViewModel {
+
+    // MARK: Reactive
     var rows: Observable<[BriefingRow]>
-    
     var selectedDay: Observable<Day?>
+
+    // MARK: Stateful
     var selectedDate: BlueDate?
-    
-    var bag = DisposeBag()
+    var isSummaryOpen = false
+
+    // MARK: - Computed observables
+
+    var isSummaryOpenStream: Observable<Bool> {
+        rows.map { rows in
+            guard let first = rows.first else {
+                return false
+            }
+
+            switch first.1 {
+            case .today(_):
+                return true
+            case .suggestions(_, _):
+                return false
+            }
+        }
+    }
+
+    // MARK: - Lifecycle
     
     init(assignedDays: Observable<[Day]>, selectedDay: Observable<Day?>) {
         let blueprintsService = try! ServicesContainer.shared.resolve() as IBlueprintsService
@@ -35,13 +55,22 @@ class BriefingViewModel {
                 return [("Today", BriefingRowType.today(blueprint: day.blueprint))]
             }
         
-        self.rows = Observable.combineLatest(todayBriefing, suggestionsStream).map { $0 + $1 }
+        rows = Observable.combineLatest(todayBriefing, suggestionsStream).map { $0 + $1 }
         
         self.selectedDay = selectedDay
-        self.selectedDay.subscribe(onNext: { [weak self] day in
+    }
+
+    func viewIsPrepared() {
+        isSummaryOpenStream.subscribe(onNext: { [weak self] in
+            self?.isSummaryOpen = $0
+        }).disposed(by: bag)
+
+        selectedDay.subscribe(onNext: { [weak self] day in
             self?.selectedDate = day?.date
         }).disposed(by: bag)
     }
+
+    // MARK: - User Actions
     
     func userDidAssignToDate(bprint: Blueprint) {
         let assignmentsService = try! ServicesContainer.shared.resolve() as IAssignmentsServive

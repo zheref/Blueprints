@@ -33,7 +33,8 @@ class FirestoreBlueprintsService: IBlueprintsService {
         }
         
         var resolvedTransport = TransportationMethod.any
-        if let transportStr = doc["transport"] as? String, let transport = TransportationMethod(rawValue: transportStr) {
+        if let transportStr = doc["transport"] as? String,
+           let transport = TransportationMethod(rawValue: transportStr) {
             resolvedTransport = transport
         }
         
@@ -55,6 +56,27 @@ class FirestoreBlueprintsService: IBlueprintsService {
         if let colors = doc["colors"] as? [String] {
             resolvedColors = colors.compactMap { PrintColor(rawValue: $0) }
         }
+
+        var resolvedTraining: TrainingPlacement?
+        if let training = doc["training"] as? [String: Any] {
+            var resolvedEnvironment = TrainingEnvironment.none
+            if let environmentStr = training["environment"] as? String,
+                let environment = TrainingEnvironment(rawValue: environmentStr) {
+                resolvedEnvironment = environment
+            }
+
+            var resolvedWays = [TrainingWay]()
+            if let stringWays = training["ways"] as? [String] {
+                resolvedWays = stringWays.compactMap { TrainingWay(rawValue: $0) }
+            }
+
+            resolvedTraining = TrainingPlacement(
+                    minutes: training["minutes"] as? Int ?? 0,
+                    environment: resolvedEnvironment,
+                    ways: resolvedWays,
+                    specifics: training["specifics"] as? String
+            )
+        }
         
         let bprint = Blueprint(name: name, attribute: attribute,
                                pictureUrl: doc["pictureUrl"] as? String,
@@ -66,7 +88,8 @@ class FirestoreBlueprintsService: IBlueprintsService {
                                work: [],
                                train: [],
                                documentID: doc.documentID,
-                               firePath: ZPath.from(string: doc.reference.path))
+                               firePath: ZPath.from(string: doc.reference.path),
+                               training: resolvedTraining)
         
         return bprint
     }

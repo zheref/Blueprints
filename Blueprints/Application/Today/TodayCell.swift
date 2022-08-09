@@ -26,6 +26,8 @@ class TodayCell: UITableViewCell {
     @IBOutlet weak var useCountContainer: UIView!
     @IBOutlet weak var useCountLabel: UILabel!
     
+    @IBOutlet weak var ratiosLabel: UILabel!
+    
     // MARK: - Reactive
     
     let bag = DisposeBag()
@@ -57,7 +59,7 @@ class TodayCell: UITableViewCell {
         printNameLabel.text = model.name
         attributeLabel.text = model.attribute
         
-        transportLabel.text = "🛣 → \(model.transport.name)"
+        transportLabel.text = model.transport.emoji
         systemLabel.text = "🧭 \(model.system.name)"
         
         if let artists = model.artists {
@@ -78,6 +80,11 @@ class TodayCell: UITableViewCell {
             }).disposed(by: bag)
         } else {
             printImageView.image = nil
+        }
+
+        if let training = model.training {
+            let hours = training.minutes / 60
+            ratiosLabel.text = "🏋️‍♂️ \(hours)h"
         }
     }
 

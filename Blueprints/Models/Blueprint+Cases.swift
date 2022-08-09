@@ -37,6 +37,27 @@ enum TransportationMethod: String {
             return "🚫 None"
         }
     }
+    
+    var emoji: String {
+        switch self {
+        case .any:
+            return "🏎"
+        case .walking:
+            return "🚶‍♂️"
+        case .bike:
+            return "🚲"
+        case .motorcycle:
+            return "🏍"
+        case .car:
+            return "🚙"
+        case .publicTransport:
+            return "🚈"
+        case .plane:
+            return "✈️"
+        case .none:
+            return "🚫"
+        }
+    }
 }
 
 enum SystemType: String {
@@ -82,7 +103,7 @@ enum WorkEnvironment {
     case studio
 }
 
-enum TrainingWay {
+enum TrainingWay: String {
     case elliptical
     case treadmill
     case bicycle
@@ -99,12 +120,13 @@ enum TrainingWay {
     case walking
 }
 
-enum TrainingEnvironment {
+enum TrainingEnvironment: String {
     case unit
     case gym
     case home
     case park
     case city
+    case none
 }
 
 enum RelaxEnvironment {

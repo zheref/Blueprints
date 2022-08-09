@@ -143,7 +143,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="688"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ggb-te-Dre">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ggb-te-Dre">
                                 <rect key="frame" x="0.0" y="44" width="414" height="644"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -248,6 +248,12 @@
                                                         <constraint firstAttribute="height" constant="20" id="ePd-1I-bPC"/>
                                                     </constraints>
                                                 </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👓 7h  /  🏋️‍♂️ 2h  /  🎮 3h" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZY-GA-u9S">
+                                                    <rect key="frame" x="60" y="204" width="294" height="36"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="hXj-Nm-qpm" firstAttribute="leading" secondItem="BeG-9l-SDW" secondAttribute="trailing" constant="4" id="0tB-x2-OmY"/>
@@ -260,6 +266,7 @@
                                                 <constraint firstItem="BeG-9l-SDW" firstAttribute="top" secondItem="xeA-rh-CxE" secondAttribute="top" constant="22" id="YGR-R5-tL6"/>
                                                 <constraint firstItem="BeG-9l-SDW" firstAttribute="leading" secondItem="xeA-rh-CxE" secondAttribute="leading" constant="20" symbolic="YES" id="bBi-Y1-9Ee"/>
                                                 <constraint firstItem="MCh-Fw-jqR" firstAttribute="leading" secondItem="CRi-Hw-LYH" secondAttribute="leading" id="d5I-YY-NpR"/>
+                                                <constraint firstItem="EZY-GA-u9S" firstAttribute="top" secondItem="fxB-SZ-Xcs" secondAttribute="bottom" constant="20" id="fb2-Hp-qeT"/>
                                                 <constraint firstItem="LyY-2W-C50" firstAttribute="top" secondItem="fKI-09-Q98" secondAttribute="bottom" constant="5" id="kKk-Ra-fux"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ERV-a3-2yT" secondAttribute="trailing" constant="13" id="kfs-hL-IgP"/>
                                                 <constraint firstItem="LyY-2W-C50" firstAttribute="leading" secondItem="fKI-09-Q98" secondAttribute="leading" id="mNg-4i-3hd"/>
@@ -270,6 +277,7 @@
                                                 <constraint firstItem="hXj-Nm-qpm" firstAttribute="top" secondItem="xeA-rh-CxE" secondAttribute="top" constant="11" id="sr4-eY-thv"/>
                                                 <constraint firstAttribute="trailing" secondItem="Ev4-0U-6yB" secondAttribute="trailing" constant="13" id="vZC-yp-mtQ"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="CRi-Hw-LYH" secondAttribute="trailing" constant="13" id="wlv-Tk-ySi"/>
+                                                <constraint firstItem="EZY-GA-u9S" firstAttribute="centerX" secondItem="xeA-rh-CxE" secondAttribute="centerX" id="xrD-7B-lnI"/>
                                                 <constraint firstItem="fKI-09-Q98" firstAttribute="top" secondItem="ERV-a3-2yT" secondAttribute="bottom" constant="7" id="yD9-Uj-3LD"/>
                                                 <constraint firstItem="CRi-Hw-LYH" firstAttribute="leading" secondItem="LyY-2W-C50" secondAttribute="leading" id="ziQ-Bd-XgJ"/>
                                             </constraints>

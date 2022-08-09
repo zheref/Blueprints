@@ -58,14 +58,16 @@ class SuggestionsBoxCell: UITableViewCell {
 // - MARK: Compliance
 
 extension SuggestionsBoxCell: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize(width: 110, height: 128)
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         contextMenuConfigurationForItemAt indexPath: IndexPath,
                         point: CGPoint) -> UIContextMenuConfiguration? {
-        
         UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
             let assignAction = UIAction(title: "Assign", image: nil) { [weak self] action in
                 guard let print = self?.model.prints[indexPath.item] else { return }
@@ -78,6 +80,7 @@ extension SuggestionsBoxCell: UICollectionViewDelegateFlowLayout {
             }
             
             return UIMenu(title: "", children: [assignAction, favAction])
-        }
+        } // UIContextMenuConfiguration
     }
+
 }

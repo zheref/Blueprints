@@ -49,22 +49,24 @@ class SuggestionsBoxCell: UITableViewCell {
             {
                 $2.model = $1
             }.disposed(by: bag)
-        
-        printsCollection.delegate = self
+
+        printsCollection.rx.setDelegate(self).disposed(by: bag)
     }
     
 }
 
+// - MARK: Compliance
+
 extension SuggestionsBoxCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 110, height: 128)
+        CGSize(width: 110, height: 128)
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         contextMenuConfigurationForItemAt indexPath: IndexPath,
                         point: CGPoint) -> UIContextMenuConfiguration? {
         
-        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
+        UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
             let assignAction = UIAction(title: "Assign", image: nil) { [weak self] action in
                 guard let print = self?.model.prints[indexPath.item] else { return }
                 self?.assignClicked.onNext(print)

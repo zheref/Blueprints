@@ -2,13 +2,22 @@ import UIKit
 import RxSwift
 
 class BlueprintSuggestionCell: UICollectionViewCell {
+
+    // MARK: - Class Members
+
     static let reuseIdentifier = "blueprintSuggestionCell"
+
+    // MARK: - UI Elements
     
     @IBOutlet weak var blueprintImage: UIImageView!
     @IBOutlet weak var blueprintTitle: UILabel!
+
+    // MARK: - Reactive
     
     var model: Blueprint! { didSet { bind() }}
     let bag = DisposeBag()
+
+    // MARK: - Lifecycle
     
     override func awakeFromNib() {
         super.awakeFromNib()

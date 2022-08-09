@@ -30,6 +30,7 @@ class BriefingController: BlueController {
         Observable<UIEdgeInsets>.just(UIEdgeInsets(top: 13, left: 0, bottom: 0, right: 0))
             .bind(to: briefingTableView.rx.contentInset)
             .disposed(by: bag)
+        briefingTableView.rx.setDelegate(self).disposed(by: bag)
     }
     
     private func bind() {

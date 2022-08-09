@@ -74,6 +74,29 @@ class FirestoreAssignmentsService: IAssignmentsServive {
             return Disposables.create { }
         }
     }
+
+    func unassign(date: BlueDate, forUserId userId: String) -> Completable {
+        let firestore = try! firebaseInjector.resolve() as Firestore
+
+        guard let dateString = date.toString() else {
+            return Completable.error(AssignmentsServiceError.dateNotValid)
+        }
+
+        return Completable.create { complete in
+            firestore
+                .document("/users/\(userId)")
+                .collection(Self.collectionName)
+                .document(dateString)
+                .delete { error in
+                    if let error = error {
+                        Self.logger.error("[Unassigning Day] \(error.localizedDescription)")
+                        complete(.error(error))
+                    } else { complete(.completed) }
+                }
+
+            return Disposables.create()
+        }
+    }
     
     func fetchAndMix(withDates dates: [BlueDate]) -> Observable<[Day]> {
         fetchAndParse(forDates: dates).map { assignments in

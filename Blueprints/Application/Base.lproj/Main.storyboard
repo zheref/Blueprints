@@ -374,17 +374,14 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
-                                <connections>
-                                    <outlet property="delegate" destination="Vb1-Ga-5vF" id="qZL-Bo-dil"/>
-                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hlX-y5-IZm"/>
                         <constraints>
                             <constraint firstItem="Ggb-te-Dre" firstAttribute="top" secondItem="hlX-y5-IZm" secondAttribute="top" id="FBs-CP-fNv"/>
                             <constraint firstItem="hlX-y5-IZm" firstAttribute="trailing" secondItem="Ggb-te-Dre" secondAttribute="trailing" id="OTE-r5-iAS"/>
+                            <constraint firstAttribute="bottom" secondItem="Ggb-te-Dre" secondAttribute="bottom" id="UUi-Ph-Y6j"/>
                             <constraint firstItem="Ggb-te-Dre" firstAttribute="leading" secondItem="hlX-y5-IZm" secondAttribute="leading" id="bpI-tw-wXi"/>
-                            <constraint firstItem="hlX-y5-IZm" firstAttribute="bottom" secondItem="Ggb-te-Dre" secondAttribute="bottom" id="rKm-BV-9SA"/>
                         </constraints>
                     </view>
                     <connections>

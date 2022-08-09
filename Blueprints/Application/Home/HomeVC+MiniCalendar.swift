@@ -50,4 +50,27 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
             cell.setSelected(false)
         }
     }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        contextMenuConfigurationForItemAt indexPath: IndexPath,
+                        point: CGPoint) -> UIContextMenuConfiguration? {
+
+        UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
+            let unassignAction = UIAction(title: "Unassign", image: nil) { [weak self] action in
+                guard let this = self else { return }
+                this.model.dates
+                    .map { $0[indexPath.item] }
+                    .take(1)
+                    .subscribe(onNext: this.model.unassignClicked.onNext)
+                    .disposed(by: this.bag)
+            }
+
+            let pinAction = UIAction(title: "Pin", image: nil) { [weak self] action in
+//                guard let print = self?.model.prints[indexPath.item] else { return }
+//                self?.model.pinClicked.onNext(print)
+            }
+
+            return UIMenu(title: "", children: [unassignAction, pinAction])
+        }
+    }
 }

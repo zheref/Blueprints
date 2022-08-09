@@ -22,6 +22,7 @@ enum AssignmentsServiceError: Error {
 
 protocol IAssignmentsServive: ServiceProtocol {
     func assign(bprint: Blueprint, toDate date: BlueDate, forUserId userId: String) -> Single<Void>
+    func unassign(date: BlueDate, forUserId userId: String) -> Completable
     func fetch(forDates dates: [BlueDate], forUserId userId: String) -> Observable<AssignmentsMap>
     func fetchAndParse(forDates dates: [BlueDate]) -> Observable<[Assignment]>
     func fetchAndMix(withDates dates: [BlueDate]) -> Observable<[Day]>

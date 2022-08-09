@@ -14,6 +14,7 @@ class HomeViewController: BlueController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMiniCalendar()
+        model.viewIsPrepared()
     }
     
     // MARK: - Navigation

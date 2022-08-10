@@ -26,7 +26,10 @@ class TodayCell: UITableViewCell {
     @IBOutlet weak var useCountContainer: UIView!
     @IBOutlet weak var useCountLabel: UILabel!
     
-    @IBOutlet weak var ratiosLabel: UILabel!
+    @IBOutlet var pillViews: [UIView]!
+    @IBOutlet weak var workLabel: UILabel!
+    @IBOutlet weak var trainLabel: UILabel!
+    @IBOutlet weak var chillLabel: UILabel!
     
     // MARK: - Reactive
     
@@ -51,13 +54,17 @@ class TodayCell: UITableViewCell {
         for view in colorViews {
             view.round(withRadius: 10)
         }
+        
+        for view in pillViews {
+            view.round(withRadius: 12)
+        }
     }
     
     private func bind() {
         let storageService = try! ServicesContainer.shared.resolve() as StorageServiceProtocol
         
         printNameLabel.text = model.name
-        attributeLabel.text = model.attribute
+        attributeLabel.text = model.attribute.uppercased()
         
         transportLabel.text = model.transport.emoji
         systemLabel.text = "🧭 \(model.system.name)"
@@ -84,7 +91,7 @@ class TodayCell: UITableViewCell {
 
         if let training = model.training {
             let hours = training.minutes / 60
-            ratiosLabel.text = "🏋️‍♂️ \(hours)h"
+            trainLabel.text = "🏋️‍♂️ \(hours)h"
         }
     }
 

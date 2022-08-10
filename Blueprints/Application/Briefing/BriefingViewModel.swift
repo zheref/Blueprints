@@ -5,7 +5,7 @@ class BriefingViewModel: BlueViewModel {
 
     // MARK: Reactive
     var rows: Observable<[BriefingRow]>
-    var selectedDay: Observable<Day?>
+    var selectedDay: Observable<Day>
 
     // MARK: Stateful
     var selectedDate: BlueDate?
@@ -30,7 +30,7 @@ class BriefingViewModel: BlueViewModel {
 
     // MARK: - Lifecycle
     
-    init(assignedDays: Observable<[Day]>, selectedDay: Observable<Day?>) {
+    init(assignedDays: Observable<[Day]>, selectedDay: Observable<Day>) {
         let blueprintsService = try! ServicesContainer.shared.resolve() as IBlueprintsService
         let suggestionsService = try! ServicesContainer.shared.resolve() as SuggestionsServiceProtocol
         let authService = try! ServicesContainer.shared.resolve() as IAuthService
@@ -66,7 +66,7 @@ class BriefingViewModel: BlueViewModel {
         }).disposed(by: bag)
 
         selectedDay.subscribe(onNext: { [weak self] day in
-            self?.selectedDate = day?.date
+            self?.selectedDate = day.date
         }).disposed(by: bag)
     }
 

@@ -41,7 +41,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? DayCell {
             cell.setSelected(true)
-            model.selectedDayAt(index: indexPath.item)
+            model.selectDateAtIndex.onNext(indexPath)
         }
     }
     

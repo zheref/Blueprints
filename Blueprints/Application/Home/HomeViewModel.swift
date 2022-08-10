@@ -7,10 +7,13 @@ class HomeViewModel {
 
     // MARK: - Observables
     var dates: Observable<[BlueDate]>
+    var selectedDay: Observable<Day>
+    
     var assignedDays = BehaviorSubject<[Day]>(value: [])
-    var selectedDay = BehaviorSubject<Day?>(value: nil)
+    
     var unassignClicked = PublishSubject<BlueDate>()
     var pinClicked = PublishSubject<BlueDate>()
+    var selectDateAtIndex = PublishSubject<IndexPath>()
     
     init() {
         let assignmentsService = try! ServicesContainer.shared.resolve() as IAssignmentsServive
@@ -18,6 +21,12 @@ class HomeViewModel {
 
         // TODO: Make actual sequence later for actual day changes (app in foreground over mid-night)
         dates = daysService.resolveAround(date: Date()).map { $0.map { $0.date } }
+        
+        selectedDay = selectDateAtIndex
+            .withLatestFrom(assignedDays) { ($0, $1) }
+            .map { path, days in
+                days[path.item]
+            }
         
         // TODO: Is this even valid or a good practice?
         dates.subscribe(onNext: { [weak self] dates in
@@ -37,7 +46,13 @@ class HomeViewModel {
     }()
 
     func viewIsPrepared() {
-        unassignClicked.subscribe(onNext: userDidUnassign)
+        unassignClicked
+            .subscribe(onNext: userDidUnassign)
+            .disposed(by: bag)
+        
+        selectedDay.debug().subscribe(onNext: { val in
+            print("DEBUG: \(val)")
+        })
     }
 
     private func userDidUnassign(date: BlueDate) {
@@ -49,13 +64,6 @@ class HomeViewModel {
             .subscribe { event in
                 print("Succeeded unassigning")
             }.disposed(by: bag)
-    }
-    
-    func selectedDayAt(index: Int) {
-        // TODO: AssignedDays should become a behaviorRelay??
-        assignedDays.take(1).subscribe(onNext: { [weak self] days in
-            self?.selectedDay.onNext(days[index])
-        }).disposed(by: bag)
     }
     
 }

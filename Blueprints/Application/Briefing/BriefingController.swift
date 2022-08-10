@@ -50,7 +50,7 @@ class BriefingController: BlueController {
             case .summary(let blueprint):
                 let cell = table.dequeueReusableCell(withIdentifier: SummaryCell.reuseIdentifier, for: IndexPath(row: index, section: 0))
                 if let summaryCell = cell as? SummaryCell {
-                    summaryCell.model = blueprint
+                    summaryCell.model = SummaryViewModel(blueprint: blueprint)
                     return summaryCell
                 } else { return cell }
             }

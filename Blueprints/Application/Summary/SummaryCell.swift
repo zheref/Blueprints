@@ -35,7 +35,7 @@ class SummaryCell: UITableViewCell {
     
     let bag = DisposeBag()
     
-    var model: Blueprint! {
+    var model: SummaryViewModel! {
         didSet { bind() }
     }
     
@@ -63,25 +63,25 @@ class SummaryCell: UITableViewCell {
     private func bind() {
         let storageService = try! ServicesContainer.shared.resolve() as StorageServiceProtocol
         
-        printNameLabel.text = model.name
-        attributeLabel.text = model.attribute.uppercased()
+        printNameLabel.text = model.blueprint.name
+        attributeLabel.text = model.blueprint.attribute.uppercased()
         
-        transportLabel.text = model.transport.emoji
-        systemLabel.text = "🧭 \(model.system.name)"
+        transportLabel.text = model.blueprint.transport.emoji
+        systemLabel.text = "🧭 \(model.blueprint.system.name)"
         
-        if let artists = model.artists {
+        if let artists = model.blueprint.artists {
             musicLabel.text = "🎵 \(artists.joined(separator: ", "))"
         } else {
-            musicLabel.text = "🎵 \(model.music.name)"
+            musicLabel.text = "🎵 \(model.blueprint.music.name)"
         }
         
-        for i in 0..<model.colors.count {
-            colorViews[i].backgroundColor = UIColor(named: model.colors[i].rawValue)
+        for i in 0..<model.blueprint.colors.count {
+            colorViews[i].backgroundColor = UIColor(named: model.blueprint.colors[i].rawValue)
             colorViews[i].layer.borderWidth = 1
             colorViews[i].layer.borderColor = UIColor.gray.cgColor
         }
         
-        if let imageUrl = model.pictureUrl {
+        if let imageUrl = model.blueprint.pictureUrl {
             storageService.downloadImage(named: imageUrl).subscribe(onSuccess: { [weak self] data in
                 self?.printImageView.image = UIImage(data: data)
             }).disposed(by: bag)
@@ -89,13 +89,13 @@ class SummaryCell: UITableViewCell {
             printImageView.image = nil
         }
         
-        let workHours = model.work.reduce(0) { prev, work in
+        let workHours = model.blueprint.work.reduce(0) { prev, work in
             prev + (work.minutes / 60)
         }
         
         workLabel.text = "👓 \(workHours)h"
 
-        if let training = model.training {
+        if let training = model.blueprint.training {
             let hours = training.minutes / 60
             trainLabel.text = "🏋️‍♂️ \(hours)h"
         }

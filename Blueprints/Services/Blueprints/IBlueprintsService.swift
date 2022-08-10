@@ -1,7 +1,7 @@
 import RxSwift
 
 enum BriefingRowType {
-    case summary(blueprint: Blueprint)
+    case summary(blueday: BlueDay)
     case suggestions(blueprints: [Blueprint], userId: String?)
 }
 

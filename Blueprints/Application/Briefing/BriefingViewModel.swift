@@ -42,20 +42,41 @@ class BriefingViewModel: BlueViewModel {
             }
         }
         
-        let suggestionsStream = Observable.combineLatest(blueprintsFetch, suggestionsFetch).map { $0 + $1 }
+        let suggestionsStream = Observable
+            .combineLatest(blueprintsFetch, suggestionsFetch)
+            .map { $0 + $1 }
         
         let todayStream = assignedDays
-            .map { $0.first(where: { $0.date == BlueDate.today }) }
+            .compactMap { $0.first(where: { $0.date == BlueDate.today }) }
         
-        let todayBriefing = todayStream
+        let summaryStream = Observable
+            .combineLatest(
+                todayStream,
+                Observable.merge(todayStream, selectedDay)
+            )
+            .debug()
+            .map { (today, selection) -> Day in
+                if selection.date == BlueDate.today {
+                    return today
+                }
+                
+                if let blueSelection = selection as? BlueDay {
+                    return blueSelection
+                } else {
+                    return today
+                }
+            }
+        
+        let summaryBriefing = summaryStream
+            .debug()
             .map { day -> [BriefingRow] in
                 guard let day = day as? BlueDay else {
                     return [BriefingRow]()
                 }
-                return [("Summary", BriefingRowType.summary(blueprint: day.blueprint))]
+                return [("Summary", BriefingRowType.summary(blueday: day))]
             }
         
-        rows = Observable.combineLatest(todayBriefing, suggestionsStream).map { $0 + $1 }
+        rows = Observable.combineLatest(summaryBriefing, suggestionsStream).map { $0 + $1 }
         
         self.selectedDay = selectedDay
     }

@@ -49,10 +49,6 @@ class HomeViewModel {
         unassignClicked
             .subscribe(onNext: userDidUnassign)
             .disposed(by: bag)
-        
-        selectedDay.debug().subscribe(onNext: { val in
-            print("DEBUG: \(val)")
-        })
     }
 
     private func userDidUnassign(date: BlueDate) {

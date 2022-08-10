@@ -1,9 +1,9 @@
 import Foundation
 
 class SummaryViewModel: BlueViewModel {
-    let blueprint: Blueprint
+    let day: BlueDay
 
-    init(blueprint: Blueprint) {
-        self.blueprint = blueprint
+    init(blueday: BlueDay) {
+        self.day = blueday
     }
 }

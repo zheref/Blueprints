@@ -47,10 +47,10 @@ class BriefingController: BlueController {
                     }
                     return suggestionsBoxCell
                 } else { return cell }
-            case .summary(let blueprint):
+            case .summary(let blueday):
                 let cell = table.dequeueReusableCell(withIdentifier: SummaryCell.reuseIdentifier, for: IndexPath(row: index, section: 0))
                 if let summaryCell = cell as? SummaryCell {
-                    summaryCell.model = SummaryViewModel(blueprint: blueprint)
+                    summaryCell.model = SummaryViewModel(blueday: blueday)
                     return summaryCell
                 } else { return cell }
             }

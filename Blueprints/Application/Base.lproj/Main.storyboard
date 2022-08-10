@@ -347,6 +347,7 @@
                                             <outlet property="printImageView" destination="fxB-SZ-Xcs" id="Tfw-yL-H97"/>
                                             <outlet property="printNameLabel" destination="hXj-Nm-qpm" id="RAx-JY-cAh"/>
                                             <outlet property="systemLabel" destination="LyY-2W-C50" id="hWo-iK-e3P"/>
+                                            <outlet property="todayCaptionLabel" destination="BeG-9l-SDW" id="LeH-OW-mPn"/>
                                             <outlet property="trainLabel" destination="xhb-XP-t1P" id="4Ub-aY-urd"/>
                                             <outlet property="transportLabel" destination="fKI-09-Q98" id="8zc-ii-NmG"/>
                                             <outlet property="useCountContainer" destination="Ev4-0U-6yB" id="XF9-cZ-UBb"/>

@@ -88,12 +88,11 @@ class SummaryCell: UITableViewCell {
     private func bindPicture() {
         let storageService = try! ServicesContainer.shared.resolve() as StorageServiceProtocol
         
+        printImageView.image = nil
         if let imageUrl = model.day.blueprint.pictureUrl {
             storageService.downloadImage(named: imageUrl).subscribe(onSuccess: { [weak self] data in
                 self?.printImageView.image = UIImage(data: data)
             }).disposed(by: bag)
-        } else {
-            printImageView.image = nil
         }
     }
     

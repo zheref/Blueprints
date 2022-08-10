@@ -13,8 +13,15 @@ class HomeViewController: BlueController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupMiniCalendar()
         model.viewIsPrepared()
+        setup()
+    }
+    
+    private func setup() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
+                                                                 target: self,
+                                                                 action: #selector(userDidTapAdd))
+        setupMiniCalendar()
     }
     
     // MARK: - Navigation
@@ -22,6 +29,12 @@ class HomeViewController: BlueController {
         if segue.identifier == K.Segue.briefingInHome {
             (segue.destination as? BriefingController)?.model = model.forBriefing
         }
+    }
+    
+    // MARK: - User Actions
+    
+    @objc private func userDidTapAdd() {
+        
     }
 
 }

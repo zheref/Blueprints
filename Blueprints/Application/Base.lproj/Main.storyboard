@@ -129,6 +129,7 @@
                     <connections>
                         <outlet property="calendarCollectionView" destination="bIu-3a-tBD" id="250-7v-KxO"/>
                         <outlet property="calendarCollectionViewLayout" destination="aRj-0T-lYo" id="d0X-kV-vMu"/>
+                        <segue destination="qJS-GB-CG4" kind="show" id="4up-y8-Thw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -398,7 +399,36 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Upx-Bq-fxP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="244.92753623188409" y="289.28571428571428"/>
+            <point key="canvasLocation" x="235" y="454"/>
+        </scene>
+        <!--Blueprint Controller-->
+        <scene sceneID="BFW-RI-QhS">
+            <objects>
+                <tableViewController id="qJS-GB-CG4" customClass="BlueprintController" customModule="Blueprints" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="ZYn-PZ-yTP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="hmh-Jx-Jl1">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hmh-Jx-Jl1" id="i9W-fj-Xh8">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="qJS-GB-CG4" id="zDK-cX-t4O"/>
+                            <outlet property="delegate" destination="qJS-GB-CG4" id="Tne-e5-xFt"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="HHv-E3-5G3"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H05-iH-vHJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1016" y="108"/>
         </scene>
     </scenes>
     <resources>

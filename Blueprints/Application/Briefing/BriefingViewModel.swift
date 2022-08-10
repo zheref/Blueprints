@@ -20,7 +20,7 @@ class BriefingViewModel: BlueViewModel {
             }
 
             switch first.1 {
-            case .today(_):
+            case .summary(_):
                 return true
             case .suggestions(_, _):
                 return false
@@ -52,7 +52,7 @@ class BriefingViewModel: BlueViewModel {
                 guard let day = day as? BlueDay else {
                     return [BriefingRow]()
                 }
-                return [("Today", BriefingRowType.today(blueprint: day.blueprint))]
+                return [("Summary", BriefingRowType.summary(blueprint: day.blueprint))]
             }
         
         rows = Observable.combineLatest(todayBriefing, suggestionsStream).map { $0 + $1 }

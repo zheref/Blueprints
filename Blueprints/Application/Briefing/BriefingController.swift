@@ -47,11 +47,11 @@ class BriefingController: BlueController {
                     }
                     return suggestionsBoxCell
                 } else { return cell }
-            case .today(let blueprint):
-                let cell = table.dequeueReusableCell(withIdentifier: TodayCell.reuseIdentifier, for: IndexPath(row: index, section: 0))
-                if let todayCell = cell as? TodayCell {
-                    todayCell.model = blueprint
-                    return todayCell
+            case .summary(let blueprint):
+                let cell = table.dequeueReusableCell(withIdentifier: SummaryCell.reuseIdentifier, for: IndexPath(row: index, section: 0))
+                if let summaryCell = cell as? SummaryCell {
+                    summaryCell.model = blueprint
+                    return summaryCell
                 } else { return cell }
             }
         }.disposed(by: bag)

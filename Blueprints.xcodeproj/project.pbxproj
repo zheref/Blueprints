@@ -29,8 +29,8 @@
 		9D1666D8288B455100BF07AD /* UIKit+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1666D7288B455100BF07AD /* UIKit+Helpers.swift */; };
 		9D1A890A2884A1D300916560 /* Konstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A89092884A1D300916560 /* Konstants.swift */; };
 		9D1A89102885F2B600916560 /* BriefingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A890F2885F2B600916560 /* BriefingController.swift */; };
-		9D1A89122885F31B00916560 /* TodayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A89112885F31B00916560 /* TodayCell.swift */; };
-		9D1A89142885F38A00916560 /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A89132885F38A00916560 /* TodayViewModel.swift */; };
+		9D1A89122885F31B00916560 /* SummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A89112885F31B00916560 /* SummaryCell.swift */; };
+		9D1A89142885F38A00916560 /* SummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A89132885F38A00916560 /* SummaryViewModel.swift */; };
 		9D1A89162885F39D00916560 /* BriefingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A89152885F39D00916560 /* BriefingViewModel.swift */; };
 		9D1A89192885F40400916560 /* IAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A89182885F40400916560 /* IAuthService.swift */; };
 		9D1A891B2885F44800916560 /* FirebaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A891A2885F44800916560 /* FirebaseAuthService.swift */; };
@@ -117,8 +117,8 @@
 		9D1666D7288B455100BF07AD /* UIKit+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Helpers.swift"; sourceTree = "<group>"; };
 		9D1A89092884A1D300916560 /* Konstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Konstants.swift; sourceTree = "<group>"; };
 		9D1A890F2885F2B600916560 /* BriefingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BriefingController.swift; sourceTree = "<group>"; };
-		9D1A89112885F31B00916560 /* TodayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCell.swift; sourceTree = "<group>"; };
-		9D1A89132885F38A00916560 /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
+		9D1A89112885F31B00916560 /* SummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCell.swift; sourceTree = "<group>"; };
+		9D1A89132885F38A00916560 /* SummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewModel.swift; sourceTree = "<group>"; };
 		9D1A89152885F39D00916560 /* BriefingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BriefingViewModel.swift; sourceTree = "<group>"; };
 		9D1A89182885F40400916560 /* IAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAuthService.swift; sourceTree = "<group>"; };
 		9D1A891A2885F44800916560 /* FirebaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthService.swift; sourceTree = "<group>"; };
@@ -249,13 +249,13 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
-		9D1A891C2885F7F300916560 /* Today */ = {
+		9D1A891C2885F7F300916560 /* Summary */ = {
 			isa = PBXGroup;
 			children = (
-				9D1A89112885F31B00916560 /* TodayCell.swift */,
-				9D1A89132885F38A00916560 /* TodayViewModel.swift */,
+				9D1A89112885F31B00916560 /* SummaryCell.swift */,
+				9D1A89132885F38A00916560 /* SummaryViewModel.swift */,
 			);
-			path = Today;
+			path = Summary;
 			sourceTree = "<group>";
 		};
 		9D1A891E2885F86D00916560 /* Blueprint */ = {
@@ -390,7 +390,7 @@
 				9D5C365E28806D56008A418D /* Home */,
 				9D5C36612881C417008A418D /* MiniCalendar */,
 				9D1A89582886434A00916560 /* Suggestions */,
-				9D1A891C2885F7F300916560 /* Today */,
+				9D1A891C2885F7F300916560 /* Summary */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -777,7 +777,7 @@
 				9D5C367528848298008A418D /* DaysServiceProtocol.swift in Sources */,
 				9D1A895A2886438000916560 /* BlueprintSuggestionCell.swift in Sources */,
 				9D1A89192885F40400916560 /* IAuthService.swift in Sources */,
-				9D1A89142885F38A00916560 /* TodayViewModel.swift in Sources */,
+				9D1A89142885F38A00916560 /* SummaryViewModel.swift in Sources */,
 				9D5C366C2881C89B008A418D /* Blueprint+Cases.swift in Sources */,
 				9D1A891B2885F44800916560 /* FirebaseAuthService.swift in Sources */,
 				9D5D980428988033008BDAB8 /* FirebaseStorageService.swift in Sources */,
@@ -802,7 +802,7 @@
 				2B81B34F28A030C500246B3C /* UIView+Round.swift in Sources */,
 				9D1A89382886275A00916560 /* Container+App.swift in Sources */,
 				9D5C362A287F5909008A418D /* AppDelegate.swift in Sources */,
-				9D1A89122885F31B00916560 /* TodayCell.swift in Sources */,
+				9D1A89122885F31B00916560 /* SummaryCell.swift in Sources */,
 				2B81B35328A33B7E00246B3C /* BlueprintViewModel.swift in Sources */,
 				9D5C36632881C43E008A418D /* DayCell.swift in Sources */,
 				9D1A89262885FA2A00916560 /* FirestoreBlueprintsService.swift in Sources */,

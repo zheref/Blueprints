@@ -1,6 +1,6 @@
 import Foundation
 
-class TodayViewModel: BlueViewModel {
+class SummaryViewModel: BlueViewModel {
     let blueprint: Blueprint
 
     init(blueprint: Blueprint) {

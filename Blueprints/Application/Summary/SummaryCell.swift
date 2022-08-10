@@ -8,11 +8,11 @@
 import UIKit
 import RxSwift
 
-class TodayCell: UITableViewCell {
+class SummaryCell: UITableViewCell {
     
     // MARK: - Class Members
     
-    static let reuseIdentifier = "currentPrintCell"
+    static let reuseIdentifier = "summaryCell"
     
     // MARK: - UI
     @IBOutlet weak var printNameLabel: UILabel!

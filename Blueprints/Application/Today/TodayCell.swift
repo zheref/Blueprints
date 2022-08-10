@@ -88,6 +88,12 @@ class TodayCell: UITableViewCell {
         } else {
             printImageView.image = nil
         }
+        
+        let workHours = model.work.reduce(0) { prev, work in
+            prev + (work.minutes / 60)
+        }
+        
+        workLabel.text = "👓 \(workHours)h"
 
         if let training = model.training {
             let hours = training.minutes / 60

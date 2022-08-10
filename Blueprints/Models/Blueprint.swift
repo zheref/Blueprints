@@ -48,6 +48,7 @@ struct Blueprint: Equatable {
     let firePath: ZPath?
 
     let training: TrainingPlacement?
+    
 //    let music: CompletionStatus
 //    let dressing: CompletionStatus
     

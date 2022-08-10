@@ -89,18 +89,20 @@ enum SystemType: String {
     }
 }
 
-enum WorkMode {
+enum WorkMode: String {
     case corporate
     case personal
     case any
 }
 
-enum WorkEnvironment {
+enum WorkEnvironment: String {
     case unit
     case coworking
     case office
     case cafe
     case studio
+    case any
+    case none
 }
 
 enum TrainingWay: String {

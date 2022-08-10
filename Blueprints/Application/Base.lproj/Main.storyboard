@@ -251,13 +251,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="k7c-dB-Kkx">
-                                                    <rect key="frame" x="65" y="205" width="284" height="50"/>
+                                                    <rect key="frame" x="65" y="205" width="284" height="44"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F9Z-Ta-ebA">
-                                                            <rect key="frame" x="0.0" y="0.0" width="90" height="50"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="90" height="44"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👓 ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z9Q-98-DZi">
-                                                                    <rect key="frame" x="24.5" y="12.5" width="41.5" height="25.5"/>
+                                                                    <rect key="frame" x="24.5" y="9.5" width="41.5" height="25.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -268,14 +268,14 @@
                                                                 <constraint firstItem="Z9Q-98-DZi" firstAttribute="centerY" secondItem="F9Z-Ta-ebA" secondAttribute="centerY" id="2LG-wg-PqQ"/>
                                                                 <constraint firstAttribute="width" constant="90" id="AVB-jv-zr6"/>
                                                                 <constraint firstItem="Z9Q-98-DZi" firstAttribute="centerX" secondItem="F9Z-Ta-ebA" secondAttribute="centerX" id="Tjz-uw-EPn"/>
-                                                                <constraint firstAttribute="height" constant="50" id="Vmm-4E-BdV"/>
+                                                                <constraint firstAttribute="height" constant="44" id="Vmm-4E-BdV"/>
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bUu-6m-nO0">
-                                                            <rect key="frame" x="97" y="0.0" width="90" height="50"/>
+                                                            <rect key="frame" x="97" y="0.0" width="90" height="44"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🏋️‍♂️ ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhb-XP-t1P">
-                                                                    <rect key="frame" x="24.5" y="12.5" width="41.5" height="25.5"/>
+                                                                    <rect key="frame" x="24.5" y="9.5" width="41.5" height="25.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -284,16 +284,16 @@
                                                             <color key="backgroundColor" name="trainRed"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="90" id="Gql-ya-oPm"/>
-                                                                <constraint firstAttribute="height" constant="50" id="PHV-aI-C9s"/>
+                                                                <constraint firstAttribute="height" constant="44" id="PHV-aI-C9s"/>
                                                                 <constraint firstItem="xhb-XP-t1P" firstAttribute="centerX" secondItem="bUu-6m-nO0" secondAttribute="centerX" id="bO8-2w-ZSi"/>
                                                                 <constraint firstItem="xhb-XP-t1P" firstAttribute="centerY" secondItem="bUu-6m-nO0" secondAttribute="centerY" id="mlv-Wf-are"/>
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uBD-Vb-OBC">
-                                                            <rect key="frame" x="194" y="0.0" width="90" height="50"/>
+                                                            <rect key="frame" x="194" y="0.0" width="90" height="44"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🎮 ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzz-wn-0Ca">
-                                                                    <rect key="frame" x="24.5" y="12.5" width="41.5" height="25.5"/>
+                                                                    <rect key="frame" x="24.5" y="9.5" width="41.5" height="25.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -303,14 +303,14 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="90" id="6Bm-hU-e5z"/>
                                                                 <constraint firstItem="fzz-wn-0Ca" firstAttribute="centerX" secondItem="uBD-Vb-OBC" secondAttribute="centerX" id="mCN-WU-xPo"/>
-                                                                <constraint firstAttribute="height" constant="50" id="tEP-yR-g0r"/>
+                                                                <constraint firstAttribute="height" constant="44" id="tEP-yR-g0r"/>
                                                                 <constraint firstItem="fzz-wn-0Ca" firstAttribute="centerY" secondItem="uBD-Vb-OBC" secondAttribute="centerY" id="wdN-pU-mWY"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="284" id="MSB-q9-pqt"/>
-                                                        <constraint firstAttribute="height" constant="50" id="lX7-7t-aBM"/>
+                                                        <constraint firstAttribute="height" constant="44" id="lX7-7t-aBM"/>
                                                     </constraints>
                                                 </stackView>
                                             </subviews>

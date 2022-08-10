@@ -56,6 +56,30 @@ class FirestoreBlueprintsService: IBlueprintsService {
         if let colors = doc["colors"] as? [String] {
             resolvedColors = colors.compactMap { PrintColor(rawValue: $0) }
         }
+        
+        var resolvedWork = [WorkPlacement]()
+        if let work = doc["work"] as? [[String: Any]] {
+            resolvedWork = work.map { (placement) -> WorkPlacement in
+                var resolvedEnvironment = WorkEnvironment.none
+                if let environmentStr = placement["environment"] as? String,
+                   let environment = WorkEnvironment(rawValue: environmentStr) {
+                    resolvedEnvironment = environment
+                }
+                
+                var resolvedMode = WorkMode.any
+                if let modeStr = placement["mode"] as? String,
+                   let mode = WorkMode(rawValue: modeStr) {
+                    resolvedMode = mode
+                }
+                
+                return WorkPlacement(
+                    minutes: placement["minutes"] as? Int ?? 0,
+                    environment: resolvedEnvironment,
+                    mode: resolvedMode,
+                    specifics: placement["specifics"] as? String
+                )
+            }
+        }
 
         var resolvedTraining: TrainingPlacement?
         if let training = doc["training"] as? [String: Any] {
@@ -85,7 +109,7 @@ class FirestoreBlueprintsService: IBlueprintsService {
                                colors: resolvedColors,
                                music: resolvedMusic,
                                artists: resolvedArtists,
-                               work: [],
+                               work: resolvedWork,
                                train: [],
                                documentID: doc.documentID,
                                firePath: ZPath.from(string: doc.reference.path),

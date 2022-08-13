@@ -252,8 +252,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="k7c-dB-Kkx">
-                                                    <rect key="frame" x="65" y="210.5" width="284" height="40"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="k7c-dB-Kkx">
+                                                    <rect key="frame" x="22.5" y="210.5" width="369" height="40"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F9Z-Ta-ebA">
                                                             <rect key="frame" x="0.0" y="0.0" width="90" height="40"/>
@@ -274,7 +274,7 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bUu-6m-nO0">
-                                                            <rect key="frame" x="97" y="0.0" width="90" height="40"/>
+                                                            <rect key="frame" x="93" y="0.0" width="90" height="40"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🏋️‍♂️ ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhb-XP-t1P">
                                                                     <rect key="frame" x="27.5" y="8.5" width="35" height="23.5"/>
@@ -292,7 +292,7 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uBD-Vb-OBC">
-                                                            <rect key="frame" x="194" y="0.0" width="90" height="40"/>
+                                                            <rect key="frame" x="186" y="0.0" width="90" height="40"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🎮 ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzz-wn-0Ca">
                                                                     <rect key="frame" x="27.5" y="8.5" width="35" height="23.5"/>
@@ -301,7 +301,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
-                                                            <color key="backgroundColor" name="restGreen"/>
+                                                            <color key="backgroundColor" name="restYellow"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="90" id="6Bm-hU-e5z"/>
                                                                 <constraint firstItem="fzz-wn-0Ca" firstAttribute="centerX" secondItem="uBD-Vb-OBC" secondAttribute="centerX" id="mCN-WU-xPo"/>
@@ -309,9 +309,27 @@
                                                                 <constraint firstItem="fzz-wn-0Ca" firstAttribute="centerY" secondItem="uBD-Vb-OBC" secondAttribute="centerY" id="wdN-pU-mWY"/>
                                                             </constraints>
                                                         </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7RS-lf-w7Q">
+                                                            <rect key="frame" x="279" y="0.0" width="90" height="40"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🚀" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SbM-OH-XmR">
+                                                                    <rect key="frame" x="34" y="8.5" width="22" height="23.5"/>
+                                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" name="goGreen"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="40" id="5Lr-Un-5mU"/>
+                                                                <constraint firstItem="SbM-OH-XmR" firstAttribute="centerY" secondItem="7RS-lf-w7Q" secondAttribute="centerY" id="HUX-5P-LBi"/>
+                                                                <constraint firstItem="SbM-OH-XmR" firstAttribute="centerX" secondItem="7RS-lf-w7Q" secondAttribute="centerX" id="gxF-iu-WZz"/>
+                                                                <constraint firstAttribute="width" constant="90" id="hmE-yN-jL4"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="284" id="MSB-q9-pqt"/>
+                                                        <constraint firstAttribute="width" constant="369" id="MSB-q9-pqt"/>
                                                         <constraint firstAttribute="height" constant="40" id="lX7-7t-aBM"/>
                                                     </constraints>
                                                 </stackView>
@@ -361,6 +379,8 @@
                                             <outletCollection property="pillViews" destination="F9Z-Ta-ebA" collectionClass="NSMutableArray" id="hiN-Be-iZQ"/>
                                             <outletCollection property="pillViews" destination="bUu-6m-nO0" collectionClass="NSMutableArray" id="Dr6-rz-Owf"/>
                                             <outletCollection property="pillViews" destination="uBD-Vb-OBC" collectionClass="NSMutableArray" id="R8o-ci-PMd"/>
+                                            <outletCollection property="pillViews" destination="7RS-lf-w7Q" collectionClass="NSMutableArray" id="6os-0g-tr8"/>
+                                            <outletCollection property="pillViews" destination="7RS-lf-w7Q" collectionClass="NSMutableArray" id="8BW-uk-rBn"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="suggestionsBoxCell" rowHeight="170" id="D5U-U6-vQ2" customClass="SuggestionsBoxCell" customModule="Blueprints" customModuleProvider="target">
@@ -560,8 +580,11 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="restGreen">
+        <namedColor name="goGreen">
             <color red="0.7279999852180481" green="1" blue="0.71700000762939453" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="restYellow">
+            <color red="1" green="0.97930548453486654" blue="0.58927026180372166" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="trainRed">
             <color red="1" green="0.73299998044967651" blue="0.70200002193450928" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

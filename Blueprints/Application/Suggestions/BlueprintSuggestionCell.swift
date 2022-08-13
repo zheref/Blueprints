@@ -1,6 +1,18 @@
 import UIKit
 import RxSwift
 
+class BlueprintSuggestionViewModel: BlueViewModel {
+    
+    let blueprint: Blueprint
+    
+    var imageName: String?
+    
+    init(blueprint: Blueprint) {
+        self.blueprint = blueprint
+    }
+    
+}
+
 class BlueprintSuggestionCell: UICollectionViewCell {
 
     // MARK: - Class Members
@@ -14,7 +26,10 @@ class BlueprintSuggestionCell: UICollectionViewCell {
 
     // MARK: - Reactive
     
-    var model: Blueprint! { didSet { bind() }}
+    var model: BlueprintSuggestionViewModel! {
+        didSet { bind() }
+    }
+    
     let bag = DisposeBag()
 
     // MARK: - Lifecycle
@@ -34,11 +49,12 @@ class BlueprintSuggestionCell: UICollectionViewCell {
     }
     
     private func bind() {
-        blueprintTitle?.text = model.name
-        blueprintImage.image = nil
+        blueprintTitle?.text = model.blueprint.name
         
-        if let picUrl = model.pictureUrl {
+        if let picUrl = model.blueprint.pictureUrl, model.imageName != picUrl {
+            blueprintImage.image = nil
             pullImage(withUrlString: picUrl)
+            model.imageName = picUrl
         }
     }
     

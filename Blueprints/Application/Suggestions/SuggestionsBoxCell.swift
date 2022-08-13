@@ -42,7 +42,7 @@ class SuggestionsBoxCell: UITableViewCell {
                     cellType: BlueprintSuggestionCell.self)
                 )
             {
-                $2.model = $1
+                $2.model = BlueprintSuggestionViewModel(blueprint: $1)
             }.disposed(by: bag)
 
         printsCollection.rx.setDelegate(self).disposed(by: bag)
@@ -72,12 +72,15 @@ extension SuggestionsBoxCell: UICollectionViewDelegateFlowLayout {
                         point: CGPoint) -> UIContextMenuConfiguration? {
         UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
             UIMenu(title: "", children: [
-                UIAction(title: "Assign", image: nil) { [weak self] action in
-                    if let print = self?.model.box.prints[indexPath.item] {
-                        self?.model.assignClicked.onNext(print)
-                    }
-                },
-                UIAction(title: "Favorite", image: nil) { [weak self] action in
+                UIAction(title: "Assign",
+                         image: UIImage(systemName: "checkmark.circle"))
+                    { [weak self] action in
+                        if let print = self?.model.box.prints[indexPath.item] {
+                            self?.model.assignClicked.onNext(print)
+                        }
+                    },
+                UIAction(title: "Favorite",
+                         image: UIImage(systemName: "star")) { [weak self] action in
                     if let print = self?.model.box.prints[indexPath.item] {
                         self?.model.favClicked.onNext(print)
                     }

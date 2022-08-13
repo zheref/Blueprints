@@ -68,21 +68,22 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
                         point: CGPoint) -> UIContextMenuConfiguration? {
 
         UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
-            let unassignAction = UIAction(title: "Unassign", image: nil) { [weak self] action in
-                guard let this = self else { return }
-                this.model.dates
-                    .map { $0[indexPath.item] }
-                    .take(1)
-                    .subscribe(onNext: this.model.unassignClicked.onNext)
-                    .disposed(by: this.bag)
-            }
-
-            let pinAction = UIAction(title: "Pin", image: nil) { [weak self] action in
+            let pinAction = UIAction(title: "Pin", image: UIImage(systemName: "pin.fill")) { [weak self] action in
 //                guard let print = self?.model.prints[indexPath.item] else { return }
 //                self?.model.pinClicked.onNext(print)
             }
 
-            return UIMenu(title: "", children: [unassignAction, pinAction])
+            return UIMenu(title: "", children: [
+                UIAction(title: "Unassign", image: UIImage(systemName: "xmark.circle")) { [weak self] action in
+                    guard let this = self else { return }
+                    this.model.dates
+                        .map { $0[indexPath.item] }
+                        .take(1)
+                        .subscribe(onNext: this.model.unassignClicked.onNext)
+                        .disposed(by: this.bag)
+                },
+                pinAction
+            ])
         }
     }
 }

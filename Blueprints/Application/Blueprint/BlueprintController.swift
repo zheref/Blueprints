@@ -26,10 +26,6 @@ class BlueprintController: BlueTableController {
     }
     
     private func bind() {
-        if let firstSectionHeader = tableView.headerView(forSection: 0) {
-            firstSectionHeader.textLabel?.text = model.blueprint.attribute
-        }
-        
         if let imageUrl = model.blueprint.pictureUrl {
             pullImage(withUrlString: imageUrl)
         }
@@ -51,6 +47,14 @@ class BlueprintController: BlueTableController {
     
     @objc private func userDidTapSave() {
         
+    }
+    
+    // MARK: - Table view
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if let headerView = view as? UITableViewHeaderFooterView {
+            headerView.textLabel?.text = model.blueprint.attribute.uppercased()
+        }
     }
 
     // MARK: - Table view data source

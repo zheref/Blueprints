@@ -10,6 +10,9 @@ class BriefingViewModel: BlueViewModel {
     // MARK: Stateful
     var selectedDate: BlueDate?
     var isSummaryOpen = false
+    
+    // MARK: Actions Stream
+    var triggerNavigation = PublishSubject<(route: String, context: Any)>()
 
     // MARK: - Computed observables
 
@@ -92,6 +95,13 @@ class BriefingViewModel: BlueViewModel {
     }
 
     // MARK: - User Actions
+    
+    func userDidSelect(bprint: Blueprint) {
+        triggerNavigation.onNext((
+            route: K.Segue.homeToBlueprintDetail,
+            context: bprint
+        ))
+    }
     
     func userDidAssignToDate(bprint: Blueprint) {
         let assignmentsService = try! ServicesContainer.shared.resolve() as IAssignmentsServive

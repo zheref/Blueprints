@@ -215,6 +215,13 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		2BD034C028A842B100869BDC /* NewBlueprint */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NewBlueprint;
+			sourceTree = "<group>";
+		};
 		70509F1E89FDA6F4447B35F6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -384,6 +391,7 @@
 		9D5C365A28806642008A418D /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				2BD034C028A842B100869BDC /* NewBlueprint */,
 				9D5C362F287F5909008A418D /* Main.storyboard */,
 				9D5C3629287F5909008A418D /* AppDelegate.swift */,
 				9D5C362B287F5909008A418D /* SceneDelegate.swift */,

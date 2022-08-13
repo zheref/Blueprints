@@ -18,6 +18,7 @@ enum K {
     enum Segue {
         static let briefingInHome = "briefingInHome"
         static let homeToBlueprintDetail = "homeToBlueprintDetail"
+        static let homeToNewBlueprint = "homeToNewBlueprint"
     }
     
     enum Measurement {

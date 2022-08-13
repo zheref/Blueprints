@@ -2,6 +2,10 @@ import UIKit
 
 class BlueprintController: BlueTableController {
     
+    // MARK: - UI Elements
+    
+    @IBOutlet weak var pictureView: UIImageView!
+    
     // MARK: - Reactive
     
     var model: BlueprintViewModel!
@@ -10,8 +14,8 @@ class BlueprintController: BlueTableController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        model.viewIsPrepared()
         setup()
+        model.viewIsPrepared()
     }
     
     private func setup() {
@@ -22,7 +26,25 @@ class BlueprintController: BlueTableController {
     }
     
     private func bind() {
+        if let firstSectionHeader = tableView.headerView(forSection: 0) {
+            firstSectionHeader.textLabel?.text = model.blueprint.attribute
+        }
         
+        if let imageUrl = model.blueprint.pictureUrl {
+            pullImage(withUrlString: imageUrl)
+        }
+    }
+    
+    private func pullImage(withUrlString urlString: String) {
+        let storageService = try! ServicesContainer.shared.resolve() as StorageServiceProtocol
+        
+        storageService.downloadImage(named: urlString)
+            .subscribe(onSuccess: { [weak self] imageData in
+                self?.pictureView.image = UIImage(data: imageData)
+            }, onFailure: { error in
+                print("Error downloading image", error.localizedDescription)
+            })
+            .disposed(by: bag)
     }
     
     // MARK: - User Actions
@@ -32,26 +54,6 @@ class BlueprintController: BlueTableController {
     }
 
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -70,31 +72,6 @@ class BlueprintController: BlueTableController {
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
     */
 

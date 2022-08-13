@@ -1,7 +1,6 @@
 import UIKit
 import RxSwift
 
-// Refactor to be named: SuggestionsBoxCell
 class SuggestionsBoxCell: UITableViewCell {
     
     // MARK: - Class Members
@@ -21,7 +20,7 @@ class SuggestionsBoxCell: UITableViewCell {
     let assignClicked = PublishSubject<Blueprint>()
     let favClicked = PublishSubject<Blueprint>()
     
-    var model: SuggestionsBox! {
+    var model: SuggestionsBoxViewModel! {
         didSet { bind() }
     }
     
@@ -35,12 +34,12 @@ class SuggestionsBoxCell: UITableViewCell {
     private func setup() {}
     
     private func bind() {
-        titleLabel.text = model.title
+        titleLabel.text = model.box.title
         
         printsCollection.dataSource = nil
         printsCollection.delegate = nil
         
-        Observable.just(model.prints)
+        Observable.just(model.box.prints)
             .bind(to: printsCollection.rx
                 .items(
                     cellIdentifier: BlueprintSuggestionCell.reuseIdentifier,
@@ -51,6 +50,13 @@ class SuggestionsBoxCell: UITableViewCell {
             }.disposed(by: bag)
 
         printsCollection.rx.setDelegate(self).disposed(by: bag)
+        
+//        printsCollection
+//            .rx
+//            .modelSelected(Blueprint.self)
+//            .subscribe(onNext: { [weak self] bprint in
+//                self?.model.printSelected.onNext(bprint)
+//            }).disposed(by: bag)
     }
     
 }
@@ -69,17 +75,18 @@ extension SuggestionsBoxCell: UICollectionViewDelegateFlowLayout {
                         contextMenuConfigurationForItemAt indexPath: IndexPath,
                         point: CGPoint) -> UIContextMenuConfiguration? {
         UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
-            let assignAction = UIAction(title: "Assign", image: nil) { [weak self] action in
-                guard let print = self?.model.prints[indexPath.item] else { return }
-                self?.assignClicked.onNext(print)
-            }
-            
-            let favAction = UIAction(title: "Favorite", image: nil) { [weak self] action in
-                guard let print = self?.model.prints[indexPath.item] else { return }
-                self?.favClicked.onNext(print)
-            }
-            
-            return UIMenu(title: "", children: [assignAction, favAction])
+            UIMenu(title: "", children: [
+                UIAction(title: "Assign", image: nil) { [weak self] action in
+                    if let print = self?.model.box.prints[indexPath.item] {
+                        self?.assignClicked.onNext(print)
+                    }
+                },
+                UIAction(title: "Favorite", image: nil) { [weak self] action in
+                    if let print = self?.model.box.prints[indexPath.item] {
+                        self?.favClicked.onNext(print)
+                    }
+                }
+            ]) // UIMenu
         } // UIContextMenuConfiguration
     }
 

@@ -41,7 +41,8 @@ class BriefingController: BlueController {
             case .suggestions(let prints, let userId):
                 let cell = table.dequeueReusableCell(withIdentifier: SuggestionsBoxCell.reuseIdentifier, for: IndexPath(row: index, section: 0))
                 if let suggestionsBoxCell = cell as? SuggestionsBoxCell {
-                    suggestionsBoxCell.model = SuggestionsBox(title: element.0, prints: prints, forUser: userId)
+                    let box = SuggestionsBox(title: element.0, prints: prints, forUser: userId)
+                    suggestionsBoxCell.model = SuggestionsBoxViewModel(box: box)
                     if let this = self {
                         suggestionsBoxCell.assignClicked.subscribe(onNext: this.model.userDidAssignToDate).disposed(by: this.bag)
                     }
@@ -55,6 +56,13 @@ class BriefingController: BlueController {
                 } else { return cell }
             }
         }.disposed(by: bag)
+        
+//        briefingTableView
+//            .rx
+//            .modelSelected(BriefingRow.self)
+//            .subscribe(onNext: { [weak self] row in
+//                if case let .suggestions(bluePrints, userId
+//            })
     }
 
 }

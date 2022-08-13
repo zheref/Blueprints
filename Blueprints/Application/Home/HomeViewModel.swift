@@ -15,6 +15,8 @@ class HomeViewModel {
     var pinClicked = PublishSubject<BlueDate>()
     var selectDateAtIndex = PublishSubject<IndexPath>()
     
+    var lastSelectedBlueprint: Blueprint?
+    
     init() {
         let assignmentsService = try! ServicesContainer.shared.resolve() as IAssignmentsServive
         let daysService = try! ServicesContainer.shared.resolve() as DaysServiceProtocol

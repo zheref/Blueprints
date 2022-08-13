@@ -28,6 +28,8 @@ class HomeViewController: BlueController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == K.Segue.briefingInHome {
             (segue.destination as? BriefingController)?.model = model.forBriefing
+        } else if segue.identifier == K.Segue.homeToBlueprintDetail, let lastBlueprint = model.lastSelectedBlueprint {
+            (segue.destination as? BlueprintController)?.model = BlueprintViewModel(blueprint: lastBlueprint)
         }
     }
     

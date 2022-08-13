@@ -29,6 +29,18 @@ extension HomeViewController: UICollectionViewDelegate {
                 height: self.expectedCellSize().height
             )
         }).disposed(by: bag)
+        
+        calendarCollectionView
+            .rx
+            .modelSelected(Day.self)
+            .subscribe(onNext: { [weak self] day in
+                if let selectedIndexes = self?.calendarCollectionView.indexPathsForSelectedItems,
+                   let onlySelectedIndex = selectedIndexes.first,
+                   let selectedCell = self?.calendarCollectionView.cellForItem(at: onlySelectedIndex) as? DayCell {
+                    selectedCell.model = DayViewModel(day: day)
+                }
+            })
+            .disposed(by: bag)
     }
     
 }

@@ -17,11 +17,13 @@ enum K {
     
     enum Segue {
         static let briefingInHome = "briefingInHome"
+        static let homeToBlueprintDetail = "homeToBlueprintDetail"
     }
     
     enum Measurement {
         static let carouselHeight: CGFloat = 170
         static let summaryHeight: CGFloat = 264
+        static let blueprintPictureHeight: CGFloat = 230
     }
     
 }

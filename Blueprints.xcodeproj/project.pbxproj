@@ -25,6 +25,7 @@
 		2B81B34F28A030C500246B3C /* UIView+Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B81B34E28A030C500246B3C /* UIView+Round.swift */; };
 		2B81B35128A33B1D00246B3C /* BlueprintController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B81B35028A33B1D00246B3C /* BlueprintController.swift */; };
 		2B81B35328A33B7E00246B3C /* BlueprintViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B81B35228A33B7E00246B3C /* BlueprintViewModel.swift */; };
+		2BB8A54628A817FB00776332 /* SuggestionsBoxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB8A54528A817FB00776332 /* SuggestionsBoxViewModel.swift */; };
 		991CD928DA7724E287AF89F7 /* Pods_Blueprints.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7612E2FDF59793CAF2F21C7 /* Pods_Blueprints.framework */; };
 		9D1666D8288B455100BF07AD /* UIKit+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1666D7288B455100BF07AD /* UIKit+Helpers.swift */; };
 		9D1A890A2884A1D300916560 /* Konstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A89092884A1D300916560 /* Konstants.swift */; };
@@ -109,6 +110,7 @@
 		2B81B34E28A030C500246B3C /* UIView+Round.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Round.swift"; sourceTree = "<group>"; };
 		2B81B35028A33B1D00246B3C /* BlueprintController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueprintController.swift; sourceTree = "<group>"; };
 		2B81B35228A33B7E00246B3C /* BlueprintViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueprintViewModel.swift; sourceTree = "<group>"; };
+		2BB8A54528A817FB00776332 /* SuggestionsBoxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsBoxViewModel.swift; sourceTree = "<group>"; };
 		2CEFCBF08884A7ECB5C5104C /* Pods-BlueprintsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueprintsTests.release.xcconfig"; path = "Target Support Files/Pods-BlueprintsTests/Pods-BlueprintsTests.release.xcconfig"; sourceTree = "<group>"; };
 		3E663306192264E2E7B5D788 /* Pods-Blueprints-BlueprintsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blueprints-BlueprintsUITests.release.xcconfig"; path = "Target Support Files/Pods-Blueprints-BlueprintsUITests/Pods-Blueprints-BlueprintsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		50D49B3131F0B9A8EC0023B2 /* Pods-BlueprintsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueprintsTests.debug.xcconfig"; path = "Target Support Files/Pods-BlueprintsTests/Pods-BlueprintsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 			children = (
 				9D1A891F2885F9BA00916560 /* SuggestionsBoxCell.swift */,
 				9D1A89592886438000916560 /* BlueprintSuggestionCell.swift */,
+				2BB8A54528A817FB00776332 /* SuggestionsBoxViewModel.swift */,
 			);
 			path = Suggestions;
 			sourceTree = "<group>";
@@ -782,6 +785,7 @@
 				9D1A891B2885F44800916560 /* FirebaseAuthService.swift in Sources */,
 				9D5D980428988033008BDAB8 /* FirebaseStorageService.swift in Sources */,
 				9D1A895028862E2000916560 /* FirestoreSuggestionsService.swift in Sources */,
+				2BB8A54628A817FB00776332 /* SuggestionsBoxViewModel.swift in Sources */,
 				9D5C368128849C36008A418D /* DayViewModel.swift in Sources */,
 				9D1A89162885F39D00916560 /* BriefingViewModel.swift in Sources */,
 				9D5C36722884807C008A418D /* HomeViewModel.swift in Sources */,

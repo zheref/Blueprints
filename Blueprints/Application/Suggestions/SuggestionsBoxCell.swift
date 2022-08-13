@@ -16,10 +16,6 @@ class SuggestionsBoxCell: UITableViewCell {
     
     let bag = DisposeBag()
     
-    // Should we move this to the model?
-    let assignClicked = PublishSubject<Blueprint>()
-    let favClicked = PublishSubject<Blueprint>()
-    
     var model: SuggestionsBoxViewModel! {
         didSet { bind() }
     }
@@ -51,12 +47,12 @@ class SuggestionsBoxCell: UITableViewCell {
 
         printsCollection.rx.setDelegate(self).disposed(by: bag)
         
-//        printsCollection
-//            .rx
-//            .modelSelected(Blueprint.self)
-//            .subscribe(onNext: { [weak self] bprint in
-//                self?.model.printSelected.onNext(bprint)
-//            }).disposed(by: bag)
+        printsCollection
+            .rx
+            .modelSelected(Blueprint.self)
+            .subscribe(onNext: { [weak self] bprint in
+                self?.model.printSelected.onNext(bprint)
+            }).disposed(by: bag)
     }
     
 }
@@ -78,12 +74,12 @@ extension SuggestionsBoxCell: UICollectionViewDelegateFlowLayout {
             UIMenu(title: "", children: [
                 UIAction(title: "Assign", image: nil) { [weak self] action in
                     if let print = self?.model.box.prints[indexPath.item] {
-                        self?.assignClicked.onNext(print)
+                        self?.model.assignClicked.onNext(print)
                     }
                 },
                 UIAction(title: "Favorite", image: nil) { [weak self] action in
                     if let print = self?.model.box.prints[indexPath.item] {
-                        self?.favClicked.onNext(print)
+                        self?.model.favClicked.onNext(print)
                     }
                 }
             ]) // UIMenu

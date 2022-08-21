@@ -253,13 +253,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="k7c-dB-Kkx">
-                                                    <rect key="frame" x="27.5" y="210.5" width="359" height="40"/>
+                                                    <rect key="frame" x="32.5" y="210.5" width="349" height="40"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F9Z-Ta-ebA">
-                                                            <rect key="frame" x="0.0" y="0.0" width="90" height="40"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="85" height="40"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👓 ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z9Q-98-DZi">
-                                                                    <rect key="frame" x="27.5" y="8.5" width="35" height="23.5"/>
+                                                                    <rect key="frame" x="25" y="8.5" width="35" height="23.5"/>
                                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -268,16 +268,16 @@
                                                             <color key="backgroundColor" name="workPurple"/>
                                                             <constraints>
                                                                 <constraint firstItem="Z9Q-98-DZi" firstAttribute="centerY" secondItem="F9Z-Ta-ebA" secondAttribute="centerY" id="2LG-wg-PqQ"/>
-                                                                <constraint firstAttribute="width" constant="90" id="AVB-jv-zr6"/>
+                                                                <constraint firstAttribute="width" constant="85" id="AVB-jv-zr6"/>
                                                                 <constraint firstItem="Z9Q-98-DZi" firstAttribute="centerX" secondItem="F9Z-Ta-ebA" secondAttribute="centerX" id="Tjz-uw-EPn"/>
                                                                 <constraint firstAttribute="height" constant="40" id="Vmm-4E-BdV"/>
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bUu-6m-nO0">
-                                                            <rect key="frame" x="93" y="0.0" width="90" height="40"/>
+                                                            <rect key="frame" x="88" y="0.0" width="85" height="40"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🏋️‍♂️ ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhb-XP-t1P">
-                                                                    <rect key="frame" x="27.5" y="8.5" width="35" height="23.5"/>
+                                                                    <rect key="frame" x="25" y="8.5" width="35" height="23.5"/>
                                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -285,17 +285,17 @@
                                                             </subviews>
                                                             <color key="backgroundColor" name="trainRed"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="90" id="Gql-ya-oPm"/>
+                                                                <constraint firstAttribute="width" constant="85" id="Gql-ya-oPm"/>
                                                                 <constraint firstAttribute="height" constant="40" id="PHV-aI-C9s"/>
                                                                 <constraint firstItem="xhb-XP-t1P" firstAttribute="centerX" secondItem="bUu-6m-nO0" secondAttribute="centerX" id="bO8-2w-ZSi"/>
                                                                 <constraint firstItem="xhb-XP-t1P" firstAttribute="centerY" secondItem="bUu-6m-nO0" secondAttribute="centerY" id="mlv-Wf-are"/>
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uBD-Vb-OBC">
-                                                            <rect key="frame" x="186" y="0.0" width="90" height="40"/>
+                                                            <rect key="frame" x="176" y="0.0" width="85" height="40"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🎮 ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzz-wn-0Ca">
-                                                                    <rect key="frame" x="27.5" y="8.5" width="35" height="23.5"/>
+                                                                    <rect key="frame" x="25" y="8.5" width="35" height="23.5"/>
                                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -303,17 +303,17 @@
                                                             </subviews>
                                                             <color key="backgroundColor" name="restYellow"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="90" id="6Bm-hU-e5z"/>
+                                                                <constraint firstAttribute="width" constant="85" id="6Bm-hU-e5z"/>
                                                                 <constraint firstItem="fzz-wn-0Ca" firstAttribute="centerX" secondItem="uBD-Vb-OBC" secondAttribute="centerX" id="mCN-WU-xPo"/>
                                                                 <constraint firstAttribute="height" constant="40" id="tEP-yR-g0r"/>
                                                                 <constraint firstItem="fzz-wn-0Ca" firstAttribute="centerY" secondItem="uBD-Vb-OBC" secondAttribute="centerY" id="wdN-pU-mWY"/>
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7RS-lf-w7Q">
-                                                            <rect key="frame" x="279" y="0.0" width="80" height="40"/>
+                                                            <rect key="frame" x="264" y="0.0" width="85" height="40"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🚀" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SbM-OH-XmR">
-                                                                    <rect key="frame" x="29" y="8.5" width="22" height="23.5"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🚀 GO!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SbM-OH-XmR">
+                                                                    <rect key="frame" x="12.5" y="8.5" width="60" height="23.5"/>
                                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -324,12 +324,12 @@
                                                                 <constraint firstAttribute="height" constant="40" id="5Lr-Un-5mU"/>
                                                                 <constraint firstItem="SbM-OH-XmR" firstAttribute="centerY" secondItem="7RS-lf-w7Q" secondAttribute="centerY" id="HUX-5P-LBi"/>
                                                                 <constraint firstItem="SbM-OH-XmR" firstAttribute="centerX" secondItem="7RS-lf-w7Q" secondAttribute="centerX" id="gxF-iu-WZz"/>
-                                                                <constraint firstAttribute="width" constant="80" id="hmE-yN-jL4"/>
+                                                                <constraint firstAttribute="width" constant="85" id="hmE-yN-jL4"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="359" id="MSB-q9-pqt"/>
+                                                        <constraint firstAttribute="width" constant="349" id="MSB-q9-pqt"/>
                                                         <constraint firstAttribute="height" constant="40" id="lX7-7t-aBM"/>
                                                     </constraints>
                                                 </stackView>

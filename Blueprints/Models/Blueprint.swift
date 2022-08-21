@@ -12,6 +12,8 @@ struct WorkPlacement {
     let environment: WorkEnvironment
     let mode: WorkMode
     let specifics: String?
+    
+    var hours: Double { Double(minutes) / 60 }
 }
 
 struct TrainingPlacement {
@@ -19,6 +21,17 @@ struct TrainingPlacement {
     let environment: TrainingEnvironment
     let ways: [TrainingWay]
     let specifics: String?
+    
+    var hours: Double { Double(minutes) / 60 }
+}
+
+struct ChillPlacement {
+    let minutes: Int
+    let environment: ChillEnvironment
+    let ways: [ChillWay]
+    let specifics: String?
+    
+    var hours: Double { Double(minutes) / 60 }
 }
 
 enum BlueprintPrivacy {
@@ -41,13 +54,12 @@ struct Blueprint: Equatable {
     
     let work: [WorkPlacement]
     let train: [TrainingPlacement]
+    let chill: [ChillPlacement]
     
     var privacy: BlueprintPrivacy = .privately
     
     let documentID: String?
     let firePath: ZPath?
-
-    let training: TrainingPlacement?
     
 //    let music: CompletionStatus
 //    let dressing: CompletionStatus

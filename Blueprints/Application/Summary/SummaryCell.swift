@@ -113,16 +113,33 @@ class SummaryCell: UITableViewCell {
     }
     
     private func bindRatios() {
+        bindWork()
+        bindTrain()
+        bindChill()
+    }
+    
+    private func bindWork() {
         let workHours = model.day.blueprint.work.reduce(0) { prev, work in
-            prev + (work.minutes / 60)
+            prev + work.hours
         }
         
-        workLabel.text = "👓 \(workHours)h"
-
-        if let training = model.day.blueprint.training {
-            let hours = training.minutes / 60
-            trainLabel.text = "🏋️‍♂️ \(hours)h"
+        workLabel.text = "👓 \(workHours.asReadable(withDecimals: 0))h"
+    }
+    
+    private func bindTrain() {
+        let trainHours = model.day.blueprint.train.reduce(0) { prev, train in
+            prev + train.hours
         }
+        
+        trainLabel.text = "🏋️‍♂️ \(trainHours.asReadable(withDecimals: 0))h"
+    }
+    
+    private func bindChill() {
+        let chillHours = model.day.blueprint.chill.reduce(0) { prev, chill in
+            prev + chill.hours
+        }
+        
+        chillLabel.text = "🎮 \(chillHours.asReadable(withDecimals: 0))h"
     }
 
 }

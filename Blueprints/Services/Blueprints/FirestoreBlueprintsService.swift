@@ -81,8 +81,8 @@ class FirestoreBlueprintsService: IBlueprintsService {
             }
         }
 
-        var resolvedTraining: TrainingPlacement?
-        if let training = doc["training"] as? [String: Any] {
+        var resolvedTrain = [TrainingPlacement]()
+        if let training = doc["training"] as? RegularDict {
             var resolvedEnvironment = TrainingEnvironment.none
             if let environmentStr = training["environment"] as? String,
                 let environment = TrainingEnvironment(rawValue: environmentStr) {
@@ -94,12 +94,55 @@ class FirestoreBlueprintsService: IBlueprintsService {
                 resolvedWays = stringWays.compactMap { TrainingWay(rawValue: $0) }
             }
 
-            resolvedTraining = TrainingPlacement(
+            resolvedTrain = [TrainingPlacement(
                     minutes: training["minutes"] as? Int ?? 0,
                     environment: resolvedEnvironment,
                     ways: resolvedWays,
                     specifics: training["specifics"] as? String
-            )
+            )]
+        } else if let train = doc["train"] as? [RegularDict] {
+            resolvedTrain = train.map { placement -> TrainingPlacement in
+                var resolvedEnvironment = TrainingEnvironment.none
+                if let environmentStr = placement["environment"] as? String,
+                   let environment = TrainingEnvironment(rawValue: environmentStr) {
+                    resolvedEnvironment = environment
+                }
+                
+                var resolvedWays = [TrainingWay]()
+                if let stringWays = placement["ways"] as? [String] {
+                    resolvedWays = stringWays.compactMap { TrainingWay(rawValue: $0) }
+                }
+                
+                return TrainingPlacement(
+                    minutes: placement["minutes"] as? Int ?? 0,
+                    environment: resolvedEnvironment,
+                    ways: resolvedWays,
+                    specifics: placement["specifics"] as? String
+                )
+            }
+        }
+        
+        var resolvedChill = [ChillPlacement]()
+        if let chill = doc["chill"] as? [RegularDict] {
+            resolvedChill = chill.map { placement -> ChillPlacement in
+                var resolvedEnvironment = ChillEnvironment.none
+                if let environmentStr = placement["environment"] as? String,
+                   let environment = ChillEnvironment(rawValue: environmentStr) {
+                    resolvedEnvironment = environment
+                }
+                
+                var resolvedWays = [ChillWay]()
+                if let stringWays = placement["ways"] as? [String] {
+                    resolvedWays = stringWays.compactMap { ChillWay(rawValue: $0) }
+                }
+                
+                return ChillPlacement(
+                    minutes: placement["minutes"] as? Int ?? 0,
+                    environment: resolvedEnvironment,
+                    ways: resolvedWays,
+                    specifics: placement["specifics"] as? String
+                )
+            }
         }
         
         let bprint = Blueprint(name: name, attribute: attribute,
@@ -110,10 +153,10 @@ class FirestoreBlueprintsService: IBlueprintsService {
                                music: resolvedMusic,
                                artists: resolvedArtists,
                                work: resolvedWork,
-                               train: [],
+                               train: resolvedTrain,
+                               chill: resolvedChill,
                                documentID: doc.documentID,
-                               firePath: ZPath.from(string: doc.reference.path),
-                               training: resolvedTraining)
+                               firePath: ZPath.from(string: doc.reference.path))
         
         return bprint
     }

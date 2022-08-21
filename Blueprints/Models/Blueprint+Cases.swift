@@ -132,20 +132,25 @@ enum TrainingEnvironment: String {
     case none
 }
 
-enum RelaxEnvironment {
+enum ChillEnvironment: String {
     case readroom
     case pool
     case bedroom
     case lounge
+    case outdoor
+    case park
+    case restaurant
+    case mall
+    case none
+    
 }
 
-
-
-enum RelaxWay {
-    case read(content: String)
+enum ChillWay: String {
+    case read
     case sleep
     case meditate
-    case play(console: String)
+    case play
+    case socialize
 }
 
 enum MusicType: String {
@@ -155,6 +160,7 @@ enum MusicType: String {
     case rock
     case metal
     case punk
+    case indie
     case jPop
     case jRock
     case orchestra
@@ -183,6 +189,8 @@ enum MusicType: String {
             return "Rock"
         case .metal:
             return "Metal"
+        case .indie:
+            return "Indie"
         case .punk:
             return "Punk"
         case .jPop:

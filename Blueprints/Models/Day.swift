@@ -32,6 +32,10 @@ struct BlueDate: Equatable {
         BlueDate.from(date: Date())
     }
     
+    var isToday: Bool {
+        return self == Self.today
+    }
+    
     func toString() -> String? {
         guard let date = toDate() else {
             return nil

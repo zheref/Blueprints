@@ -51,6 +51,10 @@ class DayCell: UICollectionViewCell {
         dateNumberLabel?.text = model.dayNumber
         actualDayLabel?.text = model.actualDayTitle
         blueprintDayLabel?.text = model.blueprintDayTitle
+        
+        if model.day.date.isToday {
+            contentView.backgroundColor = UIColor(named: "rogueSelection")
+        }
     }
     
 }

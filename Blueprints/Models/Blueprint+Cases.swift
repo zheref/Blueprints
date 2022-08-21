@@ -118,6 +118,7 @@ enum TrainingWay: String {
     case legs
     case core
     case small
+    case fullBody
     case swimming
     case walking
 }

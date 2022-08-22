@@ -9,11 +9,15 @@ class HomeViewModel {
     var dates: Observable<[BlueDate]>
     var selectedDay: Observable<Day>
     
-    var assignedDays = BehaviorSubject<[Day]>(value: [])
+    // MARK: - Subjects
     
+    // MARK: Events
     var unassignClicked = PublishSubject<BlueDate>()
     var pinClicked = PublishSubject<BlueDate>()
     var selectDateAtIndex = PublishSubject<IndexPath>()
+    
+    // MARK: Computed observables?
+    var assignedDays = BehaviorSubject<[Day]>(value: [])
     
     var lastSelectedBlueprint: Blueprint?
     

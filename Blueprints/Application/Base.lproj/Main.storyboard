@@ -36,7 +36,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bIu-3a-tBD" userLabel="Calendar">
-                                <rect key="frame" x="0.0" y="92" width="414" height="120"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="120"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="5od-Ud-UFy"/>
@@ -109,7 +109,7 @@
                                 </connections>
                             </collectionView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PDc-a2-AQO" userLabel="Showcase">
-                                <rect key="frame" x="0.0" y="212" width="414" height="684"/>
+                                <rect key="frame" x="0.0" y="264" width="414" height="632"/>
                                 <connections>
                                     <segue destination="Vb1-Ga-5vF" kind="embed" identifier="briefingInHome" id="1Lj-1a-rDe"/>
                                 </connections>
@@ -144,11 +144,11 @@
             <objects>
                 <viewController id="Vb1-Ga-5vF" customClass="BriefingController" customModule="Blueprints" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="npk-8z-g0m">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="684"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="632"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ggb-te-Dre">
-                                <rect key="frame" x="0.0" y="48" width="414" height="636"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="584"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="summaryCell" rowHeight="264" id="PkO-Qj-IIr" customClass="SummaryCell" customModule="Blueprints" customModuleProvider="target">
@@ -584,7 +584,7 @@
             <color red="0.7279999852180481" green="1" blue="0.71700000762939453" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="restYellow">
-            <color red="1" green="0.96995116779371027" blue="0.41388914711477587" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="1" green="0.97000002861022949" blue="0.414000004529953" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="trainRed">
             <color red="1" green="0.73299998044967651" blue="0.70200002193450928" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

@@ -36,11 +36,19 @@ class DayCell: UICollectionViewCell {
     
     func setSelected(_ selected: Bool) {
         if selected {
-            contentView.round(withRadius: 12)
-            contentView.backgroundColor = UIColor(named: "mainSelection")
+            if let model = model, model.day is RedDay {
+                contentView.backgroundColor = UIColor.clear
+                contentView.outline(withWidth: 3.0, andColor: UIColor(named: "rogueSelection"))
+            } else {
+                contentView.backgroundColor = UIColor(named: "mainSelection")
+                contentView.outline(withWidth: 0)
+            }
+        } else if let model = model, model.day.date.isToday {
+            contentView.backgroundColor = UIColor(named: "rogueSelection")
+            contentView.outline(withWidth: 0)
         } else {
-            contentView.round(withRadius: 0)
             contentView.backgroundColor = UIColor.clear
+            contentView.outline(withWidth: 0)
         }
     }
     
@@ -51,9 +59,14 @@ class DayCell: UICollectionViewCell {
         dateNumberLabel?.text = model.dayNumber
         actualDayLabel?.text = model.actualDayTitle
         blueprintDayLabel?.text = model.blueprintDayTitle
+        contentView.round(withRadius: 12)
         
         if model.day.date.isToday {
+            actualDayLabel.font = UIFont(name: "Avenir-Medium", size: 12.0)
+            blueprintDayLabel.font = UIFont(name: "Avenir-Medium", size: 12.0)
             contentView.backgroundColor = UIColor(named: "rogueSelection")
+        } else {
+            blueprintDayLabel.font = UIFont(name: "Avenir-Book", size: 11.0)
         }
     }
     

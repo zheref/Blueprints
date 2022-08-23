@@ -37,10 +37,12 @@ class HomeViewModel {
         // TODO: Is this even valid or a good practice?
         dates.subscribe(onNext: { [weak self] dates in
             guard let this = self else { return }
-            assignmentsService.fetchAndMix(withDates: dates).subscribe(onNext: { [weak self] assignedDays in
-                guard let this = self else { return }
-                this.assignedDays.on(.next(assignedDays))
-            }).disposed(by: this.bag)
+            assignmentsService.fetchRelevantAssignments(forDates: dates, whileToday: BlueDate.today)
+                .subscribe(onNext: { [weak self] assignedDays in
+                    guard let this = self else { return }
+                    this.assignedDays.on(.next(assignedDays))
+                })
+                .disposed(by: this.bag)
         }).disposed(by: bag)
     }
     

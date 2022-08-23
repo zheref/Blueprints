@@ -26,4 +26,5 @@ protocol IAssignmentsServive: ServiceProtocol {
     func fetch(forDates dates: [BlueDate], forUserId userId: String) -> Observable<AssignmentsMap>
     func fetchAndParse(forDates dates: [BlueDate]) -> Observable<[Assignment]>
     func fetchAndMix(withDates dates: [BlueDate]) -> Observable<[Day]>
+    func fetchRelevantAssignments(forDates dates: [BlueDate], whileToday today: BlueDate) -> Observable<[Day]>
 }

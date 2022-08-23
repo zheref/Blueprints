@@ -57,7 +57,6 @@ class BriefingViewModel: BlueViewModel {
                 todayStream,
                 Observable.merge(todayStream, selectedDay)
             )
-            .debug()
             .map { (today, selection) -> Day in
                 if selection.date == BlueDate.today {
                     return today
@@ -71,7 +70,6 @@ class BriefingViewModel: BlueViewModel {
             }
         
         let summaryBriefing = summaryStream
-            .debug()
             .map { day -> [BriefingRow] in
                 guard let day = day as? BlueDay else {
                     return [BriefingRow]()

@@ -1,5 +1,25 @@
 import Foundation
 
+enum BlueMonthWeek {
+    case first
+    case second
+    case third
+    case fourth
+    
+    var range: ClosedRange<Int> {
+        switch self {
+        case .first:
+            return (1...7)
+        case .second:
+            return (8...15)
+        case .third:
+            return (16...23)
+        case .fourth:
+            return (24...31)
+        }
+    }
+}
+
 struct BlueDate: Equatable {
     let day: Int
     let month: Int

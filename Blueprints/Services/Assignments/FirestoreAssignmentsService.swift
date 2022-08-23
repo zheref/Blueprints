@@ -98,15 +98,58 @@ class FirestoreAssignmentsService: IAssignmentsServive {
         }
     }
     
+    func fetchRelevantAssignments(forDates dates: [BlueDate], whileToday today: BlueDate) -> Observable<[Day]> {
+        Observable
+            .merge(
+                fetchAndMix(withDates: dates),
+                Observable.combineLatest(
+                    fetchMonth(ofDate: today, forWeek: .first),
+                    fetchMonth(ofDate: today, forWeek: .second),
+                    fetchMonth(ofDate: today, forWeek: .third),
+                    fetchMonth(ofDate: today, forWeek: .fourth)
+                ) { $0 + $1 + $2 + $3 }
+            )
+            .scan([]) { reduction, theseDays in
+                var new = Array<Day>(reduction)
+            
+                theseDays.forEach { day in
+                    if let matchIndex = reduction.firstIndex(where: { $0.date == day.date }) {
+                        new[matchIndex] = day
+                    } else {
+                        new.append(day)
+                    }
+                }
+                
+                print("Z: [Assignments]: \(new.map({ $0.date.toString()! }).joined(separator: ", "))")
+                return new
+            }
+    }
+    
     func fetchAndMix(withDates dates: [BlueDate]) -> Observable<[Day]> {
         fetchAndParse(forDates: dates).map { assignments in
-            return dates.map({ date in
+            return dates.map { date in
                 guard let matchingAssignment = assignments.first(where: { $0.date == date }) else {
                     return RedDay(date: date)
                 }
                 
                 return BlueDay(date: date, blueprint: matchingAssignment.print, completion: nil)
-            })
+            }
+        }
+    }
+    
+    func fetchMonth(ofDate date: BlueDate, forWeek week: BlueMonthWeek) -> Observable<[Day]> {
+        let dates = week.range.map {
+            BlueDate(day: $0, month: date.month, year: date.year)
+        }
+        
+        return fetchAndParse(forDates: dates).map { assignments in
+            return dates.map { date in
+                guard let matchingAssignment = assignments.first(where: { $0.date == date }) else {
+                    return RedDay(date: date)
+                }
+                
+                return BlueDay(date: date, blueprint: matchingAssignment.print, completion: nil)
+            }
         }
     }
     

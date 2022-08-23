@@ -70,6 +70,20 @@ class BriefingViewModel: BlueViewModel {
             }
         
         let summaryBriefing = summaryStream
+            .withLatestFrom(assignedDays) { day, assignedDays in
+                guard var day = day as? BlueDay else { return day }
+                
+                let appearances = assignedDays.filter {
+                    guard let assignedDay = $0 as? BlueDay else {
+                        return false
+                    }
+                    
+                    return day.blueprint == assignedDay.blueprint
+                }.count
+                
+                day.printCount = appearances
+                return day
+            }
             .map { day -> [BriefingRow] in
                 guard let day = day as? BlueDay else {
                     return [BriefingRow]()

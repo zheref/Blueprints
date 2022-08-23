@@ -72,6 +72,8 @@ class SummaryCell: UITableViewCell {
         transportLabel.text = model.day.blueprint.transport.emoji
         systemLabel.text = "🧭 \(model.day.blueprint.system.name)"
         
+        useCountLabel.text = "\(model.day.printCount ?? 0)"
+        
         bindColors()
         bindRatios()
     }

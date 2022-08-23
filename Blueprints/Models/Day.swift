@@ -97,6 +97,8 @@ struct BlueDay: Day, Equatable {
     let blueprint: Blueprint
     let completion: DayCompletion?
     
+    var printCount: Int?
+    
     static func from(red: RedDay, withPrint blueprint: Blueprint) -> BlueDay {
         return BlueDay(date: red.date, blueprint: blueprint, completion: nil)
     }

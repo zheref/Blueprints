@@ -109,6 +109,7 @@ class BriefingViewModel: BlueViewModel {
     // MARK: - User Actions
     
     func userDidSelect(bprint: Blueprint) {
+        print("[Zdebug] User did select bprint w/name \(bprint.name)")
         triggerNavigation.onNext((
             route: K.Segue.homeToBlueprintDetail,
             context: bprint

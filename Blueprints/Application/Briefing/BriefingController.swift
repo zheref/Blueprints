@@ -44,8 +44,12 @@ class BriefingController: BlueController {
                     let box = SuggestionsBox(title: element.0, prints: prints, forUser: userId)
                     suggestionsBoxCell.model = SuggestionsBoxViewModel(box: box)
                     if let this = self {
-                        suggestionsBoxCell.model.assignClicked.subscribe(onNext: this.model.userDidAssignToDate).disposed(by: this.bag)
-                        suggestionsBoxCell.model.printSelected.subscribe(onNext: this.model.userDidSelect(bprint:)).disposed(by: this.bag)
+                        suggestionsBoxCell.model.assignClicked
+                            .subscribe(onNext: this.model.userDidAssignToDate)
+                            .disposed(by: suggestionsBoxCell.model.bag)
+                        suggestionsBoxCell.model.printSelected
+                            .subscribe(onNext: this.model.userDidSelect(bprint:))
+                            .disposed(by: suggestionsBoxCell.model.bag)
                     }
                     return suggestionsBoxCell
                 } else { return cell }

@@ -15,6 +15,7 @@ class SuggestionsBoxCell: UITableViewCell {
     // MARK: - Reactive
     
     let bag = DisposeBag()
+    var selectionDisposable: Disposable?
     
     var model: SuggestionsBoxViewModel! {
         didSet { bind() }
@@ -47,12 +48,18 @@ class SuggestionsBoxCell: UITableViewCell {
 
         printsCollection.rx.setDelegate(self).disposed(by: bag)
         
-        printsCollection
+        selectionDisposable?.dispose()
+        
+        selectionDisposable = printsCollection
             .rx
             .modelSelected(Blueprint.self)
             .subscribe(onNext: { [weak self] bprint in
                 self?.model.printSelected.onNext(bprint)
-            }).disposed(by: bag)
+            })
+    }
+    
+    deinit {
+        selectionDisposable?.dispose()
     }
     
 }

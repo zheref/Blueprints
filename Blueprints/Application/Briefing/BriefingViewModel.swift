@@ -70,7 +70,7 @@ class BriefingViewModel: BlueViewModel {
             }
         
         let summaryBriefing = summaryStream
-            .withLatestFrom(assignedDays) { day, assignedDays in
+            .withLatestFrom(assignedDays) { (day, assignedDays) -> Day in
                 guard var day = day as? BlueDay else { return day }
                 
                 let appearances = assignedDays.filter {

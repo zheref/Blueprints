@@ -37,14 +37,32 @@ class SummaryCell: UITableViewCell {
     let bag = DisposeBag()
     
     var model: SummaryViewModel! {
-        didSet { bind() }
+        didSet {
+            connect()
+            model.event.onNext(.ready)
+        }
     }
     
     // MARK: - Lifecycle
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        setup()
+        model?.event.onNext(.ready)
+    }
+    
+    private func connect() {
+        model.event
+            .distinctUntilChanged()
+            .subscribe(onNext: self.received(event:))
+            .disposed(by: bag)
+    }
+    
+    private func received(event: SummaryEvent) {
+        switch event {
+        case .ready:
+            bind()
+            setup()
+        }
     }
     
     private func setup() {
@@ -68,10 +86,8 @@ class SummaryCell: UITableViewCell {
         
         printNameLabel.text = model.day.blueprint.name
         attributeLabel.text = model.day.blueprint.attribute.uppercased()
-        
         transportLabel.text = model.day.blueprint.transport.emoji
         systemLabel.text = "🧭 \(model.day.blueprint.system.name)"
-        
         useCountLabel.text = "\(model.day.printCount ?? 0)"
         
         bindColors()

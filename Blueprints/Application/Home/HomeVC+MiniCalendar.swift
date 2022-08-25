@@ -16,12 +16,12 @@ extension HomeViewController: UICollectionViewDelegate {
             .bind(to: calendarCollectionViewLayout.rx.itemSize)
             .disposed(by: bag)
         
-        model.assignedDays.bind(to: calendarCollectionView.rx.items(cellIdentifier: DayCell.identifier, cellType: DayCell.self)) { (row, element, cell) in
+        model.calendarDays.bind(to: calendarCollectionView.rx.items(cellIdentifier: DayCell.identifier, cellType: DayCell.self)) { (row, element, cell) in
             cell.setSelected(false)
             cell.model = DayViewModel(day: element)
         }.disposed(by: bag)
         
-        model.assignedDays.subscribe(onNext: { [weak self] days in
+        model.calendarDays.subscribe(onNext: { [weak self] days in
             guard let self = self else { return }
             
             self.calendarCollectionView.contentSize = CGSize(

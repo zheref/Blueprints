@@ -13,12 +13,7 @@ class FirebaseStorageService: StorageServiceProtocol {
             let fileManager = FileManager.default
             let documentDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
             
-            var localImageUrl: URL!
-            if #available(iOS 16.0, *) {
-                localImageUrl = documentDirectory.appending(components: "blueprints", "images", name)
-            } else {
-                localImageUrl = documentDirectory.appendingPathComponent("blueprints/images/\(name)")
-            }
+            let localImageUrl = documentDirectory.appendingPathComponent("blueprints/images/\(name)")
             
             if fileManager.fileExists(atPath: localImageUrl.path) {
                 print("File [\(name)] exists. Using local version.")

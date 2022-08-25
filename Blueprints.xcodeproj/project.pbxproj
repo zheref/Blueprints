@@ -147,6 +147,7 @@
 		9D1A895328862FDE00916560 /* ServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocol.swift; sourceTree = "<group>"; };
 		9D1A89592886438000916560 /* BlueprintSuggestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueprintSuggestionCell.swift; sourceTree = "<group>"; };
 		9D1A895B2886630E00916560 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		9D1C84C128B8128700E729B9 /* Blueprints.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Blueprints.entitlements; sourceTree = "<group>"; };
 		9D5C3626287F5909008A418D /* Blueprints.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blueprints.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D5C3629287F5909008A418D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D5C362B287F5909008A418D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -360,6 +361,7 @@
 		9D5C3628287F5909008A418D /* Blueprints */ = {
 			isa = PBXGroup;
 			children = (
+				9D1C84C128B8128700E729B9 /* Blueprints.entitlements */,
 				9D5C365A28806642008A418D /* Application */,
 				9D5C367D28848704008A418D /* Extensions */,
 				9D5C36642881C45C008A418D /* Models */,
@@ -1030,11 +1032,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Blueprints/Blueprints.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AQUE4FE98B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Blueprints/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Blueprintz;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1059,11 +1063,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = Blueprints/Blueprints.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AQUE4FE98B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Blueprints/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Blueprintz;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1076,6 +1083,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.zheref.Blueprints;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Blueprints-Distribution";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

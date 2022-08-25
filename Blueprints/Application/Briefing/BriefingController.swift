@@ -57,6 +57,12 @@ class BriefingController: BlueController {
                 let cell = table.dequeueReusableCell(withIdentifier: SummaryCell.reuseIdentifier, for: IndexPath(row: index, section: 0))
                 if let summaryCell = cell as? SummaryCell {
                     summaryCell.model = SummaryViewModel(blueday: blueday)
+                    if let self = self {
+                        summaryCell.model.event
+                            .take(while: { $0 == .userDidTapPrintImage })
+                            .subscribe(onNext: { _ in self.model.userDidSelect(bprint: blueday.blueprint) })
+                            .disposed(by: summaryCell.model.bag)
+                    }
                     return summaryCell
                 } else { return cell }
             }

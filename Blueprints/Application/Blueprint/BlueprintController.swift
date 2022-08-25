@@ -8,14 +8,25 @@ class BlueprintController: BlueTableController {
     
     // MARK: - Reactive
     
-    var model: BlueprintViewModel!
+    var model: BlueprintViewModel! {
+        didSet { connect() }
+    }
     
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
-        model.viewIsPrepared()
+        model.event.onNext(.ready)
+    }
+    
+    private func connect() {
+        model.event.subscribe(onNext: { [weak self] event in
+            switch event {
+            case .ready:
+                self?.setup()
+                self?.bind()
+            }
+        }).disposed(by: bag)
     }
     
     private func setup() {
@@ -56,27 +67,5 @@ class BlueprintController: BlueTableController {
             headerView.textLabel?.text = model.blueprint.attribute.uppercased()
         }
     }
-
-    // MARK: - Table view data source
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
 
 }

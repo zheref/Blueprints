@@ -3,6 +3,7 @@ import RxSwift
 
 enum SummaryEvent {
     case ready
+    case userDidTapPrintImage
 }
 
 class SummaryViewModel: BlueViewModel {
@@ -13,7 +14,12 @@ class SummaryViewModel: BlueViewModel {
         self.day = blueday
         super.init()
         event
-            .subscribe(onNext: { print("SummaryViewModel [Event]: \($0)") })
+            .subscribe(onNext: handle(event:))
             .disposed(by: bag)
+    }
+    
+    private func handle(event: SummaryEvent) {
+        print("SummaryViewModel [Event]: \(event)")
+        
     }
 }

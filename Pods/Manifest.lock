@@ -669,6 +669,11 @@ PODS:
   - FirebaseStorageInternal (9.3.0):
     - FirebaseCore (~> 9.0)
     - GTMSessionFetcher/Core (< 3.0, >= 1.7)
+  - FirebaseStorageUI (12.2.0):
+    - FirebaseStorage (< 10.0, >= 8.0)
+    - SDWebImage (~> 5.6)
+  - FirebaseUI/Storage (12.2.0):
+    - FirebaseStorageUI (~> 12.0)
   - GoogleAppMeasurement (9.3.0):
     - GoogleAppMeasurement/AdIdSupport (= 9.3.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
@@ -782,11 +787,17 @@ PODS:
   - RxCocoa (6.5.0):
     - RxRelay (= 6.5.0)
     - RxSwift (= 6.5.0)
+  - RxGesture (4.0.4):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
   - RxRelay (6.5.0):
     - RxSwift (= 6.5.0)
   - RxSwift (6.5.0)
   - RxTest (6.5.0):
     - RxSwift (= 6.5.0)
+  - SDWebImage (5.13.2):
+    - SDWebImage/Core (= 5.13.2)
+  - SDWebImage/Core (5.13.2)
 
 DEPENDENCIES:
   - Dip
@@ -794,8 +805,10 @@ DEPENDENCIES:
   - FirebaseAuth
   - FirebaseFirestore
   - FirebaseStorage
+  - FirebaseUI/Storage
   - RxBlocking (= 6.5.0)
   - RxCocoa (= 6.5.0)
+  - RxGesture
   - RxSwift (= 6.5.0)
   - RxTest (= 6.5.0)
 
@@ -816,6 +829,8 @@ SPEC REPOS:
     - FirebaseInstallations
     - FirebaseStorage
     - FirebaseStorageInternal
+    - FirebaseStorageUI
+    - FirebaseUI
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleUtilities
@@ -828,9 +843,11 @@ SPEC REPOS:
     - PromisesObjC
     - RxBlocking
     - RxCocoa
+    - RxGesture
     - RxRelay
     - RxSwift
     - RxTest
+    - SDWebImage
 
 SPEC CHECKSUMS:
   abseil: ebe5b5529fb05d93a8bdb7951607be08b7fa71bc
@@ -848,6 +865,8 @@ SPEC CHECKSUMS:
   FirebaseInstallations: 54b40022cb06e462740c9f2b9fbe38b5e78a825a
   FirebaseStorage: 1414d27e15fa04f6350ef6602accef0e951c8bca
   FirebaseStorageInternal: f1a6d64cace780580d2b8ffa0a0c8cf3c376f3f8
+  FirebaseStorageUI: 952bb91b93ae0ee00d0033af011c918606c35d37
+  FirebaseUI: 33ee19f70792fae68bee5cbbbf93733baa2cc7fa
   GoogleAppMeasurement: b907bdad775b6975a8108762345b2cfbf1a93c37
   GoogleDataTransport: 5fffe35792f8b96ec8d6775f5eccd83c998d5a3b
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
@@ -860,10 +879,12 @@ SPEC CHECKSUMS:
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
   RxBlocking: 04b5fd28bb5ea49f7d64b80db8bbfe50d9cc1c7d
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxGesture: f3efb47ed2d26a8082f7b660d4a59970e275a7f8
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   RxTest: eb2d23adefc5a5ebf5779c7792fa3edfe6ebcc17
+  SDWebImage: 72f86271a6f3139cc7e4a89220946489d4b9a866
 
-PODFILE CHECKSUM: fd169389ac94c803b57da8be7010c214df323dc7
+PODFILE CHECKSUM: 42615d51ee3f25d6bc29641ba4051686e8e35453
 
 COCOAPODS: 1.11.2

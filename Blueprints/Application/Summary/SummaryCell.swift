@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import RxGesture
 
 class SummaryCell: UITableViewCell {
     
@@ -62,6 +63,8 @@ class SummaryCell: UITableViewCell {
         case .ready:
             bind()
             setup()
+        case .userDidTapPrintImage:
+            break
         }
     }
     
@@ -80,6 +83,8 @@ class SummaryCell: UITableViewCell {
     }
     
     private func bind() {
+        bindActions()
+        
         bindPicture()
         bindRelativeName()
         bindMusic()
@@ -92,6 +97,15 @@ class SummaryCell: UITableViewCell {
         
         bindColors()
         bindRatios()
+    }
+    
+    private func bindActions() {
+        printImageView.rx.tapGesture()
+            .when(.recognized)
+            .subscribe(onNext: { [weak self] _ in
+                self?.model.event.onNext(.userDidTapPrintImage)
+            })
+            .disposed(by: bag)
     }
     
     private func bindRelativeName() {

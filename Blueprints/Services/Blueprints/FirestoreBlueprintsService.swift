@@ -10,16 +10,13 @@ import RxSwift
 import FirebaseFirestore
 import os
 
-class FirestoreBlueprintsService: IBlueprintsService {
+class FirestoreBlueprintsService: IBlueprintsService, Loggable {
+    
+    static var logCategory: String { String(describing: FirestoreBlueprintsService.self) }
     
     // MARK: - Class Members
     
     static let collectionName = "blueprints"
-    
-    private static let logger = Logger(
-        subsystem: Bundle.main.bundleIdentifier!,
-        category: String(describing: FirestoreBlueprintsService.self)
-    )
     
      // MARK: - Instance Members
     
@@ -28,7 +25,7 @@ class FirestoreBlueprintsService: IBlueprintsService {
     
     func entity(fromDoc doc: DocumentSnapshot) -> Blueprint? {
         guard let name = doc["name"] as? String, let attribute = doc["attribute"] as? String else {
-            print("Error:", "Missing name and/or attribute data to build a blueprint")
+            Self.logger.error("Missing name and/or attribute data to build a blueprint")
             return nil
         }
         
@@ -175,10 +172,10 @@ class FirestoreBlueprintsService: IBlueprintsService {
                 fs.document(path).getDocument { [weak self] snapshot, error in
                     guard let docSnapshot = snapshot, docSnapshot.exists else {
                         if let error = error {
-                            print("Single blueprint fetch error", error.localizedDescription)
+                            Self.logger.error("Single blueprint fetch error \(error.localizedDescription)")
                             maybe(.error(error))
                         } else {
-                            print("Document with path \(path) does not seem to exist")
+                            Self.logger.error("Document with path \(path) does not seem to exist")
                             maybe(.completed)
                         }
                         
@@ -248,7 +245,7 @@ class FirestoreBlueprintsService: IBlueprintsService {
                 .addSnapshotListener { snapshot, error in
                     guard let snapshot = snapshot else {
                         if let error = error {
-                            print("Private blueprints error", error)
+                            Self.logger.error("Private blueprints error \(error.localizedDescription)")
                             observer.on(.error(error))
                         }
                         return
@@ -279,7 +276,7 @@ class FirestoreBlueprintsService: IBlueprintsService {
                 .addSnapshotListener { snapshot, error in
                     guard let snapshot = snapshot else {
                         if let error = error {
-                            print("Public blueprints error", error)
+                            Self.logger.error("Public blueprints error \(error.localizedDescription)")
                             observer.on(.error(error))
                         }
                         

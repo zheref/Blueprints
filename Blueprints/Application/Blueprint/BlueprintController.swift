@@ -1,6 +1,10 @@
 import UIKit
 
-class BlueprintController: BlueTableController {
+class BlueprintController: BlueTableController, Loggable {
+    
+    // MARK: - Loggable
+    
+    static var logCategory: String { String(describing: BlueprintController.self) }
     
     // MARK: - UI Elements
     
@@ -33,7 +37,6 @@ class BlueprintController: BlueTableController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save,
                                                             target: self,
                                                             action: #selector(userDidTapSave))
-        bind()
     }
     
     private func bind() {
@@ -49,7 +52,7 @@ class BlueprintController: BlueTableController {
             .subscribe(onSuccess: { [weak self] imageData in
                 self?.pictureView.image = UIImage(data: imageData)
             }, onFailure: { error in
-                print("Error downloading image", error.localizedDescription)
+                Self.logger.error("Error downloading image \(error.localizedDescription)")
             })
             .disposed(by: bag)
     }

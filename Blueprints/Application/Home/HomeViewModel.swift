@@ -1,7 +1,9 @@
 import Foundation
 import RxSwift
 
-class HomeViewModel {
+class HomeViewModel: Loggable {
+    
+    static var logCategory: String { String(describing: HomeViewModel.self) }
 
     var bag = DisposeBag()
 
@@ -72,7 +74,7 @@ class HomeViewModel {
         assignmentsService
             .unassign(date: date, forUserId: authService.currentUserId)
             .subscribe { event in
-                print("Succeeded unassigning")
+                Self.logger.info("Succeeded unassigning date \(date.toString() ?? "DATE NOT PARSEABLE").")
             }.disposed(by: bag)
     }
     

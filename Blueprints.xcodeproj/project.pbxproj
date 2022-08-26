@@ -27,6 +27,7 @@
 		2B81B35128A33B1D00246B3C /* BlueprintController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B81B35028A33B1D00246B3C /* BlueprintController.swift */; };
 		2B81B35328A33B7E00246B3C /* BlueprintViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B81B35228A33B7E00246B3C /* BlueprintViewModel.swift */; };
 		2BB8A54628A817FB00776332 /* SuggestionsBoxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB8A54528A817FB00776332 /* SuggestionsBoxViewModel.swift */; };
+		2BBF9E9628B8657D0083063B /* Loggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBF9E9528B8657D0083063B /* Loggable.swift */; };
 		991CD928DA7724E287AF89F7 /* Pods_Blueprints.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7612E2FDF59793CAF2F21C7 /* Pods_Blueprints.framework */; };
 		9D1666D8288B455100BF07AD /* UIKit+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1666D7288B455100BF07AD /* UIKit+Helpers.swift */; };
 		9D1A890A2884A1D300916560 /* Konstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A89092884A1D300916560 /* Konstants.swift */; };
@@ -113,6 +114,7 @@
 		2B81B35028A33B1D00246B3C /* BlueprintController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueprintController.swift; sourceTree = "<group>"; };
 		2B81B35228A33B7E00246B3C /* BlueprintViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueprintViewModel.swift; sourceTree = "<group>"; };
 		2BB8A54528A817FB00776332 /* SuggestionsBoxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsBoxViewModel.swift; sourceTree = "<group>"; };
+		2BBF9E9528B8657D0083063B /* Loggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loggable.swift; sourceTree = "<group>"; };
 		2CEFCBF08884A7ECB5C5104C /* Pods-BlueprintsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueprintsTests.release.xcconfig"; path = "Target Support Files/Pods-BlueprintsTests/Pods-BlueprintsTests.release.xcconfig"; sourceTree = "<group>"; };
 		3E663306192264E2E7B5D788 /* Pods-Blueprints-BlueprintsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blueprints-BlueprintsUITests.release.xcconfig"; path = "Target Support Files/Pods-Blueprints-BlueprintsUITests/Pods-Blueprints-BlueprintsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		50D49B3131F0B9A8EC0023B2 /* Pods-BlueprintsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueprintsTests.debug.xcconfig"; path = "Target Support Files/Pods-BlueprintsTests/Pods-BlueprintsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -514,6 +516,7 @@
 			children = (
 				9D5D98062898819B008BDAB8 /* Dgtl.swift */,
 				2B1FD687289C31C5002FF49D /* ZPath.swift */,
+				2BBF9E9528B8657D0083063B /* Loggable.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -822,6 +825,7 @@
 				9D5C362A287F5909008A418D /* AppDelegate.swift in Sources */,
 				9D1A89122885F31B00916560 /* SummaryCell.swift in Sources */,
 				2B81B35328A33B7E00246B3C /* BlueprintViewModel.swift in Sources */,
+				2BBF9E9628B8657D0083063B /* Loggable.swift in Sources */,
 				9D5C36632881C43E008A418D /* DayCell.swift in Sources */,
 				9D1A89262885FA2A00916560 /* FirestoreBlueprintsService.swift in Sources */,
 				9D5C362C287F5909008A418D /* SceneDelegate.swift in Sources */,

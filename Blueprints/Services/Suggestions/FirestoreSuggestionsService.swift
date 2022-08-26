@@ -1,7 +1,10 @@
 import RxSwift
 import FirebaseFirestore
 
-class FirestoreSuggestionsService: SuggestionsServiceProtocol {
+class FirestoreSuggestionsService: SuggestionsServiceProtocol, Loggable {
+
+    static var logCategory: String { String(describing: FirestoreSuggestionsService.self) }
+    
     static let collectionName = "suggestions"
     
     func entity(fromDoc doc: QueryDocumentSnapshot) -> SuggestionsBox {
@@ -17,7 +20,7 @@ class FirestoreSuggestionsService: SuggestionsServiceProtocol {
                 .addSnapshotListener({ snapshot, error in
                     guard let snapshot = snapshot else {
                         if let error = error {
-                            print("Suggestions error", error)
+                            Self.logger.error("Suggestions error: \(error.localizedDescription)")
                             observer.on(.error(error))
                         }
                         

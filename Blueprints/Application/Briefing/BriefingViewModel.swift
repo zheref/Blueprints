@@ -1,7 +1,9 @@
 import Foundation
 import RxSwift
 
-class BriefingViewModel: BlueViewModel {
+class BriefingViewModel: BlueViewModel, Loggable {
+    
+    static var logCategory: String { String(describing: BriefingViewModel.self) }
 
     // MARK: Reactive
     var rows: Observable<[BriefingRow]>
@@ -109,7 +111,6 @@ class BriefingViewModel: BlueViewModel {
     // MARK: - User Actions
     
     func userDidSelect(bprint: Blueprint) {
-        print("[Zdebug] User did select bprint w/name \(bprint.name)")
         triggerNavigation.onNext((
             route: K.Segue.homeToBlueprintDetail,
             context: bprint
@@ -125,7 +126,7 @@ class BriefingViewModel: BlueViewModel {
                     toDate: selectedDate ?? BlueDate.today,
                     forUserId: authService.currentUserId)
             .subscribe { _ in
-                print("Succeding assigning")
+                Self.logger.info("Succeeded assigning \(bprint.name) to date.")
             }.disposed(by: bag)
     }
     

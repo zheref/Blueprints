@@ -2,10 +2,13 @@ import UIKit
 import FirebaseCore
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, Loggable {
+    
+    static var logCategory: String { String(describing: AppDelegate.self) }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        Self.logger.log("App Started: Configuring Firebase...")
         FirebaseApp.configure()
         return true
     }

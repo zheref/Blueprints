@@ -798,6 +798,7 @@ PODS:
   - SDWebImage (5.13.2):
     - SDWebImage/Core (= 5.13.2)
   - SDWebImage/Core (5.13.2)
+  - SnapKit (5.6.0)
   - SnapshotTesting (1.9.0)
 
 DEPENDENCIES:
@@ -812,6 +813,7 @@ DEPENDENCIES:
   - RxGesture
   - RxSwift (= 6.5.0)
   - RxTest (= 6.5.0)
+  - SnapKit (~> 5.6)
   - SnapshotTesting (~> 1.9.0)
 
 SPEC REPOS:
@@ -850,6 +852,7 @@ SPEC REPOS:
     - RxSwift
     - RxTest
     - SDWebImage
+    - SnapKit
     - SnapshotTesting
 
 SPEC CHECKSUMS:
@@ -887,8 +890,9 @@ SPEC CHECKSUMS:
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   RxTest: eb2d23adefc5a5ebf5779c7792fa3edfe6ebcc17
   SDWebImage: 72f86271a6f3139cc7e4a89220946489d4b9a866
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SnapshotTesting: 6141c48b6aa76ead61431ca665c14ab9a066c53b
 
-PODFILE CHECKSUM: f2f219b22a7a823e498631041dfbe69623fd46b0
+PODFILE CHECKSUM: 291a83dd174ad9d222e3f8c5b54619aa90894973
 
 COCOAPODS: 1.11.3

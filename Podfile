@@ -11,6 +11,7 @@ target 'Blueprints' do
   pod 'RxGesture'
   
   pod 'Dip'
+  pod 'SnapKit', '~> 5.6'
   
   # Add the Firebase pod for Google Analytics
   pod 'FirebaseAnalytics'

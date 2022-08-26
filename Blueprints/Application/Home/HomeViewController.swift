@@ -1,20 +1,40 @@
 import UIKit
 import RxSwift
 
-class HomeViewController: BlueController {
+class HomeViewController: BlueController, Loggable {
+    
+    static var logCategory: String { String(describing: HomeViewController.self) }
     
     // MARK: - UI
     @IBOutlet weak var calendarCollectionView: UICollectionView!
     @IBOutlet weak var calendarCollectionViewLayout: UICollectionViewFlowLayout!
     
     // MARK: - Model
-    var model: HomeViewModel = HomeViewModel() // TODO: This is a mistake, look for a way to inject it from otside somehow. Maybe with Dip?
+    var model = HomeViewModel()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        model.viewIsPrepared()
-        setup()
+        connect()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        model.lastEvent.onNext(.ready)
+        super.viewWillAppear(animated)
+    }
+    
+    private func connect() {
+        model.lastEvent
+            .subscribe(onNext: { [weak self] event in
+                switch event {
+                case .starting:
+                    break
+                case .ready:
+                    self?.setup()
+                    self?.bind()
+                }
+            })
+            .disposed(by: bag)
     }
     
     private func setup() {
@@ -22,7 +42,6 @@ class HomeViewController: BlueController {
                                                                  target: self,
                                                                  action: #selector(userDidTapAdd))
         setupMiniCalendar()
-        bind()
     }
     
     private func bind() {}

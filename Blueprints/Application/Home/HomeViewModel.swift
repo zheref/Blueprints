@@ -1,6 +1,11 @@
 import Foundation
 import RxSwift
 
+enum HomeViewEvent {
+    case starting
+    case ready
+}
+
 class HomeViewModel: Loggable {
     
     static var logCategory: String { String(describing: HomeViewModel.self) }
@@ -14,6 +19,7 @@ class HomeViewModel: Loggable {
     // MARK: - Subjects
     
     // MARK: Events
+    let lastEvent = BehaviorSubject<HomeViewEvent>(value: .starting)
     var unassignClicked = PublishSubject<BlueDate>()
     var pinClicked = PublishSubject<BlueDate>()
     var selectDateAtIndex = PublishSubject<IndexPath>()
@@ -41,6 +47,15 @@ class HomeViewModel: Loggable {
             .map({ days, dates in
                 days.filter { dates.contains($0.date) }
             })
+        
+        lastEvent.subscribe(onNext: { [weak self] event in
+            switch event {
+            case .starting:
+                break
+            case .ready:
+                self?.viewIsPrepared()
+            }
+        }).disposed(by: bag)
         
         // TODO: Is this even valid or a good practice?
         dates.subscribe(onNext: { [weak self] dates in

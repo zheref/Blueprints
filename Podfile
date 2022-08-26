@@ -31,6 +31,7 @@ target 'Blueprints' do
     # Pods for testing
     pod 'RxBlocking', '6.5.0'
     pod 'RxTest', '6.5.0'
+    pod 'SnapshotTesting', '~> 1.9.0'
   end
 
   target 'BlueprintsUITests' do

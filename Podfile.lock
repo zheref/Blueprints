@@ -602,6 +602,7 @@ PODS:
   - BoringSSL-GRPC/Implementation (0.0.24):
     - BoringSSL-GRPC/Interface (= 0.0.24)
   - BoringSSL-GRPC/Interface (0.0.24)
+  - Differentiator (5.0.0)
   - Dip (7.1.1)
   - FirebaseAnalytics (9.3.0):
     - FirebaseAnalytics/AdIdSupport (= 9.3.0)
@@ -787,6 +788,10 @@ PODS:
   - RxCocoa (6.5.0):
     - RxRelay (= 6.5.0)
     - RxSwift (= 6.5.0)
+  - RxDataSources (5.0.0):
+    - Differentiator (~> 5.0)
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
   - RxGesture (4.0.4):
     - RxCocoa (~> 6.0)
     - RxSwift (~> 6.0)
@@ -810,6 +815,7 @@ DEPENDENCIES:
   - FirebaseUI/Storage
   - RxBlocking (= 6.5.0)
   - RxCocoa (= 6.5.0)
+  - RxDataSources (~> 5.0)
   - RxGesture
   - RxSwift (= 6.5.0)
   - RxTest (= 6.5.0)
@@ -820,6 +826,7 @@ SPEC REPOS:
   trunk:
     - abseil
     - BoringSSL-GRPC
+    - Differentiator
     - Dip
     - FirebaseAnalytics
     - FirebaseAppCheckInterop
@@ -847,6 +854,7 @@ SPEC REPOS:
     - PromisesObjC
     - RxBlocking
     - RxCocoa
+    - RxDataSources
     - RxGesture
     - RxRelay
     - RxSwift
@@ -858,6 +866,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   abseil: ebe5b5529fb05d93a8bdb7951607be08b7fa71bc
   BoringSSL-GRPC: 3175b25143e648463a56daeaaa499c6cb86dad33
+  Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
   Dip: 6bebb09d50f88633039ce2c9fe5bc56d387b492f
   FirebaseAnalytics: bf46f5163f44097ce2c789de0b3e6f87f1da834a
   FirebaseAppCheckInterop: f6b9670fb1360cf12006ca426e9c3b9a35317d17
@@ -885,6 +894,7 @@ SPEC CHECKSUMS:
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
   RxBlocking: 04b5fd28bb5ea49f7d64b80db8bbfe50d9cc1c7d
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
   RxGesture: f3efb47ed2d26a8082f7b660d4a59970e275a7f8
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
@@ -893,6 +903,6 @@ SPEC CHECKSUMS:
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SnapshotTesting: 6141c48b6aa76ead61431ca665c14ab9a066c53b
 
-PODFILE CHECKSUM: 291a83dd174ad9d222e3f8c5b54619aa90894973
+PODFILE CHECKSUM: 2a8c7b2377b0272e96c85d7c17937e39937f88e9
 
 COCOAPODS: 1.11.3

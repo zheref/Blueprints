@@ -28,6 +28,8 @@
 		2B81B35328A33B7E00246B3C /* BlueprintViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B81B35228A33B7E00246B3C /* BlueprintViewModel.swift */; };
 		2BB8A54628A817FB00776332 /* SuggestionsBoxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB8A54528A817FB00776332 /* SuggestionsBoxViewModel.swift */; };
 		2BBF9E9628B8657D0083063B /* Loggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBF9E9528B8657D0083063B /* Loggable.swift */; };
+		2BBF9E9928B976510083063B /* ColorsTrioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBF9E9828B976510083063B /* ColorsTrioView.swift */; };
+		2BBF9E9B28B977C50083063B /* SingleLineDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBF9E9A28B977C40083063B /* SingleLineDetailCell.swift */; };
 		991CD928DA7724E287AF89F7 /* Pods_Blueprints.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7612E2FDF59793CAF2F21C7 /* Pods_Blueprints.framework */; };
 		9D1666D8288B455100BF07AD /* UIKit+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1666D7288B455100BF07AD /* UIKit+Helpers.swift */; };
 		9D1A890A2884A1D300916560 /* Konstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A89092884A1D300916560 /* Konstants.swift */; };
@@ -115,6 +117,8 @@
 		2B81B35228A33B7E00246B3C /* BlueprintViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueprintViewModel.swift; sourceTree = "<group>"; };
 		2BB8A54528A817FB00776332 /* SuggestionsBoxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsBoxViewModel.swift; sourceTree = "<group>"; };
 		2BBF9E9528B8657D0083063B /* Loggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loggable.swift; sourceTree = "<group>"; };
+		2BBF9E9828B976510083063B /* ColorsTrioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsTrioView.swift; sourceTree = "<group>"; };
+		2BBF9E9A28B977C40083063B /* SingleLineDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLineDetailCell.swift; sourceTree = "<group>"; };
 		2CEFCBF08884A7ECB5C5104C /* Pods-BlueprintsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueprintsTests.release.xcconfig"; path = "Target Support Files/Pods-BlueprintsTests/Pods-BlueprintsTests.release.xcconfig"; sourceTree = "<group>"; };
 		3E663306192264E2E7B5D788 /* Pods-Blueprints-BlueprintsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blueprints-BlueprintsUITests.release.xcconfig"; path = "Target Support Files/Pods-Blueprints-BlueprintsUITests/Pods-Blueprints-BlueprintsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		50D49B3131F0B9A8EC0023B2 /* Pods-BlueprintsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueprintsTests.debug.xcconfig"; path = "Target Support Files/Pods-BlueprintsTests/Pods-BlueprintsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -220,6 +224,14 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		2BBF9E9728B9762A0083063B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				2BBF9E9828B976510083063B /* ColorsTrioView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		2BD034C028A842B100869BDC /* NewBlueprint */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +289,7 @@
 			children = (
 				2B81B35028A33B1D00246B3C /* BlueprintController.swift */,
 				2B81B35228A33B7E00246B3C /* BlueprintViewModel.swift */,
+				2BBF9E9A28B977C40083063B /* SingleLineDetailCell.swift */,
 			);
 			path = Blueprint;
 			sourceTree = "<group>";
@@ -404,6 +417,7 @@
 				9D1666D7288B455100BF07AD /* UIKit+Helpers.swift */,
 				9D1A891E2885F86D00916560 /* Blueprint */,
 				9D1A890E2885F1E600916560 /* Briefing */,
+				2BBF9E9728B9762A0083063B /* Common */,
 				9D5C365E28806D56008A418D /* Home */,
 				9D5C36612881C417008A418D /* MiniCalendar */,
 				9D1A89582886434A00916560 /* Suggestions */,
@@ -799,6 +813,7 @@
 				9D1A89142885F38A00916560 /* SummaryViewModel.swift in Sources */,
 				9D5C366C2881C89B008A418D /* Blueprint+Cases.swift in Sources */,
 				9D1A891B2885F44800916560 /* FirebaseAuthService.swift in Sources */,
+				2BBF9E9B28B977C50083063B /* SingleLineDetailCell.swift in Sources */,
 				2B6BD11928B2926600ABB508 /* Primitives+Convenience.swift in Sources */,
 				9D5D980428988033008BDAB8 /* FirebaseStorageService.swift in Sources */,
 				9D1A895028862E2000916560 /* FirestoreSuggestionsService.swift in Sources */,
@@ -814,6 +829,7 @@
 				9D1A89242885FA0D00916560 /* IBlueprintsService.swift in Sources */,
 				9D5C36682881C512008A418D /* Blueprint.swift in Sources */,
 				9D1A894E28862E0600916560 /* SuggestionsServiceProtocol.swift in Sources */,
+				2BBF9E9928B976510083063B /* ColorsTrioView.swift in Sources */,
 				9D1A894328862AF500916560 /* FirebaseContainer.swift in Sources */,
 				9D5C366E28847DC6008A418D /* HomeVC+MiniCalendar.swift in Sources */,
 				9D1A895428862FDE00916560 /* ServiceProtocol.swift in Sources */,

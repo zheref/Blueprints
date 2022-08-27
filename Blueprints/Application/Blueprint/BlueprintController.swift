@@ -98,9 +98,13 @@ class BlueprintController: BlueTableController, Loggable {
             }
         )
         
+        dataSource.titleForHeaderInSection = { dataSource, index in
+            return dataSource.sectionModels[index].model.title
+        }
+        
         model.sections.map { sections in
             sections.map { section -> BlueprintSectionModel in
-                if case let .blueprint(aspects) = section {
+                if case let .blueprint(_, aspects) = section {
                     return BlueprintSectionModel(
                         model: section,
                         items: aspects

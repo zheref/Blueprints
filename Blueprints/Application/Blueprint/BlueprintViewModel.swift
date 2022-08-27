@@ -26,8 +26,17 @@ struct AspectModel: Equatable {
 }
 
 enum BlueprintSection {
-    case blueprint(aspects: [AspectModel])
+    case blueprint(attribute: String, aspects: [AspectModel])
     case history
+    
+    var title: String {
+        switch self {
+        case .blueprint(let attribute, _):
+            return attribute
+        case .history:
+            return "Some history"
+        }
+    }
 }
 
 class BlueprintViewModel: BlueViewModel {
@@ -69,7 +78,7 @@ class BlueprintViewModel: BlueViewModel {
             )
             
             return [
-                BlueprintSection.blueprint(aspects: aspects),
+                BlueprintSection.blueprint(attribute: bprint.attribute,aspects: aspects),
                 BlueprintSection.history
             ]
         })

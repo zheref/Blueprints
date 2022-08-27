@@ -16,6 +16,8 @@ enum K {
         
         static let mainSelection = UIColor(named: "mainSelection")
         static let rogueSelection = UIColor(named: "rogueSelection")
+        
+        static let darkGray = UIColor(named: "darkGray")
     }
     
     enum Font {
@@ -33,6 +35,8 @@ enum K {
         static let carouselHeight: CGFloat = 170
         static let summaryHeight: CGFloat = 264
         static let blueprintPictureHeight: CGFloat = 230
+        
+        static let regularRowHeight: CGFloat = 43.5
     }
     
 }

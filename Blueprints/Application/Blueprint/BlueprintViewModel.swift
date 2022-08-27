@@ -54,6 +54,10 @@ class BlueprintViewModel: BlueViewModel {
             )
             
             aspects.append(
+                AspectModel(kind: .simple, key: "music", caption: "Music", associatedValue: bprint.music.name)
+            )
+            
+            aspects.append(
                 AspectModel(kind: .colors, key: "colors", caption: "Colors", associatedValue: bprint.colors)
             )
             

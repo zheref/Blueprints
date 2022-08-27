@@ -79,7 +79,7 @@ class BlueprintController: BlueTableController, Loggable {
                         for: indexPath
                     ) as! SingleLineDetailCell
                     if let value = aspect.associatedValue as? String {
-                        cell.configure(withValue: value)
+                        cell.configure(withCaption: aspect.caption, withValue: value)
                     }
                     return cell
                 case .colors:

@@ -36,9 +36,9 @@ class BlueprintController: BlueTableController, Loggable {
     }
     
     private func setup() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save,
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit,
                                                             target: self,
-                                                            action: #selector(userDidTapSave))
+                                                            action: #selector(userDidTapEdit))
         
         tableView.register(SingleLineDetailCell.self, forCellReuseIdentifier: SingleLineDetailCell.reuseIdentifier)
         tableView.register(PrintImageCell.self, forCellReuseIdentifier: PrintImageCell.reuseIdentifier)
@@ -123,7 +123,7 @@ class BlueprintController: BlueTableController, Loggable {
     
     // MARK: - User Actions
     
-    @objc private func userDidTapSave() {
+    @objc private func userDidTapEdit() {
         
     }
 

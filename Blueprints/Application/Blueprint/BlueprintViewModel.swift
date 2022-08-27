@@ -50,11 +50,18 @@ class BlueprintViewModel: BlueViewModel {
             }
             
             aspects.append(
-                AspectModel(kind: .simple, key: "system", caption: "System", associatedValue: bprint.system.name)
+                AspectModel(kind: .simple, key: "system", caption: "🧭 System", associatedValue: bprint.system.name)
             )
             
+            var musicValue = ""
+            if let artists = bprint.artists {
+                musicValue = artists.joined(separator: ", ")
+            } else {
+                musicValue = bprint.music.name
+            }
+            
             aspects.append(
-                AspectModel(kind: .simple, key: "music", caption: "Music", associatedValue: bprint.music.name)
+                AspectModel(kind: .simple, key: "music", caption: "🎵 Music", associatedValue: musicValue)
             )
             
             aspects.append(

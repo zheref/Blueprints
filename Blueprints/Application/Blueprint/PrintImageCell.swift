@@ -17,22 +17,19 @@ class PrintImageCell: UITableViewCell, Loggable {
     }()
     
     let bag = DisposeBag()
-    var imageUrlString: String? = nil
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        if let imageUrlString = imageUrlString {
-            pullImage(withUrlString: imageUrlString)
-        }
-    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setup()
+    }
+    
+    private func setup() {
+        contentView.snp.makeConstraints { make in
+            make.height.equalTo(350.0)
+            make.width.equalToSuperview()
+        }
         
-        printImage.frame = contentView.bounds
-        addSubview(printImage)
-        
+        contentView.addSubview(printImage)
         printImage.snp.makeConstraints { make in
             make.edges.equalTo(contentView)
         }
@@ -40,6 +37,10 @@ class PrintImageCell: UITableViewCell, Loggable {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure(withUrlString urlString: String) {
+        pullImage(withUrlString: urlString)
     }
     
     private func pullImage(withUrlString urlString: String) {

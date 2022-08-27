@@ -67,13 +67,8 @@ class BlueprintController: BlueTableController, Loggable {
                     ) ?? PrintImageCell(style: .default, reuseIdentifier: PrintImageCell.reuseIdentifier)
                     
                     if let printImageCell = cell as? PrintImageCell {
-                        printImageCell.contentView.snp.makeConstraints { make in
-                            make.height.equalTo(400)
-                        }
-                        printImageCell.contentView.backgroundColor = UIColor.yellow
-                        
                         if let imageUrlString = aspect.associatedValue as? String {
-                            printImageCell.imageUrlString = imageUrlString
+                            printImageCell.configure(withUrlString: imageUrlString)
                         }
                     }
                     
@@ -83,12 +78,8 @@ class BlueprintController: BlueTableController, Loggable {
                         withIdentifier: SingleLineDetailCell.reuseIdentifier,
                         for: indexPath
                     ) as! SingleLineDetailCell
-                    cell.contentView.snp.makeConstraints { make in
-                        make.height.equalTo(80)
-                    }
-                    cell.contentView.backgroundColor = UIColor.cyan
                     if let value = aspect.associatedValue as? String {
-                        cell.value = value
+                        cell.configure(withValue: value)
                     }
                     return cell
                 case .colors:

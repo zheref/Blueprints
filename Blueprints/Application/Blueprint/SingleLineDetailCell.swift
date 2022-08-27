@@ -16,12 +16,7 @@ class SingleLineDetailCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        addSubview(valueLabel)
-        
-        valueLabel.snp.makeConstraints { make in
-            make.edges.equalTo(contentView)
-        }
-        valueLabel.backgroundColor = UIColor.green
+        setup()
     }
     
     required init?(coder: NSCoder) {
@@ -30,10 +25,27 @@ class SingleLineDetailCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setup()
     }
     
     private func setup() {
+        contentView.snp.makeConstraints { make in
+            make.height.equalTo(100)
+            make.width.equalToSuperview()
+        }
+        
+        contentView.addSubview(valueLabel)
+        valueLabel.backgroundColor = UIColor.green
+        valueLabel.text = "Hola Label"
+        
+        valueLabel.snp.makeConstraints { make in
+            make.height.equalTo(50.0)
+            make.width.equalToSuperview()
+//            make.edges.equalTo(contentView)
+        }
+    }
+    
+    func configure(withValue value: String?) {
+        self.value = value
         valueLabel.text = value ?? "Hello new label"
     }
 

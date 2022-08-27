@@ -16,11 +16,7 @@ class HomeViewController: BlueController, Loggable {
     override func viewDidLoad() {
         super.viewDidLoad()
         connect()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
         model.lastEvent.onNext(.ready)
-        super.viewWillAppear(animated)
     }
     
     private func connect() {

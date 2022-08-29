@@ -54,6 +54,13 @@ class FirestoreBlueprintsService: IBlueprintsService, Loggable {
             resolvedColors = colors.compactMap { PrintColor(rawValue: $0) }
         }
         
+        let resolvedNotes = (doc["notes"] as? [String]) ?? [String]()
+        
+        var resolvedClothesStyles = [ClothesStyle]()
+        if let clothes = doc["clothes"] as? [String] {
+            resolvedClothesStyles = clothes.compactMap { ClothesStyle(rawValue: $0) }
+        }
+        
         var resolvedWork = [WorkPlacement]()
         if let work = doc["work"] as? [[String: Any]] {
             resolvedWork = work.map { (placement) -> WorkPlacement in
@@ -152,6 +159,8 @@ class FirestoreBlueprintsService: IBlueprintsService, Loggable {
                                work: resolvedWork,
                                train: resolvedTrain,
                                chill: resolvedChill,
+                               clothesStyles: resolvedClothesStyles,
+                               notes: resolvedNotes,
                                documentID: doc.documentID,
                                firePath: ZPath.from(string: doc.reference.path))
         

@@ -24,6 +24,8 @@ class SummaryCell: UITableViewCell {
     @IBOutlet weak var systemLabel: UILabel!
     @IBOutlet weak var musicLabel: UILabel!
     @IBOutlet var colorViews: [UIView]!
+    @IBOutlet var clothesLabel: UILabel!
+    @IBOutlet var notesLabel: UILabel!
     
     @IBOutlet weak var useCountContainer: UIView!
     @IBOutlet weak var useCountLabel: UILabel!
@@ -96,6 +98,9 @@ class SummaryCell: UITableViewCell {
         useCountLabel.text = "\(model.day.printCount ?? 0)"
         
         bindColors()
+        bindClothes()
+        bindNotes()
+        
         bindRatios()
     }
     
@@ -142,6 +147,22 @@ class SummaryCell: UITableViewCell {
         } else {
             musicLabel.text = "🎵 \(model.day.blueprint.music.name)"
         }
+    }
+    
+    private func bindClothes() {
+        guard !model.day.blueprint.clothesStyles.isEmpty else {
+            return
+        }
+        
+        clothesLabel.text = "🧣 \(model.day.blueprint.clothesStyles.map { $0.name }.joined(separator: ", "))"
+    }
+    
+    private func bindNotes() {
+        guard !model.day.blueprint.notes.isEmpty else {
+            return
+        }
+        
+        notesLabel.text = model.day.blueprint.notes.joined(separator: "\n")
     }
     
     private func bindRatios() {

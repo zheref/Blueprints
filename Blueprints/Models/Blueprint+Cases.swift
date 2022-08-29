@@ -7,6 +7,29 @@
 
 import Foundation
 
+enum ClothesStyle: String {
+    case cozy
+    case sport
+    case casual
+    case fancy
+    case classy
+    
+    var name: String {
+        switch self {
+        case .cozy:
+            return "Cozy"
+        case .sport:
+            return "Sport"
+        case .casual:
+            return "Casual"
+        case .fancy:
+            return "Fancy"
+        case .classy:
+            return "Classy"
+        }
+    }
+}
+
 enum TransportationMethod: String {
     case bike
     case motorcycle

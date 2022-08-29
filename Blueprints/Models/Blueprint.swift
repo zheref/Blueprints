@@ -56,6 +56,9 @@ struct Blueprint: Equatable {
     let train: [TrainingPlacement]
     let chill: [ChillPlacement]
     
+    let clothesStyles: [ClothesStyle]
+    let notes: [String]
+    
     var privacy: BlueprintPrivacy = .privately
     
     let documentID: String?

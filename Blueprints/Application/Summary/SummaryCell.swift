@@ -151,6 +151,7 @@ class SummaryCell: UITableViewCell {
     
     private func bindClothes() {
         guard !model.day.blueprint.clothesStyles.isEmpty else {
+            clothesLabel.text = ""
             return
         }
         
@@ -159,6 +160,7 @@ class SummaryCell: UITableViewCell {
     
     private func bindNotes() {
         guard !model.day.blueprint.notes.isEmpty else {
+            notesLabel.text = ""
             return
         }
         

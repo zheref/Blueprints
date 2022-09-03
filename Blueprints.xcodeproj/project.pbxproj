@@ -88,6 +88,7 @@
 		9D5D980228987FDA008BDAB8 /* StorageServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5D980128987FD9008BDAB8 /* StorageServiceProtocol.swift */; };
 		9D5D980428988033008BDAB8 /* FirebaseStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5D980328988033008BDAB8 /* FirebaseStorageService.swift */; };
 		9D5D98072898819B008BDAB8 /* Dgtl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5D98062898819B008BDAB8 /* Dgtl.swift */; };
+		9D7C057028C3FF2900999A5F /* CustomLineDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7C056F28C3FF2900999A5F /* CustomLineDetailCell.swift */; };
 		BF8E715E7CABD0A3C797C469 /* Pods_BlueprintsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5C1E895FF34E6436681DA2 /* Pods_BlueprintsTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -184,6 +185,7 @@
 		9D5D980128987FD9008BDAB8 /* StorageServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageServiceProtocol.swift; sourceTree = "<group>"; };
 		9D5D980328988033008BDAB8 /* FirebaseStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageService.swift; sourceTree = "<group>"; };
 		9D5D98062898819B008BDAB8 /* Dgtl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dgtl.swift; sourceTree = "<group>"; };
+		9D7C056F28C3FF2900999A5F /* CustomLineDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLineDetailCell.swift; sourceTree = "<group>"; };
 		AB79587B13485817D88FA668 /* Pods-Blueprints.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blueprints.debug.xcconfig"; path = "Target Support Files/Pods-Blueprints/Pods-Blueprints.debug.xcconfig"; sourceTree = "<group>"; };
 		BEAACE65E7086EB1874958B1 /* Pods-Blueprints-BlueprintsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blueprints-BlueprintsUITests.debug.xcconfig"; path = "Target Support Files/Pods-Blueprints-BlueprintsUITests/Pods-Blueprints-BlueprintsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D7612E2FDF59793CAF2F21C7 /* Pods_Blueprints.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Blueprints.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -293,6 +295,7 @@
 				2B81B35228A33B7E00246B3C /* BlueprintViewModel.swift */,
 				2BBF9E9A28B977C40083063B /* SingleLineDetailCell.swift */,
 				2BBF9E9D28B9CCC80083063B /* PrintImageCell.swift */,
+				9D7C056F28C3FF2900999A5F /* CustomLineDetailCell.swift */,
 			);
 			path = Blueprint;
 			sourceTree = "<group>";
@@ -824,6 +827,7 @@
 				9D5C368128849C36008A418D /* DayViewModel.swift in Sources */,
 				9D1A89162885F39D00916560 /* BriefingViewModel.swift in Sources */,
 				9D5C36722884807C008A418D /* HomeViewModel.swift in Sources */,
+				9D7C057028C3FF2900999A5F /* CustomLineDetailCell.swift in Sources */,
 				9D5C36662881C4B9008A418D /* Day.swift in Sources */,
 				9D1A89202885F9BA00916560 /* SuggestionsBoxCell.swift in Sources */,
 				9D5C367F28848723008A418D /* Date+Convenience.swift in Sources */,

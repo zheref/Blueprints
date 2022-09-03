@@ -12,3 +12,9 @@ class BlueController: UIViewController {
 class BlueTableController: UITableViewController {
     let bag = DisposeBag()
 }
+
+extension PrintColor {
+    var forUI: UIColor {
+        return UIColor(named: rawValue)!
+    }
+}

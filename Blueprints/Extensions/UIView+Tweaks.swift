@@ -13,4 +13,10 @@ extension UIView {
             layer.borderColor = color.cgColor
         }
     }
+    
+    func sized(_ size: CGSize) -> UIView {
+        let copy = self
+        copy.frame.size = size
+        return copy
+    }
 }

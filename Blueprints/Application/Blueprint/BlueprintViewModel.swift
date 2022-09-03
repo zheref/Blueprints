@@ -74,7 +74,7 @@ class BlueprintViewModel: BlueViewModel {
             )
             
             aspects.append(
-                AspectModel(kind: .colors, key: "colors", caption: "Colors", associatedValue: bprint.colors)
+                AspectModel(kind: .colors, key: "colors", caption: "🏳️‍🌈 Colors", associatedValue: bprint.colors)
             )
             
             return [

@@ -25,7 +25,7 @@ class PrintImageCell: UITableViewCell, Loggable {
     
     private func setup() {
         contentView.snp.makeConstraints { make in
-            make.height.equalTo(350.0)
+            make.height.equalTo(400.0)
             make.width.equalToSuperview()
         }
         

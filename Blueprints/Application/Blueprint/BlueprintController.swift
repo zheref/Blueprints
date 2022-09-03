@@ -42,6 +42,7 @@ class BlueprintController: BlueTableController, Loggable {
         
         tableView.register(SingleLineDetailCell.self, forCellReuseIdentifier: SingleLineDetailCell.reuseIdentifier)
         tableView.register(PrintImageCell.self, forCellReuseIdentifier: PrintImageCell.reuseIdentifier)
+        tableView.register(CustomLineDetailCell.self, forCellReuseIdentifier: CustomLineDetailCell.reuseIdentifier)
     }
     
     private func bind() {
@@ -83,15 +84,11 @@ class BlueprintController: BlueTableController, Loggable {
                     }
                     return cell
                 case .colors:
-                    let simpleCellIdentifier = "simpleCellIdentifier"
-                    let cell = tableView.dequeueReusableCell(
-                        withIdentifier: simpleCellIdentifier
-                    ) ?? UITableViewCell(
-                        style: .default,
-                        reuseIdentifier: simpleCellIdentifier
-                    )
+                    let cell = tableView.dequeueReusableCell(withIdentifier: CustomLineDetailCell.reuseIdentifier, for: indexPath) as! CustomLineDetailCell
+                    
                     if let colors = aspect.associatedValue as? [PrintColor] {
-                        cell.textLabel?.text = "\(colors.count) colors"
+                        let customValueView = ColorsTrioView(colors: colors)
+                        cell.configure(withCaption: aspect.caption, andCustomView: customValueView)
                     }
                     return cell
                 }

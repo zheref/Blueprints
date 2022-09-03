@@ -116,6 +116,17 @@ enum WorkMode: String {
     case corporate
     case personal
     case any
+    
+    var description: String {
+        switch self {
+        case .corporate:
+            return "corporate"
+        case .personal:
+            return "personal"
+        case .any:
+            return "any"
+        }
+    }
 }
 
 enum WorkEnvironment: String {
@@ -126,6 +137,25 @@ enum WorkEnvironment: String {
     case studio
     case any
     case none
+    
+    var description: String {
+        switch self {
+        case .unit:
+            return "unit"
+        case .coworking:
+            return "coworking"
+        case .office:
+            return "Office"
+        case .cafe:
+            return "Cafe"
+        case .studio:
+            return "Studio"
+        case .any:
+            return "anywhere"
+        case .none:
+            return "nowhere"
+        }
+    }
 }
 
 enum TrainingWay: String {

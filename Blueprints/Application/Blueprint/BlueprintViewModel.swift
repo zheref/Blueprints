@@ -53,6 +53,61 @@ enum BlueprintSection {
 
 class BlueprintViewModel: BlueViewModel {
     
+    static func resolveGeneralAspects(forBlueprint bprint: Blueprint) -> [AspectModel] {
+        var aspects = [AspectModel]()
+        
+        if let pictureUrl = bprint.pictureUrl {
+            aspects.append(
+                AspectModel(kind: .coverImage, key: "coverImage", caption: "Image", associatedValue: pictureUrl)
+            )
+        }
+        
+        aspects.append(
+            AspectModel(kind: .simple, key: "system", caption: "🧭 System", associatedValue: bprint.system.name)
+        )
+        
+        var musicValue = ""
+        if let artists = bprint.artists {
+            musicValue = artists.joined(separator: ", ")
+        } else {
+            musicValue = bprint.music.name
+        }
+        
+        aspects.append(
+            AspectModel(kind: .simple, key: "music", caption: "🎵 Music", associatedValue: musicValue)
+        )
+        
+        aspects.append(
+            AspectModel(kind: .colors, key: "colors", caption: "🏳️‍🌈 Colors", associatedValue: bprint.colors)
+        )
+        
+        aspects.append(AspectModel(
+            kind: .simple,
+            key: "clothes",
+            caption: "👔 Clothes",
+            associatedValue: bprint.clothesStyles
+                .map { $0.rawValue.capitalized }
+                .joined(separator: ", ")
+        ))
+        
+        return aspects
+    }
+    
+    static func resolveWorkAspects(forBlueprint bprint: Blueprint) -> [AspectModel] {
+        var aspects = [AspectModel]()
+        
+        for (index, workPlacement) in bprint.work.enumerated() {
+            aspects.append(AspectModel(
+                kind: .simple,
+                key: "workPlacement#\(index + 1)",
+                caption: "\(workPlacement.mode.description.capitalized) #\(index + 1)",
+                associatedValue: "\(workPlacement.hours.asReadable(withDecimals: 0))h at \(workPlacement.environment.description)")
+            )
+        }
+        
+        return aspects
+    }
+    
     let event = PublishSubject<BlueprintViewEvent>()
     
     let blueprint: Observable<Blueprint>
@@ -62,44 +117,12 @@ class BlueprintViewModel: BlueViewModel {
         self.blueprint = Observable.of(blueprint)
         
         sections = self.blueprint.map({ bprint in
-            var aspects = [AspectModel]()
-            
-            if let pictureUrl = bprint.pictureUrl {
-                aspects.append(
-                    AspectModel(kind: .coverImage, key: "coverImage", caption: "Image", associatedValue: pictureUrl)
-                )
-            }
-            
-            aspects.append(
-                AspectModel(kind: .simple, key: "system", caption: "🧭 System", associatedValue: bprint.system.name)
-            )
-            
-            var musicValue = ""
-            if let artists = bprint.artists {
-                musicValue = artists.joined(separator: ", ")
-            } else {
-                musicValue = bprint.music.name
-            }
-            
-            aspects.append(
-                AspectModel(kind: .simple, key: "music", caption: "🎵 Music", associatedValue: musicValue)
-            )
-            
-            aspects.append(
-                AspectModel(kind: .colors, key: "colors", caption: "🏳️‍🌈 Colors", associatedValue: bprint.colors)
-            )
-            
-            aspects.append(AspectModel(
-                kind: .simple,
-                key: "clothes",
-                caption: "👔 Clothes",
-                associatedValue: bprint.clothesStyles
-                    .map { $0.rawValue.capitalized }
-                    .joined(separator: ", ")
-            ))
+            let generalAspects = Self.resolveGeneralAspects(forBlueprint: bprint)
+            let workAspects = Self.resolveWorkAspects(forBlueprint: bprint)
             
             return [
-                BlueprintSection.blueprint(attribute: bprint.attribute,aspects: aspects),
+                BlueprintSection.blueprint(attribute: bprint.attribute, aspects: generalAspects),
+                BlueprintSection.work(aspects: workAspects),
                 BlueprintSection.history
             ]
         })

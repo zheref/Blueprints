@@ -106,6 +106,11 @@ class BlueprintController: BlueTableController, Loggable {
                         model: section,
                         items: aspects
                     )
+                } else if case let .work(aspects) = section {
+                    return BlueprintSectionModel(
+                        model: section,
+                        items: aspects
+                    )
                 } else {
                     return BlueprintSectionModel(
                         model: section,

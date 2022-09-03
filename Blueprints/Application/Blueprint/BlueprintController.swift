@@ -118,14 +118,12 @@ class BlueprintController: BlueTableController, Loggable {
         .disposed(by: bag)
     }
     
-    
-    
-
-    
     // MARK: - User Actions
     
     @objc private func userDidTapEdit() {
-        
+        let alert = UIAlertController(title: "😎", message: "Edition is coming soon!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Neat!", style: .default))
+        present(alert, animated: true)
     }
 
 }

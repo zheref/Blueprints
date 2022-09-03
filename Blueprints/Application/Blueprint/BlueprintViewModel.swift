@@ -27,12 +27,24 @@ struct AspectModel: Equatable {
 
 enum BlueprintSection {
     case blueprint(attribute: String, aspects: [AspectModel])
+    case work(aspects: [AspectModel])
+    case train(aspects: [AspectModel])
+    case chill(aspects: [AspectModel])
+    case notes
     case history
     
     var title: String {
         switch self {
         case .blueprint(let attribute, _):
             return attribute
+        case .work(aspects: _):
+            return "Work Configuration"
+        case .train(aspects: _):
+            return "Train Configuration"
+        case .chill(aspects: _):
+            return "Chill Configuration"
+        case .notes:
+            return "Notes"
         case .history:
             return "Some history"
         }
@@ -76,6 +88,15 @@ class BlueprintViewModel: BlueViewModel {
             aspects.append(
                 AspectModel(kind: .colors, key: "colors", caption: "🏳️‍🌈 Colors", associatedValue: bprint.colors)
             )
+            
+            aspects.append(AspectModel(
+                kind: .simple,
+                key: "clothes",
+                caption: "👔 Clothes",
+                associatedValue: bprint.clothesStyles
+                    .map { $0.rawValue.capitalized }
+                    .joined(separator: ", ")
+            ))
             
             return [
                 BlueprintSection.blueprint(attribute: bprint.attribute,aspects: aspects),

@@ -174,6 +174,7 @@ enum TrainingWay: String {
     case fullBody
     case swimming
     case walking
+    case trekking
 }
 
 enum TrainingEnvironment: String {
@@ -182,6 +183,7 @@ enum TrainingEnvironment: String {
     case home
     case park
     case city
+    case mountains
     case none
     
     var description: String {
@@ -196,6 +198,8 @@ enum TrainingEnvironment: String {
             return "Park"
         case .city:
             return "city"
+        case .mountains:
+            return "mountains"
         case .none:
             return "nowhere"
         }

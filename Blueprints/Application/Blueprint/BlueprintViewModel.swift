@@ -30,7 +30,7 @@ enum BlueprintSection {
     case work(aspects: [AspectModel])
     case train(aspects: [AspectModel])
     case chill(aspects: [AspectModel])
-    case notes
+    case notes(aspects: [AspectModel])
     case history
     
     var title: String {
@@ -130,6 +130,17 @@ class BlueprintViewModel: BlueViewModel {
         }
     }
     
+    static func resolveNotesAspects(forBlueprint bprint: Blueprint) -> [AspectModel] {
+        bprint.notes.enumerated().map { (index, note) in
+            AspectModel(
+                kind: .simple,
+                key: "note#\(index + 1)",
+                caption: "",
+                associatedValue: note
+            )
+        }
+    }
+    
     let event = PublishSubject<BlueprintViewEvent>()
     
     let blueprint: Observable<Blueprint>
@@ -143,12 +154,14 @@ class BlueprintViewModel: BlueViewModel {
             let workAspects = Self.resolveWorkAspects(forBlueprint: bprint)
             let trainAspects = Self.resolveTrainAspects(forBlueprint: bprint)
             let chillAspects = Self.resolveChillAspects(forBlueprint: bprint)
+            let notesAspects = Self.resolveNotesAspects(forBlueprint: bprint)
             
             return [
                 BlueprintSection.blueprint(attribute: bprint.attribute, aspects: generalAspects),
                 BlueprintSection.work(aspects: workAspects),
                 BlueprintSection.train(aspects: trainAspects),
                 BlueprintSection.chill(aspects: chillAspects),
+                BlueprintSection.notes(aspects: notesAspects),
                 BlueprintSection.history
             ]
         })

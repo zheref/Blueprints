@@ -121,6 +121,11 @@ class BlueprintController: BlueTableController, Loggable {
                         model: section,
                         items: aspects
                     )
+                } else if case let .notes(aspects) = section, !aspects.isEmpty {
+                    return BlueprintSectionModel(
+                        model: section,
+                        items: aspects
+                    )
                 } else {
                     return nil
                 }

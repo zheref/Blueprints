@@ -104,13 +104,16 @@ class SummaryCell: UITableViewCell {
         bindRatios()
     }
     
+    var coverTapGestureDisposable: Disposable?
+    
     private func bindActions() {
-        printImageView.rx.tapGesture()
+        coverTapGestureDisposable?.dispose()
+        
+        coverTapGestureDisposable = printImageView.rx.tapGesture()
             .when(.recognized)
             .subscribe(onNext: { [weak self] _ in
                 self?.model.event.onNext(.userDidTapPrintImage)
             })
-            .disposed(by: bag)
     }
     
     private func bindRelativeName() {
@@ -195,6 +198,10 @@ class SummaryCell: UITableViewCell {
         }
         
         chillLabel.text = "🎮 \(chillHours.asReadable(withDecimals: 0))h"
+    }
+    
+    deinit {
+        coverTapGestureDisposable?.dispose()
     }
 
 }

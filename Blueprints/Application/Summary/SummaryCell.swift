@@ -158,7 +158,7 @@ class SummaryCell: UITableViewCell {
             return
         }
         
-        clothesLabel.text = "🧣 \(model.day.blueprint.clothesStyles.map { $0.name }.joined(separator: ", "))"
+        clothesLabel.text = "🧥 \(model.day.blueprint.clothesStyles.map { $0.name }.joined(separator: ", "))"
     }
     
     private func bindNotes() {

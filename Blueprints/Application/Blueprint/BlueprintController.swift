@@ -100,32 +100,29 @@ class BlueprintController: BlueTableController, Loggable {
         }
         
         model.sections.map { sections in
-            sections.map { section -> BlueprintSectionModel in
+            sections.compactMap { section -> BlueprintSectionModel? in
                 if case let .blueprint(_, aspects) = section {
                     return BlueprintSectionModel(
                         model: section,
                         items: aspects
                     )
-                } else if case let .work(aspects) = section {
+                } else if case let .work(aspects) = section, !aspects.isEmpty {
                     return BlueprintSectionModel(
                         model: section,
                         items: aspects
                     )
-                } else if case let .train(aspects) = section {
+                } else if case let .train(aspects) = section, !aspects.isEmpty {
                     return BlueprintSectionModel(
                         model: section,
                         items: aspects
                     )
-                } else if case let .chill(aspects) = section {
+                } else if case let .chill(aspects) = section, !aspects.isEmpty {
                     return BlueprintSectionModel(
                         model: section,
                         items: aspects
                     )
                 } else {
-                    return BlueprintSectionModel(
-                        model: section,
-                        items: []
-                    )
+                    return nil
                 }
             }
         }

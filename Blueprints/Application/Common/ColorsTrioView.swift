@@ -34,6 +34,8 @@ class ColorsTrioView: UIStackView {
                 make.width.equalTo(commonSize.width)
                 make.height.equalTo(commonSize.height)
             }
+            
+            subview.outline(withWidth: 1, andColor: .gray)
         }
         
         self.frame = CGRect(origin: .zero, size: CGSize(width: 70, height: 20))

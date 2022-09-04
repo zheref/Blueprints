@@ -68,7 +68,7 @@ class BlueprintViewModel: BlueViewModel {
         
         var musicValue = ""
         if let artists = bprint.artists {
-            musicValue = artists.joined(separator: ", ")
+            musicValue = artists.map { $0.capitalized }.joined(separator: ", ")
         } else {
             musicValue = bprint.music.name
         }

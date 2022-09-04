@@ -183,6 +183,23 @@ enum TrainingEnvironment: String {
     case park
     case city
     case none
+    
+    var description: String {
+        switch self {
+        case .unit:
+            return "unit"
+        case .gym:
+            return "Gym"
+        case .home:
+            return "Home"
+        case .park:
+            return "Park"
+        case .city:
+            return "city"
+        case .none:
+            return "nowhere"
+        }
+    }
 }
 
 enum ChillEnvironment: String {
@@ -195,6 +212,29 @@ enum ChillEnvironment: String {
     case restaurant
     case mall
     case none
+    
+    var description: String {
+        switch self {
+        case .readroom:
+            return "Reading room"
+        case .pool:
+            return "Pool"
+        case .bedroom:
+            return "bedroom"
+        case .lounge:
+            return "Lounge"
+        case .outdoor:
+            return "Outdoor"
+        case .park:
+            return "Park"
+        case .restaurant:
+            return "restaurant"
+        case .mall:
+            return "mall"
+        case .none:
+            return "nowhere"
+        }
+    }
     
 }
 

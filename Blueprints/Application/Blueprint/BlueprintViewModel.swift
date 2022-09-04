@@ -38,15 +38,15 @@ enum BlueprintSection {
         case .blueprint(let attribute, _):
             return attribute
         case .work(aspects: _):
-            return "Work Configuration"
+            return "👨🏻‍💻 Work Configuration"
         case .train(aspects: _):
-            return "Train Configuration"
+            return "🏃‍♂️ Train Configuration"
         case .chill(aspects: _):
-            return "Chill Configuration"
+            return "🧖‍♂️ Chill Configuration"
         case .notes:
-            return "Notes"
+            return "📋 Notes"
         case .history:
-            return "Some history"
+            return "🗓 Some history"
         }
     }
 }
@@ -108,6 +108,28 @@ class BlueprintViewModel: BlueViewModel {
         return aspects
     }
     
+    static func resolveTrainAspects(forBlueprint bprint: Blueprint) -> [AspectModel] {
+        bprint.train.enumerated().map { (index, placement) in
+            AspectModel(
+                kind: .simple,
+                key: "trainPlacement#\(index + 1)",
+                caption: "\(placement.ways.map { $0.rawValue.capitalized }.joined(separator: ", "))",
+                associatedValue: "\(placement.hours.asReadable(withDecimals: 0))h at \(placement.environment.description)"
+            )
+        }
+    }
+    
+    static func resolveChillAspects(forBlueprint bprint: Blueprint) -> [AspectModel] {
+        bprint.chill.enumerated().map { (index, placement) in
+            AspectModel(
+                kind: .simple,
+                key: "chillPlacement#\(index + 1)",
+                caption: "\(placement.ways.map { $0.rawValue.capitalized }.joined(separator: ", "))",
+                associatedValue: "\(placement.hours.asReadable(withDecimals: 0))h at \(placement.environment.description)"
+            )
+        }
+    }
+    
     let event = PublishSubject<BlueprintViewEvent>()
     
     let blueprint: Observable<Blueprint>
@@ -119,10 +141,14 @@ class BlueprintViewModel: BlueViewModel {
         sections = self.blueprint.map({ bprint in
             let generalAspects = Self.resolveGeneralAspects(forBlueprint: bprint)
             let workAspects = Self.resolveWorkAspects(forBlueprint: bprint)
+            let trainAspects = Self.resolveTrainAspects(forBlueprint: bprint)
+            let chillAspects = Self.resolveChillAspects(forBlueprint: bprint)
             
             return [
                 BlueprintSection.blueprint(attribute: bprint.attribute, aspects: generalAspects),
                 BlueprintSection.work(aspects: workAspects),
+                BlueprintSection.train(aspects: trainAspects),
+                BlueprintSection.chill(aspects: chillAspects),
                 BlueprintSection.history
             ]
         })

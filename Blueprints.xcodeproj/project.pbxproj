@@ -22,6 +22,7 @@
 		2B1FD688289C31C5002FF49D /* ZPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1FD687289C31C5002FF49D /* ZPath.swift */; };
 		2B1FD689289C34B5002FF49D /* ZPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1FD687289C31C5002FF49D /* ZPath.swift */; };
 		2B1FD68C289C34CD002FF49D /* ZPathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1FD68B289C34CD002FF49D /* ZPathTests.swift */; };
+		2B250B2628C65D1900BB9419 /* SingleLinePlainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B250B2528C65D1900BB9419 /* SingleLinePlainCell.swift */; };
 		2B6BD11928B2926600ABB508 /* Primitives+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6BD11828B2926600ABB508 /* Primitives+Convenience.swift */; };
 		2B81B34F28A030C500246B3C /* UIView+Tweaks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B81B34E28A030C500246B3C /* UIView+Tweaks.swift */; };
 		2B81B35128A33B1D00246B3C /* BlueprintController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B81B35028A33B1D00246B3C /* BlueprintController.swift */; };
@@ -115,6 +116,7 @@
 		2B1FD67B289C15FF002FF49D /* FirestoreAssignmentsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreAssignmentsServiceTests.swift; sourceTree = "<group>"; };
 		2B1FD687289C31C5002FF49D /* ZPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZPath.swift; sourceTree = "<group>"; };
 		2B1FD68B289C34CD002FF49D /* ZPathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZPathTests.swift; sourceTree = "<group>"; };
+		2B250B2528C65D1900BB9419 /* SingleLinePlainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLinePlainCell.swift; sourceTree = "<group>"; };
 		2B6BD11828B2926600ABB508 /* Primitives+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Primitives+Convenience.swift"; sourceTree = "<group>"; };
 		2B81B34E28A030C500246B3C /* UIView+Tweaks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Tweaks.swift"; sourceTree = "<group>"; };
 		2B81B35028A33B1D00246B3C /* BlueprintController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueprintController.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 				2BBF9E9D28B9CCC80083063B /* PrintImageCell.swift */,
 				9D7C056F28C3FF2900999A5F /* CustomLineDetailCell.swift */,
 				9D25A81328C56CFD0012233B /* RatioTrioCell.swift */,
+				2B250B2528C65D1900BB9419 /* SingleLinePlainCell.swift */,
 			);
 			path = Blueprint;
 			sourceTree = "<group>";
@@ -868,6 +871,7 @@
 				9D1666D8288B455100BF07AD /* UIKit+Helpers.swift in Sources */,
 				9D5C366028806DCF008A418D /* HomeViewController.swift in Sources */,
 				9D1A890A2884A1D300916560 /* Konstants.swift in Sources */,
+				2B250B2628C65D1900BB9419 /* SingleLinePlainCell.swift in Sources */,
 				9D1A89102885F2B600916560 /* BriefingController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

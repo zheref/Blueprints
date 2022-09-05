@@ -13,6 +13,7 @@ struct AspectModel: Equatable {
         case ratios
         case colors
         case simple
+        case note
         case coverImage
     }
     
@@ -66,9 +67,9 @@ class BlueprintViewModel: BlueViewModel {
         }
         
         let ratios: BlueRatios = (
-            work: "\(bprint.workHours.asReadable(withDecimals: 0))h @\(bprint.singleWorkEnvironmentDescription)",
-            train: "\(bprint.trainHours.asReadable(withDecimals: 0))h @\(bprint.singleTrainEnvironmentDescription)",
-            chill: "\(bprint.chillHours.asReadable(withDecimals: 0))h @\(bprint.singleChillEnvironmentDescription)"
+            work: "\(bprint.workHours.asReadable(withDecimals: 0))h \(bprint.singleWorkEnvironmentDescription)",
+            train: "\(bprint.trainHours.asReadable(withDecimals: 0))h \(bprint.singleTrainEnvironmentDescription)",
+            chill: "\(bprint.chillHours.asReadable(withDecimals: 0))h \(bprint.singleChillEnvironmentDescription)"
         )
         aspects.append(AspectModel(
             kind: .ratios,
@@ -83,7 +84,7 @@ class BlueprintViewModel: BlueViewModel {
         
         var musicValue = ""
         if let artists = bprint.artists {
-            musicValue = artists.map { $0.capitalized }.joined(separator: ", ")
+            musicValue = artists.joined(separator: ", ")
         } else {
             musicValue = bprint.music.name
         }
@@ -123,7 +124,7 @@ class BlueprintViewModel: BlueViewModel {
                 kind: .simple,
                 key: "workPlacement#\(index + 1)",
                 caption: "\(workPlacement.mode.description.capitalized) #\(index + 1)",
-                associatedValue: "\(workPlacement.hours.asReadable(withDecimals: 0))h at \(workPlacement.environment.description)")
+                associatedValue: "\(workPlacement.mode.emoji) \(workPlacement.hours.asReadable(withDecimals: 0))h at \(workPlacement.environment.description)")
             )
         }
         
@@ -155,7 +156,7 @@ class BlueprintViewModel: BlueViewModel {
     static func resolveNotesAspects(forBlueprint bprint: Blueprint) -> [AspectModel] {
         bprint.notes.enumerated().map { (index, note) in
             AspectModel(
-                kind: .simple,
+                kind: .note,
                 key: "note#\(index + 1)",
                 caption: "",
                 associatedValue: note

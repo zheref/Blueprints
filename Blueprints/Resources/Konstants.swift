@@ -31,6 +31,7 @@ enum K {
     enum Font {
         static let avenirMedium = "Avenir-Medium"
         static let avenirBook = "Avenir-Book"
+        static let avenirOblique = "Avenir-Oblique"
     }
     
     enum Segue {

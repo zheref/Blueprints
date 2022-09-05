@@ -43,6 +43,10 @@ class BlueprintController: BlueTableController, Loggable {
         tableView.register(SingleLineDetailCell.self, forCellReuseIdentifier: SingleLineDetailCell.reuseIdentifier)
         tableView.register(PrintImageCell.self, forCellReuseIdentifier: PrintImageCell.reuseIdentifier)
         tableView.register(CustomLineDetailCell.self, forCellReuseIdentifier: CustomLineDetailCell.reuseIdentifier)
+        tableView.register(SingleLinePlainCell.self, forCellReuseIdentifier: SingleLinePlainCell.reuseIdentifier)
+        
+        tableView.showsVerticalScrollIndicator = false
+        tableView.backgroundColor = .secondarySystemBackground
     }
     
     private func bind() {
@@ -90,6 +94,17 @@ class BlueprintController: BlueTableController, Loggable {
                     if let value = aspect.associatedValue as? String {
                         cell.configure(withCaption: aspect.caption, withValue: value)
                     }
+                    return cell
+                case .note:
+                    let cell = tableView.dequeueReusableCell(withIdentifier: SingleLinePlainCell.reuseIdentifier, for: indexPath) as! SingleLinePlainCell
+                    
+                    cell.contentLabel.font = UIFont(name: K.Font.avenirOblique, size: 14)
+                    cell.contentLabel.textAlignment = .center
+                    
+                    if let note = aspect.associatedValue as? String {
+                        cell.contentLabel.text = note
+                    }
+                    
                     return cell
                 case .colors:
                     let cell = tableView.dequeueReusableCell(withIdentifier: CustomLineDetailCell.reuseIdentifier, for: indexPath) as! CustomLineDetailCell

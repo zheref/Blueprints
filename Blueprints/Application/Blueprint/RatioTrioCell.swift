@@ -21,7 +21,7 @@ class RatioBlock: UIStackView {
         alignment = .center
         backgroundColor = color
         isLayoutMarginsRelativeArrangement = true
-        layoutMargins = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+        layoutMargins = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
         
         emojiLabel.font = UIFont.systemFont(ofSize: 24)
         valueLabel.font = UIFont(name: "Avenir", size: 13)
@@ -46,9 +46,9 @@ class RatioTrioCell: UITableViewCell {
     
     lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [
-            RatioBlock(color: K.Color.workPurpleDark, emoji: "❓", value: "?"),
-            RatioBlock(color: K.Color.trainRedDark, emoji: "❓", value: "?"),
-            RatioBlock(color: K.Color.chillBlueDark, emoji: "❓", value: "?")
+            RatioBlock(color: K.Color.workPurple, emoji: "❓", value: "?"),
+            RatioBlock(color: K.Color.trainRed, emoji: "❓", value: "?"),
+            RatioBlock(color: K.Color.chillBlue, emoji: "❓", value: "?")
         ])
         
         stackView.axis = .horizontal
@@ -93,8 +93,8 @@ class RatioTrioCell: UITableViewCell {
     func configure(withRatios ratios: BlueRatios) {
         let ratiosArray = [
             ("👨🏻‍💻", ratios.work),
-            ("🏃‍♂️", ratios.train),
-            ("🧖‍♂️", ratios.chill)
+            ("🏋🏻‍♂️", ratios.train),
+            ("🧖🏻‍♂️", ratios.chill)
         ]
         
         for (index, view) in stackView.arrangedSubviews.enumerated() {

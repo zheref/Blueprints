@@ -127,6 +127,17 @@ enum WorkMode: String {
             return "any"
         }
     }
+    
+    var emoji: String {
+        switch self {
+        case .corporate:
+            return "💼"
+        case .personal:
+            return "👨🏻‍💻"
+        case .any:
+            return ""
+        }
+    }
 }
 
 enum WorkEnvironment: String {

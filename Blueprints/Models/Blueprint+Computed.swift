@@ -28,7 +28,7 @@ extension Blueprint {
         if work.count > 1 {
             return Array(Set(work.map { $0.environment.emoji })).joined(separator: "")
         } else {
-            return work[0].environment.description
+            return "@\(work[0].environment.description)"
         }
     }
     
@@ -40,7 +40,7 @@ extension Blueprint {
         if train.count > 1 {
             return Array(Set(train.map { $0.environment.emoji })).joined(separator: "")
         } else {
-            return train[0].environment.description
+            return "@\(train[0].environment.description)"
         }
     }
     
@@ -52,7 +52,7 @@ extension Blueprint {
         if chill.count > 1 {
             return Array(Set(chill.map { $0.environment.emoji })).joined(separator: "")
         } else {
-            return chill[0].environment.description
+            return "@\(chill[0].environment.description)"
         }
     }
     

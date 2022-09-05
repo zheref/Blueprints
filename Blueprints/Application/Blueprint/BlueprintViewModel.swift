@@ -98,6 +98,13 @@ class BlueprintViewModel: BlueViewModel {
         
         aspects.append(AspectModel(
             kind: .simple,
+            key: "transport",
+            caption: "🛣 Transportation",
+            associatedValue: bprint.transport.name)
+        )
+        
+        aspects.append(AspectModel(
+            kind: .simple,
             key: "clothes",
             caption: "👔 Clothes",
             associatedValue: bprint.clothesStyles

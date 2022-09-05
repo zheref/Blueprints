@@ -64,6 +64,7 @@
 		9D1A895528863E6000916560 /* MockSuggestionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A895128862E3E00916560 /* MockSuggestionsService.swift */; };
 		9D1A895728863E6C00916560 /* SuggestionsServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A894D28862E0600916560 /* SuggestionsServiceProtocol.swift */; };
 		9D1A895A2886438000916560 /* BlueprintSuggestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A89592886438000916560 /* BlueprintSuggestionCell.swift */; };
+		9D25A81428C56CFD0012233B /* RatioTrioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D25A81328C56CFD0012233B /* RatioTrioCell.swift */; };
 		9D5C362A287F5909008A418D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5C3629287F5909008A418D /* AppDelegate.swift */; };
 		9D5C362C287F5909008A418D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5C362B287F5909008A418D /* SceneDelegate.swift */; };
 		9D5C3631287F5909008A418D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D5C362F287F5909008A418D /* Main.storyboard */; };
@@ -157,6 +158,7 @@
 		9D1A89592886438000916560 /* BlueprintSuggestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueprintSuggestionCell.swift; sourceTree = "<group>"; };
 		9D1A895B2886630E00916560 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9D1C84C128B8128700E729B9 /* Blueprints.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Blueprints.entitlements; sourceTree = "<group>"; };
+		9D25A81328C56CFD0012233B /* RatioTrioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatioTrioCell.swift; sourceTree = "<group>"; };
 		9D5C3626287F5909008A418D /* Blueprints.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blueprints.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D5C3629287F5909008A418D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D5C362B287F5909008A418D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 				2BBF9E9A28B977C40083063B /* SingleLineDetailCell.swift */,
 				2BBF9E9D28B9CCC80083063B /* PrintImageCell.swift */,
 				9D7C056F28C3FF2900999A5F /* CustomLineDetailCell.swift */,
+				9D25A81328C56CFD0012233B /* RatioTrioCell.swift */,
 			);
 			path = Blueprint;
 			sourceTree = "<group>";
@@ -821,6 +824,7 @@
 				9D1A891B2885F44800916560 /* FirebaseAuthService.swift in Sources */,
 				2BBF9E9B28B977C50083063B /* SingleLineDetailCell.swift in Sources */,
 				2B6BD11928B2926600ABB508 /* Primitives+Convenience.swift in Sources */,
+				9D25A81428C56CFD0012233B /* RatioTrioCell.swift in Sources */,
 				9D5D980428988033008BDAB8 /* FirebaseStorageService.swift in Sources */,
 				9D1A895028862E2000916560 /* FirestoreSuggestionsService.swift in Sources */,
 				2BB8A54628A817FB00776332 /* SuggestionsBoxViewModel.swift in Sources */,

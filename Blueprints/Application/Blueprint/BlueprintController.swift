@@ -74,6 +74,14 @@ class BlueprintController: BlueTableController, Loggable {
                     }
                     
                     return cell
+                case .ratios:
+                    let cell = tableView.dequeueReusableCell(withIdentifier: RatioTrioCell.reuseIdentifier) as? RatioTrioCell ?? RatioTrioCell(style: .default, reuseIdentifier: RatioTrioCell.reuseIdentifier)
+                    
+                    if let ratios = aspect.associatedValue as? BlueRatios {
+                        cell.configure(withRatios: ratios)
+                    }
+                    
+                    return cell
                 case .simple:
                     let cell = tableView.dequeueReusableCell(
                         withIdentifier: SingleLineDetailCell.reuseIdentifier,

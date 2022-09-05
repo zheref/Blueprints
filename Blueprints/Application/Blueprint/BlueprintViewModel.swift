@@ -6,8 +6,11 @@ enum BlueprintViewEvent {
     case ready
 }
 
+typealias BlueRatios = (work: String, train: String, chill: String)
+
 struct AspectModel: Equatable {
     enum Kind {
+        case ratios
         case colors
         case simple
         case coverImage
@@ -61,6 +64,18 @@ class BlueprintViewModel: BlueViewModel {
                 AspectModel(kind: .coverImage, key: "coverImage", caption: "Image", associatedValue: pictureUrl)
             )
         }
+        
+        let ratios: BlueRatios = (
+            work: "1h",
+            train: "2h",
+            chill: "3h"
+        )
+        aspects.append(AspectModel(
+            kind: .ratios,
+            key: "ratios",
+            caption: "",
+            associatedValue: ratios
+        ))
         
         aspects.append(
             AspectModel(kind: .simple, key: "system", caption: "🧭 System", associatedValue: bprint.system.name)

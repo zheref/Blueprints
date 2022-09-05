@@ -18,6 +18,14 @@ enum K {
         static let rogueSelection = UIColor(named: "rogueSelection")
         
         static let darkGray = UIColor(named: "darkGray")
+        
+        static let workPurple = UIColor(named: "workPurple")!
+        static let chillBlue = UIColor(named: "chillBlue")!
+        static let trainRed = UIColor(named: "trainRed")!
+        
+        static let workPurpleDark = UIColor(named: "workPurpleDark")!
+        static let chillBlueDark = UIColor(named: "chillBlueDark")!
+        static let trainRedDark = UIColor(named: "trainRedDark")!
     }
     
     enum Font {

@@ -22,6 +22,10 @@ class RatioBlock: UIStackView {
         backgroundColor = color
         isLayoutMarginsRelativeArrangement = true
         layoutMargins = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+        
+        emojiLabel.font = UIFont.systemFont(ofSize: 24)
+        valueLabel.font = UIFont(name: "Avenir", size: 13)
+        
         configure(withEmoji: emoji, value: value)
     }
     

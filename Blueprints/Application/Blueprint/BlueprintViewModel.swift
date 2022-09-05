@@ -66,9 +66,9 @@ class BlueprintViewModel: BlueViewModel {
         }
         
         let ratios: BlueRatios = (
-            work: "1h",
-            train: "2h",
-            chill: "3h"
+            work: "\(bprint.workHours.asReadable(withDecimals: 0))h @\(bprint.singleWorkEnvironmentDescription)",
+            train: "\(bprint.trainHours.asReadable(withDecimals: 0))h @\(bprint.singleTrainEnvironmentDescription)",
+            chill: "\(bprint.chillHours.asReadable(withDecimals: 0))h @\(bprint.singleChillEnvironmentDescription)"
         )
         aspects.append(AspectModel(
             kind: .ratios,
@@ -129,7 +129,7 @@ class BlueprintViewModel: BlueViewModel {
                 kind: .simple,
                 key: "trainPlacement#\(index + 1)",
                 caption: "\(placement.ways.map { $0.rawValue.capitalized }.joined(separator: ", "))",
-                associatedValue: "\(placement.hours.asReadable(withDecimals: 0))h at \(placement.environment.description)"
+                associatedValue: "\(placement.ways.first?.emoji ?? "") \(placement.hours.asReadable(withDecimals: 0))h at \(placement.environment.description)"
             )
         }
     }
@@ -140,7 +140,7 @@ class BlueprintViewModel: BlueViewModel {
                 kind: .simple,
                 key: "chillPlacement#\(index + 1)",
                 caption: "\(placement.ways.map { $0.rawValue.capitalized }.joined(separator: ", "))",
-                associatedValue: "\(placement.hours.asReadable(withDecimals: 0))h at \(placement.environment.description)"
+                associatedValue: "\(placement.ways.first?.emoji ?? "") \(placement.hours.asReadable(withDecimals: 0))h at \(placement.environment.description)"
             )
         }
     }

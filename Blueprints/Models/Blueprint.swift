@@ -1,10 +1,3 @@
-//
-//  Blueprint.swift
-//  Blueprints
-//
-//  Created by Sergio Lozano on 15/07/22.
-//
-
 import Foundation
 
 struct WorkPlacement {
@@ -53,6 +46,7 @@ struct Blueprint: Equatable {
     let artists: [String]?
     
     let work: [WorkPlacement]
+    
     let train: [TrainingPlacement]
     let chill: [ChillPlacement]
     

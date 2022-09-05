@@ -156,6 +156,25 @@ enum WorkEnvironment: String {
             return "nowhere"
         }
     }
+    
+    var emoji: String {
+        switch self {
+        case .unit:
+            return "🏢"
+        case .coworking:
+            return "🧑🏽‍💻"
+        case .office:
+            return "👨‍💼"
+        case .cafe:
+            return "☕️"
+        case .studio:
+            return "🖥"
+        case .any:
+            return "🗾"
+        case .none:
+            return "🌌"
+        }
+    }
 }
 
 enum TrainingWay: String {
@@ -175,6 +194,43 @@ enum TrainingWay: String {
     case swimming
     case walking
     case trekking
+    
+    var emoji: String {
+        switch self {
+        case .elliptical:
+            return "👟"
+        case .treadmill:
+            return "🏃"
+        case .bicycle:
+            return "🚴‍♂️"
+        case .jogging:
+            return "🏃‍♂️"
+        case .biceps:
+            return "💪"
+        case .triceps:
+            return "🏋🏻"
+        case .shoulders:
+            return "💪"
+        case .chest:
+            return "🏋🏻"
+        case .back:
+            return "🏋🏻"
+        case .legs:
+            return "🦵"
+        case .core:
+            return "🤸"
+        case .small:
+            return "🤸"
+        case .fullBody:
+            return "🏋️‍♂️"
+        case .swimming:
+            return "🏊"
+        case .walking:
+            return "🚶‍♂️"
+        case .trekking:
+            return "🥾"
+        }
+    }
 }
 
 enum TrainingEnvironment: String {
@@ -202,6 +258,25 @@ enum TrainingEnvironment: String {
             return "mountains"
         case .none:
             return "nowhere"
+        }
+    }
+    
+    var emoji: String {
+        switch self {
+        case .unit:
+            return "🏢"
+        case .gym:
+            return "🏋️‍♂️"
+        case .home:
+            return "🏠"
+        case .park:
+            return "🛹"
+        case .city:
+            return "🌆"
+        case .mountains:
+            return "🏔"
+        case .none:
+            return "🌌"
         }
     }
 }
@@ -240,6 +315,29 @@ enum ChillEnvironment: String {
         }
     }
     
+    var emoji: String {
+        switch self {
+        case .readroom:
+            return "📚"
+        case .pool:
+            return "🏊‍♀️"
+        case .bedroom:
+            return "🛌"
+        case .lounge:
+            return "📺"
+        case .outdoor:
+            return "🏕"
+        case .park:
+            return "🛹"
+        case .restaurant:
+            return "🍜"
+        case .mall:
+            return "🛍"
+        case .none:
+            return "🌌"
+        }
+    }
+    
 }
 
 enum ChillWay: String {
@@ -248,6 +346,21 @@ enum ChillWay: String {
     case meditate
     case play
     case socialize
+    
+    var emoji: String {
+        switch self {
+        case .read:
+            return "📖"
+        case .sleep:
+            return "😴"
+        case .meditate:
+            return "🧎‍♂️"
+        case .play:
+            return "🎮"
+        case .socialize:
+            return "💃"
+        }
+    }
 }
 
 enum MusicType: String {

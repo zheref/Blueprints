@@ -306,7 +306,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
-                                                            <color key="backgroundColor" name="restYellow"/>
+                                                            <color key="backgroundColor" name="chillBlue"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="85" id="6Bm-hU-e5z"/>
                                                                 <constraint firstItem="fzz-wn-0Ca" firstAttribute="centerX" secondItem="uBD-Vb-OBC" secondAttribute="centerX" id="mCN-WU-xPo"/>
@@ -568,11 +568,11 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="chillBlue">
+            <color red="0.70647999566813868" green="0.87361913445563188" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="goGreen">
             <color red="0.7279999852180481" green="1" blue="0.71700000762939453" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
-        <namedColor name="restYellow">
-            <color red="1" green="0.97000002861022949" blue="0.414000004529953" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="trainRed">
             <color red="1" green="0.73299998044967651" blue="0.70200002193450928" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
